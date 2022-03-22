@@ -1,2 +1,10 @@
-<p>play-quiz works!</p>
-
+<div >
+    <h>Question test </h>
+        <br>
+    <p>{{quiz.name}}</p>
+    <p>{{quiz.questions[0].label}}</p>
+<!--    <img src="src/app/themes/question.jpg" alt="image de la question" width="500" height="600">-->
+    <div class = "reponse" *ngFor="let answer of quiz.questions[0].answers; let i=index">{{answer.value}}</div>
+    <button>valider</button>
+    <button>suivant</button>
+</div>
