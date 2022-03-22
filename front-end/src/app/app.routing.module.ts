@@ -14,7 +14,6 @@ import {
 import {
     ConfigurationManuelleComponent
 } from './accueil/configuration/configuration-manuelle/configuration-manuelle.component';
-import {ThemeListComponent} from './themes/theme-list/theme-list.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 
 const routes: Routes = [
@@ -22,7 +21,12 @@ const routes: Routes = [
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'play-quiz/:id', component: PlayQuizComponent},
-    {path: '', redirectTo: '/quiz-list', pathMatch: 'full'},
+    {path: 'accueil', component: AccueilComponent},
+    {path: 'connexion', component: ConnexionComponent},
+    {path: 'config', component: ConfigurationSelectionComponent},
+    {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
+    {path: 'config/manuel', component: ConfigurationManuelleComponent},
+    {path: '', redirectTo: '/accueil', pathMatch: 'full'},
 ];
 
 @NgModule({

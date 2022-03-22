@@ -1,0 +1,25 @@
+@import "../../../../styles/card";
+
+.button-accueil {
+  background-color: #1e98d7;
+  color: white;
+  font-size: 28px;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-retour {
+  margin:10px;
+  background-color: red;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 20px;
+}

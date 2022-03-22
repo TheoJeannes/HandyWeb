@@ -21,3 +21,9 @@
 .button-card:hover {
   cursor: pointer;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
