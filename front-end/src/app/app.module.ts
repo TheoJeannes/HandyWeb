@@ -32,6 +32,7 @@ import {
 } from './accueil/configuration/configuration-selection/configuration-selection.component';
 import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
+import {ReponseComponent} from './quizzes/edit-quiz/reponse/reponse.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +58,8 @@ import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
         ConfigurationManuelleComponent,
         ConfigurationSelectionComponent,
         EditThemeComponent,
-        PlayQuizComponent
+        PlayQuizComponent,
+        ReponseComponent
     ],
     imports: [
         BrowserModule,
