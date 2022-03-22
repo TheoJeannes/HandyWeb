@@ -18,17 +18,11 @@ import {ThemeListComponent} from './themes/theme-list/theme-list.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 
 const routes: Routes = [
-    {path: 'accueil', component: AccueilComponent},
-    {path: 'connexion', component: ConnexionComponent},
-    {path: 'config', component: ConfigurationSelectionComponent},
-    {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
-    {path: 'config/manuel', component: ConfigurationManuelleComponent},
-    {path: 'theme-list', component: ThemeListComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'play-quiz/:id', component: PlayQuizComponent},
-    {path: '', redirectTo: 'accueil', pathMatch: 'full'}
+    {path: '', redirectTo: '/quiz-list', pathMatch: 'full'},
 ];
 
 @NgModule({
