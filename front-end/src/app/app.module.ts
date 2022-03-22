@@ -16,6 +16,14 @@ import { QuestionComponent } from './questions/question/question.component';
 import { UserComponent } from './users/user/user.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ConnexionComponent} from './connexion/connexion.component';
+import { ThemeComponent} from './themes/theme/theme.component';
+import { ThemeFormComponent } from './themes/theme-form/theme-form.component';
+import { ThemeListComponent } from './themes/theme-list/theme-list.component';
+import { ConfigurationAutomatiqueComponent} from './accueil/configuration/configuration-automatique/configuration-automatique.component';
+import { ConfigurationManuelleComponent} from './accueil/configuration/configuration-manuelle/configuration-manuelle.component';
+import { ConfigurationSelectionComponent} from './accueil/configuration/configuration-selection/configuration-selection.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +39,15 @@ import { UserListComponent } from './users/user-list/user-list.component';
     UserComponent,
     UserFormComponent,
     UserListComponent,
+    AccueilComponent,
+    ThemeFormComponent,
+    ConnexionComponent,
+    ThemeFormComponent,
+    ThemeListComponent,
+    ThemeComponent,
+    ConfigurationAutomatiqueComponent,
+    ConfigurationManuelleComponent,
+    ConfigurationSelectionComponent
   ],
   imports: [
     BrowserModule,
