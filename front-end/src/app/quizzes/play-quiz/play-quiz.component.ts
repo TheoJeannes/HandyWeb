@@ -10,17 +10,22 @@ import {QuizService} from 'src/services/quiz.service';
 })
 export class PlayQuizComponent implements OnInit {
 
-    public quiz: Quiz;
+    public quiz?: Quiz;
+    public question: number = 0;
 
     constructor(private route: ActivatedRoute, private quizService: QuizService) {
         this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
     }
 
     ngOnInit(): void {
-        // const id = '1647942284758';
-        const id = this.route.snapshot.paramMap.get('id');
-        this.quizService.setSelectedQuiz(id);
-        console.log('Id :' + id);
+        const idQuiz = this.route.snapshot.paramMap.get('idQuiz');
+        this.quizService.setSelectedQuiz(idQuiz);
+        console.log(this);
+    }
+
+    next(){
+        if(this.quiz.questions.length-1>this.question)
+            this.question++;
     }
 
 }

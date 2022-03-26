@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
@@ -33,6 +33,7 @@ import {
 import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {ReponseComponent} from './quizzes/edit-quiz/reponse/reponse.component';
+import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 
 @NgModule({
     declarations: [
@@ -59,13 +60,15 @@ import {ReponseComponent} from './quizzes/edit-quiz/reponse/reponse.component';
         ConfigurationSelectionComponent,
         EditThemeComponent,
         PlayQuizComponent,
-        ReponseComponent
+        ReponseComponent,
+        QuestionPlayComponent
     ],
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
+        FormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

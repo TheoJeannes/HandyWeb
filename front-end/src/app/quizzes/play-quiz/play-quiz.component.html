@@ -1,10 +1,8 @@
-<div >
-    <h1>Question test </h1>
+<div *ngIf="quiz">
+    <h1>{{quiz.name}}</h1>
         <br>
-    <p>{{quiz.name}}</p>
-    <p>{{quiz.questions[0].label}}</p>
-<!--    <img src="src/app/themes/question.jpg" alt="image de la question" width="500" height="600">-->
-    <div class = "reponse" *ngFor="let answer of quiz.questions[0].answers; let i=index">{{answer.value}}</div>
-    <button>valider</button>
-    <button>suivant</button>
+    <app-question-play [question]="quiz.questions[question]">
+    </app-question-play>
+        <br>
+    <button (click)="next()">Suivant</button>
 </div>

@@ -1,27 +1,33 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Question} from '../../../models/question.model';
+import {Answer} from '../../../models/answer.model';
 
 @Component({
     selector: 'app-question-play',
-    templateUrl: './question.component.html',
-    styleUrls: ['./question.component.scss']
+    templateUrl: './question-play.component.html',
+    styleUrls: ['./question-play.component.scss']
 })
 export class QuestionPlayComponent implements OnInit {
 
-    @Input()
-    question: Question;
+    private selectedAnswer? : Answer;
+    private correction : boolean = false;
 
-    @Output()
-    deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
+    @Input() question?: Question
 
     constructor() {
     }
 
     ngOnInit(): void {
+        console.log(this);
     }
 
-    delete(): void {
-        this.deleteQuestion.emit(this.question);
+    selected(answer): void{
+        this.selectedAnswer = answer;
+        console.log(this.selectedAnswer);
     }
 
+    verify() {
+        this.correction = true;
+        console.log(this.correction);
+    }
 }

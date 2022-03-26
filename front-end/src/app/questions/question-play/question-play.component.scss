@@ -1,1 +1,55 @@
 @import '../../../styles/card.scss';
+.card{
+  display: flex;
+  flex-direction: column;
+}
+.answers{
+  display: inline-flex;
+  list-style: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.liste{
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.button
+{
+  background-color: #1e98d7;
+  color: white;
+  font-size: 22px;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.answer{
+  width :80%
+}
+
+.button:hover{
+  background-color: #166791;
+}
+
+.select {
+  background-color: #166791;
+  color: white;
+  font-size: 22px;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.correct {
+  border-color : green;
+  border-width: 10px;
+}
+.error {
+  border-color : red;
+  border-width: 10px;
+}
