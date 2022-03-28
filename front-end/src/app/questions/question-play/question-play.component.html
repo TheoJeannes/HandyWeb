@@ -1,0 +1,16 @@
+<div class="card" >
+    <h2>
+        <i class="fab fa-leanpub"></i>
+        {{question.label}}
+    </h2>
+    <ul class="answers">
+        <li class="liste" *ngFor="let answer of question.answers">
+            <button class="button answer"
+                    [class.select]="answer === selectedAnswer"
+                    [class.correct]="correction && answer.isCorrect"
+                    [class.error]="correction && !answer.isCorrect"
+                    (click)="selected(answer)">{{answer.value}}</button>
+        </li>
+    </ul>
+    <button class="button" (click)="verify()">Valider</button>
+</div>
