@@ -32,7 +32,6 @@ import {
 } from './accueil/configuration/configuration-selection/configuration-selection.component';
 import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
-import {ReponseComponent} from './quizzes/edit-quiz/reponse/reponse.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-result.component';
 import {ReponseComponent} from './questions/question-form/reponse/reponse.component';
