@@ -1,11 +1,17 @@
 <div class="page-quiz">
         <form class="quiz-form" [formGroup]="questionForm">
             <div class="presentation">
+                <input class="difficulte" type="text" size="15" placeholder="Difficulté">
+                <input class="duree" type="text" size="5" placeholder="Durée Moyenne">
+                <input class="nbquestion" type="text" size="5" placeholder="Nombre de Questions">
+                <div class="theme">
+                    <p>Thème<p>
+                </div>
+            </div>
             <label for="label">
                 <input class="input-custom" type="text" id="label" size="20" placeholder="Enoncé de la question" [formControlName]="'label'">
             </label>
             <br>
-            </div>
             <div class="card">
             <button class="button-card" (click)="addAnswer()">Add Answer</button>
             <div class="answer" formArrayName="answers">
@@ -32,36 +38,3 @@
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->
-
-
-
-<!-- <div class="card">
-    <h2>Ajouter une question</h2>
-    <form class="quiz-form" [formGroup]="questionForm">
-        <label for="label">
-            <input class="input-custom" type="text" id="label" [formControlName]="'label'">
-        </label>
-        <br>
-        <button class="button-card" (click)="addAnswer()">Add Answer</button>
-        <div class="answer" formArrayName="answers">
-            <div *ngFor="let address of answers.controls; let i=index">
-                <div class="answer-form" [formGroupName]="i">
-                    <label>
-                        <div class="section-reponse" contenteditable>
-                            <input type="text" [formControlName]="'value'">
-                            <br>
-                        </div>
-                        <div class="section-bonne-reponse" contenteditable>
-                            <p>Bonne Réponse</p>
-                            <input type="checkbox" [formControlName]="'isCorrect'">
-                        </div>
-
-
-                    </label>
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="button-card" (click)="addQuestion()">Valider</button>
-    </form>
-</div>
- -->
