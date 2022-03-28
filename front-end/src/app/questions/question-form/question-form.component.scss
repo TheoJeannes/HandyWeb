@@ -1,6 +1,61 @@
 @import '../../../styles/card.scss';
 
+.presentation{
+  position:absolute;
+  left:56px;
+  top:98px;
+  width:655px;
+  height:260px;
+}
+
+.card{
+  position:absolute;
+  left:738px;
+  top:98px;
+  width:710px;
+  height:260px;
+  display:flex;
+}
+
+.input-custom{
+  position:absolute;
+  top:396px;
+  width:394px;
+  height:62px;
+  display:flex;
+  font-size:30px;
+  box-sizing: border-box;
+  font-family: "Arial Normal", "Arial", sans-serif;
+}
+
 .answer-form {
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
+  width: 394px;
+  height: 114px;
+  border-radius: 36px;
+  border: 1px solid #797979;
+  background-color: #1e98d7;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+#Image-de-la-question p{
+  box-sizing: border-box;
+  position:absolute;
+  left:56px;
+  top:550px;
+  width:216px;
+  height:22px;
+  display:flex;
+  font-family:"Roboto", sans-serif;
+}
+
+.valider{
+  position:absolute;
+  left:1316px;
+  top:628px;
+  width:140px;
+  height:40px;
+  font-size:20px;
 }
