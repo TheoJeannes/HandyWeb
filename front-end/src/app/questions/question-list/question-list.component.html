@@ -1,7 +1,9 @@
 <div class="question-list">
-    <div class="question" *ngFor="let question of quiz.questions">
-        <!--Inputs & Output allow communication between parent & child components.-->
-        <!--More information: https://angular.io/guide/component-interaction-->
-        <app-question [question]="question" (deleteQuestion)="deleteQuestion($event)"></app-question>
-    </div>
+        <div class="form-group">
+            <label for="questions">Questions</label>
+            <select class="form-control" id="questions" required>
+                <option *ngFor="let question of quiz.questions" >{{question.label}}</option>
+            </select>
+        </div>
+        <app-question [question]="quiz.questions[0]" (deleteQuestion)="deleteQuestion($event)"></app-question>
 </div>

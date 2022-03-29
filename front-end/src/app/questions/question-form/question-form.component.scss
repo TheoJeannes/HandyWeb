@@ -78,7 +78,7 @@
   display: grid;
   grid-template-columns: minmax(150px, 25%) 1fr;
 }
-#Image-de-la-question p{
+.image{
   box-sizing: border-box;
   position:absolute;
   left:56px;
@@ -87,6 +87,7 @@
   height:22px;
   display:flex;
   font-family:"Roboto", sans-serif;
+  border : red 3px solid;
 }
 
 .valider{

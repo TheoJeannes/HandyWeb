@@ -34,7 +34,7 @@ import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-result.component';
-import {ReponseComponent} from './questions/question-form/reponse/reponse.component';
+import {DisplayQuizComponent} from './quizzes/edit-quiz/display-quiz/display-quiz.component';
 
 @NgModule({
     declarations: [
@@ -61,9 +61,9 @@ import {ReponseComponent} from './questions/question-form/reponse/reponse.compon
         ConfigurationSelectionComponent,
         EditThemeComponent,
         PlayQuizComponent,
-        ReponseComponent,
         QuestionPlayComponent,
-        QuizResultComponent
+        QuizResultComponent,
+        DisplayQuizComponent
     ],
     imports: [
         BrowserModule,
