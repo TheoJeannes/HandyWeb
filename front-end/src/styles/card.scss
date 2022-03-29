@@ -91,3 +91,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.button-retour {
+  margin:10px;
+  background-color: red;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+}

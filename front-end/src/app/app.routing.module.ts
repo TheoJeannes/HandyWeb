@@ -18,8 +18,8 @@ const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
     {path: 'connexion', component: ConnexionComponent},
     {path: 'config', component: ConfigurationSelectionComponent},
-    {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
-    {path: 'config/manuel', component: ConfigurationManuelleComponent},
+    {path: 'configs/auto', component: ConfigurationAutomatiqueComponent},
+    {path: 'configs/manuel', component: ConfigurationManuelleComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
 ];
 

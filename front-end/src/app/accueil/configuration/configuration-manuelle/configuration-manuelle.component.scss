@@ -1,0 +1,18 @@
+@import '../../../../styles/card.scss';
+
+
+.form {
+  display: flex;
+  flex-direction: row;
+  margin : 20px;
+  align-items: center;
+}
+
+a {
+  background-color: #1e98d7;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  border-radius: 20px;
+  padding: 20px;
+}

@@ -2,7 +2,7 @@ const { Router } = require('express')
 
 const { User } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
-
+const ConfigsRouter = require('./configs')
 const router = new Router()
 
 router.get('/', (req, res) => {
@@ -46,5 +46,7 @@ router.delete('/:userId', (req, res) => {
     manageAllErrors(res, err)
   }
 })
+
+router.use('/:userId/configs', ConfigsRouter)
 
 module.exports = router
