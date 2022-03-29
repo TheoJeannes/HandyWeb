@@ -5,9 +5,9 @@ import {EditQuizComponent} from './quizzes/edit-quiz/edit-quiz.component';
 import {UserListComponent} from './users/user-list/user-list.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ConnexionComponent} from './connexion/connexion.component';
-import {ConfigurationSelectionComponent} from './accueil/configuration/configuration-selection/configuration-selection.component';
-import {ConfigurationAutomatiqueComponent} from './accueil/configuration/configuration-automatique/configuration-automatique.component';
-import {ConfigurationManuelleComponent} from './accueil/configuration/configuration-manuelle/configuration-manuelle.component';
+import {ConfigurationSelectionComponent} from './configurations/configuration-selection/configuration-selection.component';
+import {ConfigurationAutomatiqueComponent} from './configurations/configuration-automatique/configuration-automatique.component';
+import {ConfigurationManuelleComponent} from './configurations/configuration-manuelle/configuration-manuelle.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 
 const routes: Routes = [
@@ -18,8 +18,8 @@ const routes: Routes = [
     {path: 'accueil', component: AccueilComponent},
     {path: 'connexion', component: ConnexionComponent},
     {path: 'config', component: ConfigurationSelectionComponent},
-    {path: 'configs/auto', component: ConfigurationAutomatiqueComponent},
-    {path: 'configs/manuel', component: ConfigurationManuelleComponent},
+    {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
+    {path: 'config/manuel', component: ConfigurationManuelleComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
 ];
 

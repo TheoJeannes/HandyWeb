@@ -19,10 +19,10 @@
 <div class="div-connexion">
     <label>Formulaire de connexion :</label>
 
-    <form class="form-connexion" action="">
-        <input type="text" placeholder="Nom" name="nom">
-        <input type="text" placeholder="Prénom" name="prenom">
-        <input class="button" type="submit" value="Se connecter">
+    <form class="form-connexion" [formGroup]="loginForm">
+        <input type="text" placeholder="Prénom" [formControlName]="'firstName'">
+        <input type="text" placeholder="Nom" [formControlName]="'lastName'">
+        <button class="button-card" (click)="logIn()">Se connecter</button>
     </form>
 
     <div class="toggle-switch button administration">

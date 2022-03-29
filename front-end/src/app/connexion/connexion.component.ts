@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user.model";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-connexion',
@@ -7,10 +11,28 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-    constructor() {
+    public loginForm: FormGroup;
+
+    constructor(public formBuilder: FormBuilder, public userService : UserService, public router: Router) {
+        this.loginForm = this.formBuilder.group({
+            firstName: [''],
+            lastName: ['']
+        });
     }
 
     ngOnInit(): void {
+    }
+
+    logIn() : void {
+        const user : User = this.loginForm.getRawValue() as User
+        console.log(user)
+        if (this.userService.logIn(user)) {
+            console.log('Connexion réussie')
+            this.router.navigateByUrl('/accueil');
+        } else {
+            alert('Erreur de connexion : l\'utilisateur : ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
+            console.log('Connexion échouée')
+        }
     }
 
 }

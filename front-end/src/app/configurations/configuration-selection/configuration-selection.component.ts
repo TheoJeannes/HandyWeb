@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'app-configuration-selection',
+    selector: 'app-configurations-selection',
     templateUrl: './configuration-selection.component.html',
     styleUrls: ['./configuration-selection.component.scss']
 })

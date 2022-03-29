@@ -23,18 +23,21 @@ import {ThemeFormComponent} from './themes/theme-form/theme-form.component';
 import {ThemeListComponent} from './themes/theme-list/theme-list.component';
 import {
   ConfigurationAutomatiqueComponent
-} from './accueil/configuration/configuration-automatique/configuration-automatique.component';
+} from './configurations/configuration-automatique/configuration-automatique.component';
 import {
   ConfigurationManuelleComponent
-} from './accueil/configuration/configuration-manuelle/configuration-manuelle.component';
+} from './configurations/configuration-manuelle/configuration-manuelle.component';
 import {
   ConfigurationSelectionComponent
-} from './accueil/configuration/configuration-selection/configuration-selection.component';
+} from './configurations/configuration-selection/configuration-selection.component';
 import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-result.component';
 import {ReponseComponent} from './questions/question-form/reponse/reponse.component';
+import {ConfigurationListComponent} from "./configurations/configuration-list/configuration-list.component";
+import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
+import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
 
 @NgModule({
     declarations: [
@@ -63,7 +66,10 @@ import {ReponseComponent} from './questions/question-form/reponse/reponse.compon
         PlayQuizComponent,
         ReponseComponent,
         QuestionPlayComponent,
-        QuizResultComponent
+        QuizResultComponent,
+        ConfigurationListComponent,
+        ConfigurationComponent,
+        ConfigurationFormComponent
     ],
     imports: [
         BrowserModule,

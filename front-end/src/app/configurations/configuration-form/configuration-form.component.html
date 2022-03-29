@@ -1,0 +1,8 @@
+<div class="form">
+    <label>Nommer la configuration</label>
+    <form class="form" [formGroup]="configForm">
+        <input type="text" placeholder="nom" [formControlName]="'name'">
+        <input type="number" placeholder="taille de la police" [formControlName]="'size'">
+        <button class="button-card" (click)="addConfig()">Ajouter la configuration</button>
+    </form>
+</div>
