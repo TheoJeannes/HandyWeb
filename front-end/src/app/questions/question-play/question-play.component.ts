@@ -1,39 +1,17 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Question} from '../../../models/question.model';
-import {Answer} from '../../../models/answer.model';
+
 
 @Component({
-    selector: 'app-question-play',
+    selector: 'questionPlayComponent',
     templateUrl: './question-play.component.html',
     styleUrls: ['./question-play.component.scss']
 })
-export class QuestionPlayComponent implements OnInit, OnChanges {
+export class QuestionPlayComponent  {
 
-    private selectedAnswer?: Answer;
-    private correction: boolean;
-
-    @Input() question?: Question;
-
-    @Output()
-    isCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Input() question: Question = <Question>{};
 
     constructor() {
-
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        this.correction=false;
-    }
-
-    ngOnInit(): void {
-    }
-
-    selected(answer): void{
-        this.selectedAnswer = answer;
-    }
-
-    verify() {
-        this.correction = true;
-        this.isCorrect.emit(this.selectedAnswer.isCorrect)
-    }
 }

@@ -9,6 +9,7 @@ import {ConfigurationSelectionComponent} from './configurations/configuration-se
 import {ConfigurationAutomatiqueComponent} from './configurations/configuration-automatique/configuration-automatique.component';
 import {ConfigurationManuelleComponent} from './configurations/configuration-manuelle/configuration-manuelle.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
+import {QuestionPlayComponent} from "./questions/question-play/question-play.component";
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
     {path: 'config', component: ConfigurationSelectionComponent},
     {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
     {path: 'config/manuel', component: ConfigurationManuelleComponent},
+    {path: 'question-play', component: QuestionPlayComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
 ];
 

@@ -2,6 +2,7 @@
 
 @import "./variables";
 
+//uh?
 .card {
   background: $white;
   border-radius: 2px;
@@ -12,6 +13,7 @@
   padding: 0 1em 1em 1em;
 }
 
+//où?
 .button-card {
   background-color: $white;
   border: solid 1px $blue;
@@ -20,16 +22,37 @@
   padding: 0.5em 1em;
 }
 
+//où?
 .button-card:hover {
   cursor: pointer;
 }
 
+//style global des boutons, couleur, font, etc
 .buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+
+  //background-color: $button-color;
+  //font-size: $button-font-size;
+  //color: $button-font-color;
+
+  background-color: $button-color;
+  color: $button-font-color;
+  font-size: $button-font-size;
+  }
+
+.buttons:hover{
+  background-color: $button-hover-color;
 }
 
+//où?
 .switch {
   position: relative;
   display: inline-block;
@@ -99,4 +122,8 @@ input:checked + .slider:before {
   border-radius: 20px;
   padding: 10px;
   text-align: center;
+}
+
+.button-retour:hover{
+  background-color: #840101FF;
 }
