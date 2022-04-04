@@ -1,7 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {QuizService} from '../../../services/quiz.service';
-import {Quiz} from 'src/models/quiz.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Question} from 'src/models/question.model';
 
 @Component({
@@ -9,7 +6,7 @@ import {Question} from 'src/models/question.model';
     templateUrl: './question-form.component.html',
     styleUrls: ['./question-form.component.scss']
 })
-export class QuestionFormComponent implements OnInit, OnChanges {
+export class QuestionFormComponent implements OnInit {
 
     @Input()
     question: Question ;
@@ -17,51 +14,20 @@ export class QuestionFormComponent implements OnInit, OnChanges {
     @Output()
     questionEdited : EventEmitter<Question> = new EventEmitter<Question>();
 
-    public answerForm: FormGroup;
-
-    constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
+    constructor() {
         // Form creation
-        this.initializeForm();
         console.log(this);
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-
-    }
-
-    private initializeForm(): void {
-        this.answerForm = this.formBuilder.group({
-            label: ['', Validators.required],
-            answers: this.formBuilder.array([])
-        });
-    }
-
     ngOnInit(): void {
-        for(let i=0;i<4;i++)
-            this.addAnswer();
-    }
-
-    get answers(): FormArray {
-        return this.answerForm.get('answers') as FormArray;
-    }
-
-    private createAnswer(): FormGroup {
-        return this.formBuilder.group({
-            value: '',
-            isCorrect: false,
-        });
-    }
-
-    addAnswer(): void {
-        this.answers.push(this.createAnswer());
+        let i = 4 - this.question.answers.length,
+            answer = {isCorrect: false,value: " ",type: "Nouveau",};
+        for(i;i<4;i++)
+            this.question.answers.push(answer);
     }
 
     editQuestion(): void {
-        if (this.answerForm.valid) {
-            const question = this.answerForm.getRawValue() as Question;
-            this.questionEdited.emit(question);
-            this.initializeForm();
-        }
+        this.questionEdited.emit(this.question);
     }
 
     changePicture() {

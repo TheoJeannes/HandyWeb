@@ -1,29 +1,26 @@
 <div class="page-quiz" *ngIf="question">
 
-    <div>
+    <div class="summary">
         <label for="wording">Enoncé de la question</label>
-        <input type="text" id="wording" placeholder="Enoncé de la question"
-               [ngModel]="question.label"/>
+        <input type="text" id="wording" [ngModel]="question.label">
         <div id="Image-de-la-question" (click)="changePicture()">
             <img *ngIf="question.image" class="image" src="{{question.image}}" alt="Image du Quizz"/>
         </div>
     </div>
 
-    <div class="card">
-        <form class="answerForm" [formGroup]="answerForm">
-            <div class="answer" formArrayName="answers">
-                <div *ngFor="let address of answers.controls; let i=index">
-                    <div class="answer-form" [formGroupName]="i">
-                        <label>
-                            <input type="text" placeholder="Réponse" [formControlName]="'value'">
-                            Bonne réponse
-                            <input type="checkbox" [formControlName]="'isCorrect'">
-                        </label>
-                    </div>
-                </div>
+    <div class="answers">
+        <div *ngFor="let answer of question.answers; let i=index">
+            <div class="answer-form" [formGroupName]="i">
+                <label>
+                    <button class="button">
+                        <input type="text" [ngModel]="answer.value">
+                        <input type="checkbox" [ngModel]="answer.isCorrect">
+                    </button>
+                </label>
             </div>
-        </form>
+        </div>
     </div>
+
     <button type="submit" class="button-card" (click)="editQuestion()">Valider</button>
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->

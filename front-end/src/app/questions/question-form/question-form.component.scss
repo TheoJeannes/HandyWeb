@@ -1,100 +1,113 @@
 @import '../../../styles/card.scss';
 
-.presentation{
-  position:absolute;
-  left:56px;
-  top:98px;
-  width:655px;
-  height:260px;
-  background-color:rgba(250, 205, 145, 1);
+.page-quiz{
+  border: 3px green solid;
+  display: flex;
 }
 
-.card{
-  position:absolute;
-  left:738px;
-  top:78px;
-  width:710px;
-  height:260px;
-  display:flex;
+.summary{
+  border: 3px cyan solid;
 }
 
-.button-card{
-  width:140px;
-  height:40px;
-}
-.input-custom{
-  position:absolute;
-  left:56px;
-  top:396px;
-  width:394px;
-  height:62px;
-  display:flex;
-  font-size:30px;
-  box-sizing: border-box;
-  font-family: "Arial Normal", "Arial", sans-serif;
-}
-.difficulte{
-  position:absolute;
-  left:501px;
-  top:166px;
-  width:132px;
-  height:22px;
-  display:flex;
-}
-.nbquestion{
-  position:absolute;
-  left:20px;
-  top:166px;
-  width:335px;
-  height:38px;
-  display:flex;
-}
-.duree{
-  position:absolute;
-  left:392px;
-  top:78px;
-  width:101px;
-  height:56px;
-  display:flex;
+.answer{
+  border: 3px yellow solid;
 }
 
-.theme{
-  position:absolute;
-  left:20px;
-  top:200px;
-  width:101px;
-  height:22px;
-  display:flex;
-}
-
-.answer-form {
-  width: 394px;
-  height: 114px;
-  border-radius: 36px;
-  border: 1px solid #797979;
-  background-color: #1e98d7;
-  box-sizing: border-box;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
-  display: grid;
-  grid-template-columns: minmax(150px, 25%) 1fr;
-}
-.image{
-  box-sizing: border-box;
-  position:absolute;
-  left:56px;
-  top:450px;
-  width:216px;
-  height:22px;
-  display:flex;
-  font-family:"Roboto", sans-serif;
-  border : red 3px solid;
-}
-
-.valider{
-  position:absolute;
-  left:1316px;
-  top:628px;
-  width:140px;
-  height:40px;
-  font-size:20px;
-}
+//.presentation{
+//  position:absolute;
+//  left:56px;
+//  top:98px;
+//  width:655px;
+//  height:260px;
+//  background-color:rgba(250, 205, 145, 1);
+//}
+//
+//.card{
+//  position:absolute;
+//  left:738px;
+//  top:78px;
+//  width:710px;
+//  height:260px;
+//  display:flex;
+//}
+//
+//.button-card{
+//  width:140px;
+//  height:40px;
+//}
+//.input-custom{
+//  position:absolute;
+//  left:56px;
+//  top:396px;
+//  width:394px;
+//  height:62px;
+//  display:flex;
+//  font-size:30px;
+//  box-sizing: border-box;
+//  font-family: "Arial Normal", "Arial", sans-serif;
+//}
+//.difficulte{
+//  position:absolute;
+//  left:501px;
+//  top:166px;
+//  width:132px;
+//  height:22px;
+//  display:flex;
+//}
+//.nbquestion{
+//  position:absolute;
+//  left:20px;
+//  top:166px;
+//  width:335px;
+//  height:38px;
+//  display:flex;
+//}
+//.duree{
+//  position:absolute;
+//  left:392px;
+//  top:78px;
+//  width:101px;
+//  height:56px;
+//  display:flex;
+//}
+//
+//.theme{
+//  position:absolute;
+//  left:20px;
+//  top:200px;
+//  width:101px;
+//  height:22px;
+//  display:flex;
+//}
+//
+//.answer-form {
+//  width: 394px;
+//  height: 114px;
+//  border-radius: 36px;
+//  border: 1px solid #797979;
+//  background-color: #1e98d7;
+//  box-sizing: border-box;
+//  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+//  display: grid;
+//  grid-template-columns: minmax(150px, 25%) 1fr;
+//}
+//.image{
+//  box-sizing: border-box;
+//  position:absolute;
+//  left:56px;
+//  top:450px;
+//  width:216px;
+//  height:22px;
+//  display:flex;
+//  font-family:"Roboto", sans-serif;
+//  border : red 3px solid;
+//}
+//
+//.valider{
+//  position:absolute;
+//  left:1316px;
+//  top:628px;
+//  width:140px;
+//  height:40px;
+//  font-size:20px;
+//}

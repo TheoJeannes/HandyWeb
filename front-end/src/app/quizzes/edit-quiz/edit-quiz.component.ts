@@ -12,6 +12,7 @@ import {Question} from '../../../models/question.model';
 export class EditQuizComponent implements OnInit {
 
     public quiz: Quiz;
+    public index : number = 0;
 
     constructor(private route: ActivatedRoute, private quizService: QuizService) {
         this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -20,11 +21,14 @@ export class EditQuizComponent implements OnInit {
     ngOnInit(): void {
         const id = this.route.snapshot.paramMap.get('id');
         this.quizService.setSelectedQuiz(id);
-        console.log('Id :' + id);
+        console.log(this);
     }
 
     addQuestion(question: Question){
             this.quizService.addQuestion(this.quiz, question);
     }
 
+    updateQuestions($event: Question) {
+        this.quizService.editQuestion(this.quiz,this.quiz.questions[this.index],$event);
+    }
 }
