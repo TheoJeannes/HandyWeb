@@ -1,14 +1,22 @@
+@import '../../../styles.scss';
 @import '../../../styles/card.scss';
 
-.display{
-  border: red 3px solid;
+
+.edit{
+  display: flex;
+  flex-direction: column;
 }
 
-.form{
-  background: yellowgreen;
-  border : yellowgreen 3px solid;
+.container{
+  display: flex;
+}
+
+.display{
+  padding: .5em;
 }
 
 .list{
-  border : navy 3px solid;
+  flex-grow: 1;
+  border : red 3px solid;
 }
+

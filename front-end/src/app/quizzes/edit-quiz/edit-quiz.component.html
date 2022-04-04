@@ -1,8 +1,10 @@
-<button class="button-card" routerLink="/quiz-list">Back</button>
+<button class="button-retour" routerLink="/quiz-list">Back</button>
 
-<ng-container *ngIf="quiz">
-    <app-display-quiz  [quiz]="quiz"></app-display-quiz>
-    <app-question-list [quiz]="quiz"></app-question-list>
+<ng-container class="edit" *ngIf="quiz">
+    <div class="container">
+        <app-display-quiz class="display" [quiz]="quiz"></app-display-quiz>
+        <app-question-list class="list" [quiz]="quiz"></app-question-list>
+    </div>
     <!--(output)=sendQuestion()-->
-    <app-question-form (questionEdited)="updateQuestions($event)" [question]="quiz.questions[index]"></app-question-form>
+    <app-question-form class="form" (questionEdited)="updateQuestions($event)" [question]="quiz.questions[index]"></app-question-form>
 </ng-container>
