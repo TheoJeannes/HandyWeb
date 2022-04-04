@@ -1,4 +1,4 @@
-@import '../../../styles/card.scss';
+@import '../../../styles.scss';
 
 .presentation{
   position:absolute;
@@ -74,7 +74,7 @@
   border: 1px solid #797979;
   background-color: #1e98d7;
   box-sizing: border-box;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.35);
   display: grid;
   grid-template-columns: minmax(150px, 25%) 1fr;
 }

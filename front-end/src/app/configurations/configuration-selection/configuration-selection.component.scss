@@ -1,16 +1,7 @@
-@import "../../../styles/card";
+@import '../../../styles.scss';
 
-.button-accueil {
-  background-color: #1e98d7;
-  color: white;
-  font-size: 28px;
-  border-radius: 8px;
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.buttons {
+.button-container {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
