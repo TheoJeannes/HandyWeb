@@ -19,7 +19,7 @@ export class QuestionListComponent implements OnInit {
     quiz: Quiz;
 
     @Output()
-    index : EventEmitter<number> = new EventEmitter<number>();
+    index: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
         this.initializeQuestionForm();
@@ -49,7 +49,7 @@ export class QuestionListComponent implements OnInit {
 
     addAnswer(): void {
         let i = 0;
-        for(i;i<4;i++)
+        for (i; i < 4; i++)
             this.answers.push(this.createAnswer());
     }
 
@@ -59,9 +59,10 @@ export class QuestionListComponent implements OnInit {
             const question = this.questionList.getRawValue() as Question;
             this.quizService.addQuestion(this.quiz, question);
             this.initializeQuestionForm();
-            this.index.emit(this.quiz.nbquestions-1);
+            this.index.emit(this.quiz.nbquestions - 1);
         }
     }
+
     indexQuestion(question): void {
         this.index.emit(question.id);
     }
@@ -70,50 +71,4 @@ export class QuestionListComponent implements OnInit {
         this.quizService.deleteQuestion(this.quiz, question);
     }
 
-
-
-
 }
-
-/*
-public questionForm: FormGroup;
-
-    constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
-        // Form creation
-        this.initializeQuestionForm();
-    }
-
-    private initializeQuestionForm(): void {
-        this.questionForm = this.formBuilder.group({
-            label: ['', Validators.required],
-            answers: this.formBuilder.array([])
-        });
-    }
-
-    ngOnInit(): void {
-    }
-
-    get answers(): FormArray {
-        return this.questionForm.get('answers') as FormArray;
-    }
-
-    private createAnswer(): FormGroup {
-        return this.formBuilder.group({
-            value: '',
-            isCorrect: false,
-        });
-    }
-
-    addAnswer(): void {
-        this.answers.push(this.createAnswer());
-    }
-
-    addQuestion(): void {
-        if (this.questionForm.valid) {
-            const question = this.questionForm.getRawValue() as Question;
-            this.quizService.addQuestion(this.quiz, question);
-            this.initializeQuestionForm();
-        }
-    }
- */
-
