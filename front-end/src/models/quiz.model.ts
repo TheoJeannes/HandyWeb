@@ -9,5 +9,5 @@ export interface Quiz {
 
     nbquestions?: number;
     duree?: number;
-    difficulte?: string;
+    difficulte?: number;
 }
