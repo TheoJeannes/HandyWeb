@@ -1,9 +1,13 @@
 <div class="question-list">
-        <div class="form-group">
-            <label for="questions">Questions</label>
-            <select class="form-control" id="questions" required>
-                <option *ngFor="let question of quiz.questions" >{{question.label}}</option>
-            </select>
-        </div>
-        <app-question [question]="quiz.questions[0]" (deleteQuestion)="deleteQuestion($event)"></app-question>
+    <div class="form-group">
+        <form class=question-list [formGroup]="questionList">
+            <mat-action-list>
+                <button mat-list-item (click)="addQuestion()"> Ajouter une question</button>
+                <button mat-list-item *ngFor="let question of quiz.questions" (click)="indexQuestion(question)">
+                    Question {{question.label}}
+                </button>
+            </mat-action-list>
+        </form>
+    </div>
+    <app-question [question]="quiz.questions[0]" (deleteQuestion)="deleteQuestion($event)"></app-question>
 </div>

@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatListModule} from '@angular/material/list';
 
 import {AppComponent} from './app.component';
 import {QuizListComponent} from './quizzes/quiz-list/quiz-list.component';
@@ -35,6 +36,7 @@ import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-result.component';
 import {DisplayQuizComponent} from './quizzes/edit-quiz/display-quiz/display-quiz.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -71,6 +73,8 @@ import {DisplayQuizComponent} from './quizzes/edit-quiz/display-quiz/display-qui
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        BrowserAnimationsModule,
+        MatListModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
