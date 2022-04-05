@@ -3,7 +3,7 @@
     <div class="playQuiz" *ngIf="!finish">
         <div class="questionsNumber">Question {{question + 1}}/{{quiz.questions.length}}</div>
         <app-question-play (isCorrect)="correction($event)" [question]="quiz.questions[question]"></app-question-play>
-        <button class="buttons button-play" *ngIf="nextQuestion" (click)="next()">Suivant</button>
+        <button class="buttons" *ngIf="nextQuestion" (click)="next()">Suivant</button>
     </div>
     <div class="resultsQuiz" *ngIf="finish">
         <app-play-quiz-result  [correctAnswers]="correctAnswers" [totalAnswers]="quiz.questions.length"></app-play-quiz-result>

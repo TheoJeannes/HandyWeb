@@ -10,7 +10,6 @@ body {
   background-color: $app-background-color;
 }
 
-//où?
 .button-card {
   background-color: $white;
   border: solid 1px $blue;
@@ -19,7 +18,6 @@ body {
   padding: 0.5em 1em;
 }
 
-//où?
 .button-card:hover {
   cursor: pointer;
 }
@@ -33,13 +31,13 @@ body {
   background-color: $button-color;
   color: $button-font-color;
   font-size: $button-font-size;
+  //font-size: 22px;
 }
 
 .buttons:hover{
   background-color: $button-hover-color;
 }
 
-//où?
 .switch {
   position: relative;
   display: inline-block;
@@ -114,6 +112,9 @@ input:checked + .slider:before {
 .button-retour:hover{
   background-color: #840101FF;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

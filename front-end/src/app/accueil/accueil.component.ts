@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from 'src/services/user.service';
+import {Config} from "../../models/config.model";
 
 @Component({
     selector: 'app-accueil',
@@ -6,14 +8,16 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
+    private config: Config;
 
-    constructor() {
+    constructor(private userService: UserService) {
+        this.userService.configSelected$.subscribe((config) => this.config = config);
     }
 
     ngOnInit(): void {
         document.documentElement.style.setProperty('--button-color', '#1e98d7');
         document.documentElement.style.setProperty('--button-hover-color', '#166791');
-        document.documentElement.style.setProperty('--button-font-size', '22');
         document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
+        document.documentElement.style.setProperty('--button-font-size', this.config.size.toString()+'px');
     }
 }
