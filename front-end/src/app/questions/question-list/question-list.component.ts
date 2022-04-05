@@ -63,6 +63,12 @@ export class QuestionListComponent implements OnInit {
         }
     }
 
+    createQuestion(): Question{
+        let question = {};
+        return
+
+    }
+
     indexQuestion(question): void {
         this.index.emit(question.id);
     }
