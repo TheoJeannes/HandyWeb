@@ -34,6 +34,13 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.retrieveUsers();
+    // put a default user
+    const user: User = {
+      firstName: "default",
+      lastName: "1"
+    }
+
+    setTimeout(() => this.logIn(user), 50);
   }
 
   retrieveUsers(): void {
@@ -60,7 +67,8 @@ export class UserService {
   }
 
   logIn(user: User): boolean {
-    const userDatabase = this.users.find(u => u.firstName === user.firstName && u.lastName === user.lastName);
+    const userDatabase = this.users.find(u => u.firstName.toLowerCase() === user.firstName.toLowerCase()
+                                          && u.lastName.toLowerCase() === user.lastName.toLowerCase());
     if (userDatabase !== undefined) {
       this.userSelected = userDatabase;
       this.userSelected$.next(userDatabase);
