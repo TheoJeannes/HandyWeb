@@ -59,7 +59,7 @@ export class QuestionListComponent implements OnInit {
             const question = this.questionList.getRawValue() as Question;
             this.quizService.addQuestion(this.quiz, question);
             this.initializeQuestionForm();
-            this.index.emit(this.quiz.nbquestions - 1);
+            this.index.emit(this.quiz.questions.length - 1);
         }
     }
 

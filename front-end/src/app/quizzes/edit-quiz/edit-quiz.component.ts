@@ -31,4 +31,10 @@ export class EditQuizComponent implements OnInit {
     updateQuestions($event: Question) {
         this.quizService.editQuestion(this.quiz,this.quiz.questions[this.index],$event);
     }
+
+    selectQuestion($event: number) {
+        this.index=$event;
+        console.log(this);
+        console.log("Question" + this.quiz.questions[this.index]);
+    }
 }
