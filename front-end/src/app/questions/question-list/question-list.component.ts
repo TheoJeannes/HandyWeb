@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Quiz} from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
 import {Question} from 'src/models/question.model';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,60 +12,50 @@ import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 export class QuestionListComponent implements OnInit {
 
-    public questionList: FormGroup;
-
     @Input()
     quiz: Quiz;
 
     @Output()
     index: EventEmitter<number> = new EventEmitter<number>();
 
-    constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
-        this.initializeQuestionForm();
+    constructor( private quizService: QuizService) {
+
     }
 
     ngOnInit(): void {
 
     }
 
-    private initializeQuestionForm(): void {
-        this.questionList = this.formBuilder.group({
-            label: ['Nouveau', Validators.required],
-            answers: this.formBuilder.array([])
-        });
-    }
-
-    get answers(): FormArray {
-        return this.questionList.get('answers') as FormArray;
-    }
-
-    private createAnswer(): FormGroup {
-        return this.formBuilder.group({
-            value: '',
-            isCorrect: false,
-        });
-    }
-
-    addAnswer(): void {
-        let i = 0;
-        for (i; i < 4; i++)
-            this.answers.push(this.createAnswer());
-    }
 
     addQuestion(): void {
-        if (this.questionList.valid) {
-            this.addAnswer();
-            const question = this.questionList.getRawValue() as Question;
-            this.quizService.addQuestion(this.quiz, question);
-            this.initializeQuestionForm();
-            this.index.emit(this.quiz.questions.length - 1);
-        }
+        let question = this.createQuestion();
+        this.quizService.addQuestion(this.quiz, question);
+        this.indexQuestion(question);
+
     }
 
     createQuestion(): Question{
-        let question = {};
-        return
-
+        let answer1 = {
+            value: "A definir",
+            isCorrect: true
+        }
+        let answer2 = {
+            value: "A definir",
+            isCorrect: false
+        }
+        let answer3 = {
+            value: "A definir",
+            isCorrect: false
+        }
+        let answer4 = {
+            value: "A definir",
+            isCorrect: false
+        }
+        return {
+            id: this.quiz.questions.length + "",
+            label: "Nouveau",
+            answers: [answer1, answer2, answer3, answer4]
+        };
     }
 
     indexQuestion(question): void {
