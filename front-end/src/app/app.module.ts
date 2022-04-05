@@ -35,7 +35,6 @@ import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
 import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-result.component';
-import {ReponseComponent} from './questions/question-form/reponse/reponse.component';
 import {ConfigurationListComponent} from "./configurations/configuration-list/configuration-list.component";
 import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
@@ -71,7 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         QuizResultComponent,
         ConfigurationListComponent,
         ConfigurationComponent,
-        ConfigurationFormComponent
+        ConfigurationFormComponent,
         DisplayQuizComponent
     ],
     imports: [
