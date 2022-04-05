@@ -40,7 +40,7 @@ export class UserService {
       lastName: "1"
     }
 
-    setTimeout(() => this.logIn(user), 50);
+    setTimeout(() => this.logIn(user), 200);
   }
 
   retrieveUsers(): void {

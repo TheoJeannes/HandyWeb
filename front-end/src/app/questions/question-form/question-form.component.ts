@@ -20,7 +20,7 @@ export class QuestionFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        let i = 4 - this.question.answers.length,
+        let i = this.question.answers.length,
             answer = {isCorrect: false,value: " ",type: "Nouveau",};
         for(i;i<4;i++)
             this.question.answers.push(answer);

@@ -1,12 +1,12 @@
 <div class="question-list">
     <div class="form-group">
-        <form class=question-list [formGroup]="questionList">
             <mat-action-list>
                 <button mat-list-item (click)="addQuestion()"> Ajouter une question</button>
                 <button mat-list-item *ngFor="let question of quiz.questions" (click)="indexQuestion(question)">
                     Question : {{question.label}}
+                    <button (click)="deleteQuestion(question)">Delete</button>
                 </button>
+
             </mat-action-list>
-        </form>
     </div>
 </div>
