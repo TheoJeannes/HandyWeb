@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {MatListModule} from '@angular/material/list';
 
 import {AppComponent} from './app.component';
 import {QuizListComponent} from './quizzes/quiz-list/quiz-list.component';
@@ -38,6 +39,8 @@ import {ReponseComponent} from './questions/question-form/reponse/reponse.compon
 import {ConfigurationListComponent} from "./configurations/configuration-list/configuration-list.component";
 import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
+import {DisplayQuizComponent} from './quizzes/edit-quiz/display-quiz/display-quiz.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -64,12 +67,12 @@ import {ConfigurationFormComponent} from "./configurations/configuration-form/co
         ConfigurationSelectionComponent,
         EditThemeComponent,
         PlayQuizComponent,
-        ReponseComponent,
         QuestionPlayComponent,
         QuizResultComponent,
         ConfigurationListComponent,
         ConfigurationComponent,
         ConfigurationFormComponent
+        DisplayQuizComponent
     ],
     imports: [
         BrowserModule,
@@ -77,6 +80,8 @@ import {ConfigurationFormComponent} from "./configurations/configuration-form/co
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        BrowserAnimationsModule,
+        MatListModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

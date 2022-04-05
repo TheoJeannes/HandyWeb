@@ -1,0 +1,33 @@
+<div class="container" *ngIf="quiz">
+    <div class="presentation">
+        <div class="first">
+            <div class="contexte">
+                <div>
+                    <img src="{{quiz.image}}" alt="Image du Quiz">
+                    <label for="image">Saisir le lien de l'image</label>
+                    <input [ngModel]="quiz.image" id="image">
+                </div>
+                <div class="nbQuestions">
+                    <p>Nombre de Questions : {{quiz.questions.length}}</p>
+                </div>
+            </div>
+            <div class="infos">
+                <input [ngModel]="quiz.name">
+                <div class="temps">Durée Moyenne : {{quiz.questions.length*quiz.difficulte}}</div>
+                <div class="difficultee">
+                    Difficulté :
+                    <select [(ngModel)]='quiz.difficulte' name="dropdownOption" id="dropdownOption">
+                        <option value="1">Facile</option>
+                        <option value="2">Normal</option>
+                        <option value="3">Difficile</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="theme">
+            <p>
+                Theme : <input [ngModel]="quiz.theme">
+            </p>
+        </div>
+    </div>
+</div>

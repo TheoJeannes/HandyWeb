@@ -1,7 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {QuizService} from '../../../services/quiz.service';
-import {Quiz} from 'src/models/quiz.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Question} from 'src/models/question.model';
 
 @Component({
@@ -12,45 +9,28 @@ import {Question} from 'src/models/question.model';
 export class QuestionFormComponent implements OnInit {
 
     @Input()
-    quiz: Quiz;
+    question: Question ;
 
-    public questionForm: FormGroup;
+    @Output()
+    questionEdited : EventEmitter<Question> = new EventEmitter<Question>();
 
-    constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
+    constructor() {
         // Form creation
-        this.initializeQuestionForm();
-    }
-
-    private initializeQuestionForm(): void {
-        this.questionForm = this.formBuilder.group({
-            label: ['', Validators.required],
-            answers: this.formBuilder.array([])
-        });
+        console.log(this);
     }
 
     ngOnInit(): void {
+        let i = 4 - this.question.answers.length,
+            answer = {isCorrect: false,value: " ",type: "Nouveau",};
+        for(i;i<4;i++)
+            this.question.answers.push(answer);
     }
 
-    get answers(): FormArray {
-        return this.questionForm.get('answers') as FormArray;
+    editQuestion(): void {
+        this.questionEdited.emit(this.question);
     }
 
-    private createAnswer(): FormGroup {
-        return this.formBuilder.group({
-            value: '',
-            isCorrect: false,
-        });
-    }
-
-    addAnswer(): void {
-        this.answers.push(this.createAnswer());
-    }
-
-    addQuestion(): void {
-        if (this.questionForm.valid) {
-            const question = this.questionForm.getRawValue() as Question;
-            this.quizService.addQuestion(this.quiz, question);
-            this.initializeQuestionForm();
-        }
+    changePicture() {
+        //TODO Submit un lien pour l'image a valider
     }
 }

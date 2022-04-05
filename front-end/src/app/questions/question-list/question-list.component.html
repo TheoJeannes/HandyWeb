@@ -1,7 +1,12 @@
 <div class="question-list">
-    <div class="question" *ngFor="let question of quiz.questions">
-        <!--Inputs & Output allow communication between parent & child components.-->
-        <!--More information: https://angular.io/guide/component-interaction-->
-        <app-question [question]="question" (deleteQuestion)="deleteQuestion($event)"></app-question>
+    <div class="form-group">
+        <form class=question-list [formGroup]="questionList">
+            <mat-action-list>
+                <button mat-list-item (click)="addQuestion()"> Ajouter une question</button>
+                <button mat-list-item *ngFor="let question of quiz.questions" (click)="indexQuestion(question)">
+                    Question : {{question.label}}
+                </button>
+            </mat-action-list>
+        </form>
     </div>
 </div>

@@ -1,40 +1,27 @@
-<div class="page-quiz">
-        <form class="quiz-form" [formGroup]="questionForm">
-            <div class="presentation">
-                <input class="difficulte" type="text" size="15" placeholder="Difficulté">
-                <input class="duree" type="text" size="5" placeholder="Durée Moyenne">
-                <input class="nbquestion" type="text" size="5" placeholder="Nombre de Questions">
-                <div class="theme">
-                    <p>Thème<p>
-                </div>
-            </div>
-            <label for="label">
-                <input class="input-custom" type="text" id="label" size="20" placeholder="Enoncé de la question" [formControlName]="'label'">
-            </label>
-            <br>
-            <div class="card">
-            <button class="button-card" (click)="addAnswer()">Add Answer</button>
-            <div class="answer" formArrayName="answers">
-                <div *ngFor="let address of answers.controls; let i=index">
-                    <div class="answer-form" [formGroupName]="i">
-                        <label>
-                            <input type="text" placeholder="Réponse" [formControlName]="'value'">
-                            <br>
-                            Bonne réponse
-                            <input type="checkbox" [formControlName]="'isCorrect'">
-                        </label>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="valider">
-            <button type="submit" class="button-card" (click)="addQuestion()">Valider</button>
-            </div>
-        </form>
+<div class="page-quiz" *ngIf="question">
 
-    <div id="Image-de-la-question">
-        <p>Image de la question<p>
+    <div class="summary">
+        <label for="wording">Enoncé de la question</label>
+        <input type="text" id="wording" [ngModel]="question.label">
+        <div id="Image-de-la-question" (click)="changePicture()">
+            <img *ngIf="question.image" class="image" src="{{question.image}}" alt="Image du Quizz"/>
+        </div>
     </div>
+
+    <div class="answers">
+        <div *ngFor="let answer of question.answers; let i=index">
+            <div class="answer-form" [formGroupName]="i">
+                <label>
+                    <button class="button">
+                        <input type="text" [ngModel]="answer.value">
+                        <input type="checkbox" [ngModel]="answer.isCorrect">
+                    </button>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="button-card" (click)="editQuestion()">Valider</button>
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->

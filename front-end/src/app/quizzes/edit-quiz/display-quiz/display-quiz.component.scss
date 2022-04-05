@@ -1,0 +1,34 @@
+
+.container{
+  box-shadow: black;
+  background: orange;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.first{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.theme{
+  display: flex;
+  justify-content: space-around;
+}
+
+.presentation{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+
+.contexte{
+  margin: .5em;
+}
+
+.infos{
+  margin: .5em;
+}

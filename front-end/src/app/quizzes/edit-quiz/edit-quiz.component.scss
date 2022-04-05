@@ -1,4 +1,21 @@
 @import '../../../styles.scss';
 
 
+.edit{
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  display: flex;
+}
+
+.display{
+  padding: .5em;
+}
+
+.list{
+  flex-grow: 1;
+  border : red 3px solid;
+}
 
