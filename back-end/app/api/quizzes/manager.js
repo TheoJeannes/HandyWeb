@@ -26,7 +26,14 @@ const buildQuizzes = () => {
   return quizzes.map((quiz) => buildQuizz(quiz.id))
 }
 
+const filterQuizzFromTheme = (themeId) => {
+  const quizzes = Quiz.get()
+  const parsedId = parseInt(themeId, 10)
+  return quizzes.filter((quiz) => quiz.themeId === parsedId)
+}
+
 module.exports = {
   buildQuizz,
   buildQuizzes,
+  filterQuizzFromTheme,
 }

@@ -20,8 +20,6 @@ import {UserListComponent} from './users/user-list/user-list.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ConnexionComponent} from './connexion/connexion.component';
 import {ThemeComponent} from './themes/theme/theme.component';
-import {ThemeFormComponent} from './themes/theme-form/theme-form.component';
-import {ThemeListComponent} from './themes/theme-list/theme-list.component';
 import {
   ConfigurationAutomatiqueComponent
 } from './configurations/configuration-automatique/configuration-automatique.component';
@@ -38,8 +36,10 @@ import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-res
 import {ConfigurationListComponent} from "./configurations/configuration-list/configuration-list.component";
 import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
-import {DisplayQuizComponent} from './quizzes/edit-quiz/display-quiz/display-quiz.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DisplayQuizComponent} from "./quizzes/edit-quiz/display-quiz/display-quiz.component";
+import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
+import {QuizSelectionComponent} from "./quizzes/quiz-selection/quiz-selection.component";
 
 @NgModule({
     declarations: [
@@ -56,10 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         UserFormComponent,
         UserListComponent,
         AccueilComponent,
-        ThemeFormComponent,
         ConnexionComponent,
-        ThemeFormComponent,
-        ThemeListComponent,
         ThemeComponent,
         ConfigurationAutomatiqueComponent,
         ConfigurationManuelleComponent,
@@ -71,7 +68,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ConfigurationListComponent,
         ConfigurationComponent,
         ConfigurationFormComponent,
-        DisplayQuizComponent
+        DisplayQuizComponent,
+        ThemeSelectionComponent,
+        QuizSelectionComponent,
     ],
     imports: [
         BrowserModule,
