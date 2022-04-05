@@ -59,6 +59,7 @@ export class QuestionListComponent implements OnInit {
     }
 
     indexQuestion(question): void {
+        console.log(question);
         this.index.emit(question.id);
     }
 
