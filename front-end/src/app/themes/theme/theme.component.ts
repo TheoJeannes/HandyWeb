@@ -12,13 +12,13 @@ export class ThemeComponent implements OnInit {
     theme: Theme;
 
     @Output()
-    quizSelected: EventEmitter<Theme> = new EventEmitter<Theme>();
+   themeSelected: EventEmitter<Theme> = new EventEmitter<Theme>();
 
     @Output()
-    editQuiz: EventEmitter<Theme> = new EventEmitter<Theme>();
+    editTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
 
     @Output()
-    deleteQuiz: EventEmitter<Theme> = new EventEmitter<Theme>();
+    deleteTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
 
     constructor() {
     }
@@ -27,15 +27,15 @@ export class ThemeComponent implements OnInit {
     }
 
     selectQuiz(): void {
-        this.quizSelected.emit(this.theme);
+        this.themeSelected.emit(this.theme);
     }
 
     edit(): void {
-        this.editQuiz.emit(this.theme);
+        this.editTheme.emit(this.theme);
     }
 
     delete(): void {
-        this.deleteQuiz.emit(this.theme);
+        this.deleteTheme.emit(this.theme);
     }
 
 }

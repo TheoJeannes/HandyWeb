@@ -20,15 +20,7 @@ import {UserListComponent} from './users/user-list/user-list.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ConnexionComponent} from './connexion/connexion.component';
 import {ThemeComponent} from './themes/theme/theme.component';
-import {
-  ConfigurationAutomatiqueComponent
-} from './configurations/configuration-automatique/configuration-automatique.component';
-import {
-  ConfigurationManuelleComponent
-} from './configurations/configuration-manuelle/configuration-manuelle.component';
-import {
-  ConfigurationSelectionComponent
-} from './configurations/configuration-selection/configuration-selection.component';
+import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 import {EditThemeComponent} from './themes/edit-theme/edit-theme.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from './questions/question-play/question-play.component';
@@ -36,10 +28,21 @@ import {QuizResultComponent} from './quizzes/play-quiz/quiz-result/play-quiz-res
 import {ConfigurationListComponent} from "./configurations/configuration-list/configuration-list.component";
 import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DisplayQuizComponent} from "./quizzes/edit-quiz/display-quiz/display-quiz.component";
-import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 import {QuizSelectionComponent} from "./quizzes/quiz-selection/quiz-selection.component";
+
+import {
+  ConfigurationAutomatiqueComponent
+} from './configurations/configuration-automatique/configuration-automatique.component';
+
+import {
+  ConfigurationManuelleComponent
+} from './configurations/configuration-manuelle/configuration-manuelle.component';
+
+import {
+  ConfigurationSelectionComponent
+} from './configurations/configuration-selection/configuration-selection.component';
 
 @NgModule({
     declarations: [
