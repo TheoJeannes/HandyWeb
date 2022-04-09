@@ -21,9 +21,12 @@ export class QuestionFormComponent implements OnInit {
 
     ngOnInit(): void {
         let i = this.question.answers.length,
-            answer = {isCorrect: false,value: " ",type: "Nouveau",};
-        for(i;i<4;i++)
+            answer = {id: 0,isCorrect: false,value: " ",type: "Nouveau",questionId:this.question.id,quizId:this.question.quizId};
+        for(i;i<4;i++){
+            answer.id = i;
             this.question.answers.push(answer);
+        }
+
     }
 
     editQuestion(): void {

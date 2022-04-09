@@ -21,7 +21,7 @@ export class PlayQuizComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const idQuiz = this.route.snapshot.paramMap.get('idQuiz');
+        const idQuiz = parseInt(this.route.snapshot.paramMap.get('idQuiz'));
         this.quizService.setSelectedQuiz(idQuiz);
     }
 

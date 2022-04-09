@@ -19,7 +19,7 @@ export class EditQuizComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const id = this.route.snapshot.paramMap.get('id');
+        const id = parseInt(this.route.snapshot.paramMap.get('id'));
         this.quizService.setSelectedQuiz(id);
         console.log(this);
     }
@@ -29,7 +29,7 @@ export class EditQuizComponent implements OnInit {
     }
 
     updateQuestions($event: Question) {
-        this.quizService.editQuestion(this.quiz,this.quiz.questions[this.index],$event);
+        this.quizService.editQuestion(this.quiz,$event);
     }
 
     selectQuestion($event: number) {

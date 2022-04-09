@@ -29,37 +29,53 @@ export class QuestionListComponent implements OnInit {
 
     addQuestion(): void {
         let question = this.createQuestion();
+        console.log("Question créee"); console.log(question);
         this.quizService.addQuestion(this.quiz, question);
         this.indexQuestion(question);
 
     }
 
     createQuestion(): Question{
+        const id = this.quiz.questions.length;
         let answer1 = {
+            id : 1,
             value: "A definir",
-            isCorrect: true
+            isCorrect: true,
+            questionId : id,
+            quizId: this.quiz.id
         }
         let answer2 = {
+            id : 2,
             value: "A definir",
-            isCorrect: false
+            isCorrect: false,
+            questionId : id,
+            quizId: this.quiz.id
         }
         let answer3 = {
+            id : 3,
             value: "A definir",
-            isCorrect: false
+            isCorrect: false,
+            questionId : id,
+            quizId: this.quiz.id
         }
         let answer4 = {
+            id : 4,
             value: "A definir",
-            isCorrect: false
+            isCorrect: false,
+            questionId : id,
+            quizId: this.quiz.id
         }
         return {
-            id: this.quiz.questions.length + "",
+            id: id,
             label: "Nouveau",
-            answers: [answer1, answer2, answer3, answer4]
+            answers: [answer1, answer2, answer3, answer4],
+            quizId : this.quiz.id
         };
     }
 
     indexQuestion(question): void {
-        console.log(question);
+        console.log("Id Question");
+        console.log(question.id);
         this.index.emit(question.id);
     }
 
