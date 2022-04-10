@@ -58,7 +58,9 @@ module.exports = class BaseModel {
     if (prevObjIndex === -1) throw new NotFoundError(`Cannot update ${this.name} id=${id} : not found`)
     const updatedItem = { ...this.items[prevObjIndex], ...obj }
     const { error } = Joi.validate(updatedItem, this.schema)
-    if (error) throw new ValidationError(`Update Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error)
+    if (error){
+      throw new ValidationError(`Update Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
+    }
     this.items[prevObjIndex] = updatedItem
     this.save()
     return updatedItem
@@ -72,18 +74,29 @@ module.exports = class BaseModel {
     this.save()
   }
 
-  deleteQuestion(id,questionId,quizId) {
+  deleteAnswer(id,questionId,quizId) {
     if (typeof id === 'string') id = parseInt(id, 10)
     if (typeof quizId === 'string') quizId = parseInt(quizId, 10)
     if (typeof questionId === 'string') questionId = parseInt(questionId, 10)
-    console.log(this.items);
-    console.log(id + " " + questionId + " " + quizId);
     const objIndex = this.items.findIndex((item) => item.id === id && item.quizId === quizId && item.questionId === questionId)
-    console.log("Delete question?")
     if (objIndex === -1) throw new NotFoundError(`Cannot delete ${this.name} id=${id} : not found`)
-    console.log("Done")
-    this.items = this.items.filter((item) => item.id !== id)
+    this.items = this.items.filter((item) => item.id !== id || item.quizId !== quizId || item.questionId !== questionId)
     this.save()
+  }
+
+  updateQuestion(id,quizId,obj){
+    if (typeof id === 'string') id = parseInt(id, 10)
+    if (typeof quizId === 'string') quizId = parseInt(quizId, 10)
+    const prevObjIndex = this.items.findIndex((item) => item.id === id && item.quizId === quizId)
+    if (prevObjIndex === -1) throw new NotFoundError(`Cannot update ${this.name} id=${id} : not found`)
+    const updatedItem = { ...this.items[prevObjIndex], ...obj }
+    const { error } = Joi.validate(updatedItem, this.schema)
+    if (error){
+      throw new ValidationError(`Update Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error);
+    }
+    this.items[prevObjIndex] = updatedItem
+    this.save()
+    return updatedItem
   }
 
 }

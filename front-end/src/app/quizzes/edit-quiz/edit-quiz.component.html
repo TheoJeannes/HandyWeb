@@ -5,6 +5,5 @@
         <app-display-quiz class="display" [quiz]="quiz"></app-display-quiz>
         <app-question-list (index)="selectQuestion($event)" class="list" [quiz]="quiz"></app-question-list>
     </div>
-    <!--(output)=sendQuestion()-->
-    <app-question-form class="form" (questionEdited)="updateQuestions($event)" [question]="quiz.questions[index]"></app-question-form>
+    <app-question-form class="form" (questionEdited)="updateQuestions($event)" [question]="selectedQuestion"></app-question-form>
 </ng-container>

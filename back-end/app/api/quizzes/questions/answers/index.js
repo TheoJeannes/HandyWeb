@@ -66,15 +66,12 @@ router.put('/:answerId', (req, res) => {
 })
 
 router.delete('/:answerId', (req, res) => {
-  console.log("Delete Begin")
   try {
     console.log(req.params);
-    Answer.deleteQuestion(req.params.answerId,req.params.questionId,req.params.quizId)
-    console.log("delete")
+    Answer.deleteAnswer(req.params.answerId,req.params.questionId,req.params.quizId)
     res.status(204).end()
   } catch (err) {
     if (err.name === 'NotFoundError') {
-      console.log("Why ?")
       res.status(404).end()
     } else {
       res.status(500).json(err)

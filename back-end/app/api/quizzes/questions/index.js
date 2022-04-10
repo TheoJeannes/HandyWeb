@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const { Answer, Quiz, Question } = require('../../../models')
+const { Quiz, Question } = require('../../../models')
 const manageAllErrors = require('../../../utils/routes/error-management')
 const AnswersRouter = require('./answers')
 const { filterQuestionsFromQuizz, getQuestionFromQuiz } = require('./manager')
@@ -34,12 +34,12 @@ router.post('/', (req, res) => {
     // Check if quizId exists, if not it will throw a NotFoundError
     Quiz.getById(req.params.quizId)
     const quizId = parseInt(req.params.quizId, 10)
-    let question = Question.create({ id: parseInt(req.body.id),label: req.body.label, quizId })
+    let question = Question.create({ id: parseInt(req.body.id),label: req.body.label, quizId, answers: req.body.answers})
     // If answers have been provided in the request, we create the answer and update the response to send.
-    if (req.body.answers && req.body.answers.length > 0) {
-      const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
-      question = { ...question, answers }
-    }
+    // if (req.body.answers && req.body.answers.length > 0) {
+    //   const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
+    //   question = { ...question, answers }
+    // }
     res.status(201).json(question)
   } catch (err) {
     manageAllErrors(res, err)
@@ -48,8 +48,11 @@ router.post('/', (req, res) => {
 
 router.put('/:questionId', (req, res) => {
   try {
-    const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
-    const updatedQuestion = Question.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
+    console.log("Update Question");
+    // const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
+    // console.log(question)
+    const updatedQuestion = Question.updateQuestion(req.params.questionId, req.params.quizId ,{ label: req.body.label, answers : req.body.answers })
+    console.log(updatedQuestion)
     res.status(200).json(updatedQuestion)
   } catch (err) {
     manageAllErrors(res, err)

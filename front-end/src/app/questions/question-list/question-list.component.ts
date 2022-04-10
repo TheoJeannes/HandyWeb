@@ -29,14 +29,15 @@ export class QuestionListComponent implements OnInit {
 
     addQuestion(): void {
         let question = this.createQuestion();
-        console.log("Question créee"); console.log(question);
+        console.log("Adding")
         this.quizService.addQuestion(this.quiz, question);
+        console.log("Indexing")
         this.indexQuestion(question);
-
+        console.log("Done")
     }
 
     createQuestion(): Question{
-        const id = this.quiz.questions.length;
+        const id = this.newId(this.quiz);
         let answer1 = {
             id : 1,
             value: "A definir",
@@ -65,6 +66,7 @@ export class QuestionListComponent implements OnInit {
             questionId : id,
             quizId: this.quiz.id
         }
+        console.log(id);
         return {
             id: id,
             label: "Nouveau",
@@ -74,13 +76,17 @@ export class QuestionListComponent implements OnInit {
     }
 
     indexQuestion(question): void {
-        console.log("Id Question");
-        console.log(question.id);
         this.index.emit(question.id);
     }
 
     deleteQuestion(question: Question): void {
         this.quizService.deleteQuestion(this.quiz, question);
+    }
+
+    newId(quiz : Quiz):number{
+        if(quiz.questions.length === 0)
+            return 0;
+       return Math.max(...quiz.questions.map(x => x.id)) +1 ;
     }
 
 }

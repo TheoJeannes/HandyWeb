@@ -60,6 +60,8 @@ export class QuizService {
 
   editQuiz(quiz: Quiz){
     const urlWithId = this.quizUrl + '/' + quiz.id;
+    console.log(urlWithId)
+    console.log(quiz)
     this.http.put<Quiz>(urlWithId,quiz,this.httpOptions).subscribe(()=> this.retrieveQuizzes());
   }
 
@@ -73,9 +75,10 @@ export class QuizService {
     this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  editQuestion(quiz: Quiz, question: Question): void {
-    const urlWithId = this.quizUrl + "/" + quiz.id + "/" + question.id
-    this.http.put<Quiz>(urlWithId,quiz,this.httpOptions).subscribe(()=> this.retrieveQuizzes());
+  editQuestion(question: Question): void {
+    const urlWithId = this.quizUrl + "/" + question.quizId + "/" + this.questionsPath + "/" + question.id
+    console.log(question)
+    this.http.put<Quiz>(urlWithId,question,this.httpOptions).subscribe(()=> this.setSelectedQuiz(question.quizId));
   }
 
   deleteQuestion(quiz: Quiz, question: Question): void {
@@ -83,7 +86,6 @@ export class QuizService {
     let answerUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     for(let answer of question.answers){
        answerUrl = questionUrl+ '/' + this.answersPath + '/'+ answer.id;
-       console.log(answerUrl);
        this.http.delete<Answer>(answerUrl, this.httpOptions).subscribe( () => this.setSelectedQuiz(quiz.id));
     }
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));

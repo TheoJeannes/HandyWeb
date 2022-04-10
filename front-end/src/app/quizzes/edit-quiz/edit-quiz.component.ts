@@ -12,7 +12,8 @@ import {Question} from '../../../models/question.model';
 export class EditQuizComponent implements OnInit {
 
     public quiz: Quiz;
-    public index : number = 0;
+    // public index : number = 0;
+    public selectedQuestion: Question;
 
     constructor(private route: ActivatedRoute, private quizService: QuizService) {
         this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -24,15 +25,12 @@ export class EditQuizComponent implements OnInit {
         console.log(this);
     }
 
-    addQuestion(question: Question){
-            this.quizService.addQuestion(this.quiz, question);
-    }
-
     updateQuestions($event: Question) {
-        this.quizService.editQuestion(this.quiz,$event);
+        this.quizService.editQuestion($event);
     }
 
     selectQuestion($event: number) {
-        this.index=$event;
+        this.selectedQuestion = this.quiz.questions.filter(e => e.id == $event)[0];
+        // this.index=$event;
     }
 }

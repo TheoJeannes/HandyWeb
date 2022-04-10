@@ -2,7 +2,7 @@
 
     <div class="summary">
         <label for="wording">Enoncé de la question</label>
-        <input type="text" id="wording" [ngModel]="question.label">
+        <input type="text" id="wording" [(ngModel)]="question.label">
         <div id="Image-de-la-question" (click)="changePicture()">
             <img *ngIf="question.image" class="image" src="{{question.image}}" alt="Image du Quizz"/>
         </div>
@@ -12,8 +12,8 @@
         <div *ngFor="let answer of question.answers; let i=index">
                 <label>
                     <button class="button">
-                        <input type="text" [ngModel]="answer.value">
-                        <input type="checkbox" [ngModel]="answer.isCorrect">
+                        <input type="text" [(ngModel)]="answer.value">
+                        <input type="checkbox" [(ngModel)]="answer.isCorrect">
                     </button>
                 </label>
         </div>

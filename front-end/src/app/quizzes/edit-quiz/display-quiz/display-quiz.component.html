@@ -3,16 +3,16 @@
         <div class="first">
             <div class="contexte">
                 <div>
-                    <img src="{{quiz.image}}" alt="Image du Quiz">
+                    <img src="{{quiz.image}}" height="50" width="150" alt="Image du Quiz">
                     <label for="image">Saisir le lien de l'image</label>
-                    <input [ngModel]="quiz.image" id="image">
+                    <input [(ngModel)]="quiz.image" id="image">
                 </div>
                 <div class="nbQuestions">
                     <p>Nombre de Questions : {{quiz.questions.length}}</p>
                 </div>
             </div>
             <div class="infos">
-                <input [ngModel]="quiz.name">
+                <input [(ngModel)]="quiz.name">
                 <div class="temps">Durée Moyenne : {{quiz.questions.length*quiz.difficulte}}</div>
                 <div class="difficultee">
                     Difficulté :
@@ -26,8 +26,9 @@
         </div>
         <div class="theme">
             <p>
-                Theme : <input [ngModel]="quiz.theme">
+                Theme : <input [(ngModel)]="quiz.theme">
             </p>
         </div>
     </div>
+    <button class="buttons" (click)="validate()">Valider</button>
 </div>
