@@ -72,4 +72,18 @@ module.exports = class BaseModel {
     this.save()
   }
 
+  deleteQuestion(id,questionId,quizId) {
+    if (typeof id === 'string') id = parseInt(id, 10)
+    if (typeof quizId === 'string') quizId = parseInt(quizId, 10)
+    if (typeof questionId === 'string') questionId = parseInt(questionId, 10)
+    console.log(this.items);
+    console.log(id + " " + questionId + " " + quizId);
+    const objIndex = this.items.findIndex((item) => item.id === id && item.quizId === quizId && item.questionId === questionId)
+    console.log("Delete question?")
+    if (objIndex === -1) throw new NotFoundError(`Cannot delete ${this.name} id=${id} : not found`)
+    console.log("Done")
+    this.items = this.items.filter((item) => item.id !== id)
+    this.save()
+  }
+
 }

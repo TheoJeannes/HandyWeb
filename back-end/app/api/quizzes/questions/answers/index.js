@@ -69,9 +69,7 @@ router.delete('/:answerId', (req, res) => {
   console.log("Delete Begin")
   try {
     console.log(req.params);
-    // getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.answerId)
-    console.log("getAnswer")
-    Answer.deleteQuestion(req.params.answerId)
+    Answer.deleteQuestion(req.params.answerId,req.params.questionId,req.params.quizId)
     console.log("delete")
     res.status(204).end()
   } catch (err) {
