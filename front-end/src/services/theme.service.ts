@@ -41,13 +41,6 @@ export class ThemeService {
         this.http.post<Theme>(this.themeUrl, this.httpOptions).subscribe(() => this.retrieveTheme());
     }
 
-    setSelectedQuiz(themeId: string): void {
-        const urlWithId = this.themeUrl + '/' + themeId;
-        this.http.get<Theme>(urlWithId).subscribe((theme) => {
-            this.themeSelected$.next(theme);
-        });
-    }
-
     deleteTheme(theme: Theme): void {
         const urlWithId = this.themeUrl + '/' + theme.id;
         this.http.delete<Theme>(urlWithId, this.httpOptions).subscribe(() => this.retrieveTheme());

@@ -26,7 +26,7 @@ export class ThemeComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    selectQuiz(): void {
+    selectTheme(): void {
         this.themeSelected.emit(this.theme);
     }
 

@@ -37,11 +37,9 @@ export const THEME_LIST: Theme[] = [
     {
         id: '1',
         name: 'Actor', // What's happening if I change this value..?
-        quizz: [QUIZ_LIST[0]],
     },
     {
         id: '2',
         name: 'Technos',
-        quizz:[QUIZ_LIST[1]],
     }
 ];

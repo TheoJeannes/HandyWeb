@@ -16,7 +16,7 @@ import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list', component: QuizListComponent},
+    {path: 'quiz-list/:themeName', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'play-quiz/:idQuiz', component: PlayQuizComponent},
     {path: 'accueil', component: AccueilComponent},
