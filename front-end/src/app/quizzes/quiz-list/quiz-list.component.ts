@@ -19,6 +19,7 @@ export class QuizListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(this);
     }
 
     quizSelected(quiz: Quiz): void {

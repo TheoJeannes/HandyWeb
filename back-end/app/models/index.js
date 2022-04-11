@@ -3,11 +3,13 @@ const Question = require('./question.model.js')
 const Quiz = require('./quiz.model.js')
 const User = require('./user.model.js')
 const Config = require('./config.model.js')
+const Theme = require('./theme.model.js')
 
 module.exports = {
   Answer,
   Question,
   Quiz,
   User,
-  Config
+  Config,
+  Theme
 }

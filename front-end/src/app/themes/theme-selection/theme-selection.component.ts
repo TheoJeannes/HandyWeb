@@ -35,11 +35,16 @@ export class ThemeSelectionComponent implements OnInit {
 
   addTheme(): void{
     let theme = {
-      id: this.themeList.length.toString(),
+      id: this.newId(),
       name: "Default"
     }
     this.themeService.addTheme(theme);
-
     this.editTheme(theme);
+  }
+
+  newId():number{
+    if(this.themeList.length === 0)
+      return 0;
+    return Math.max(...this.themeList.map(x => x.id)) +1 ;
   }
 }

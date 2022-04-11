@@ -16,7 +16,7 @@ import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list/:themeName', component: QuizListComponent},
+    {path: 'quiz-list/:theme', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'play-quiz/:idQuiz', component: PlayQuizComponent},
     {path: 'accueil', component: AccueilComponent},
@@ -27,7 +27,7 @@ const routes: Routes = [
     {path: 'question-play', component: QuestionPlayComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
     {path: 'theme', component: ThemeComponent},
-    {path: 'edit-theme/:themeId', component: EditThemeComponent},
+    {path: 'edit-theme/:id', component: EditThemeComponent},
     {path: 'theme-selection', component: ThemeSelectionComponent}
 ];
 

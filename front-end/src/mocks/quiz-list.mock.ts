@@ -42,11 +42,11 @@ export const QUIZ_LIST: Quiz[] = [
 // @ts-ignore
 export const THEME_LIST: Theme[] = [
     {
-        id: '1',
+        id: 1,
         name: 'Actor', // What's happening if I change this value..?
     },
     {
-        id: '2',
+        id: 2,
         name: 'Technos',
     }
 ];

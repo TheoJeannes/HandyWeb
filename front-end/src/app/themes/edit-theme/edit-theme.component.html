@@ -1,6 +1,6 @@
 <button class="button-retour" routerLink="/accueil">Retour</button>
 
-<div class="card">
+<div class="card" *ngIf="theme">
     <h2>Modifiez un Thème !</h2>
     <div class="name">
         <p>
@@ -8,7 +8,7 @@
         </p>
     </div>
         <div>
-            <img src="{{theme.image}}" height="50" width="150" alt="Image du Quiz">
+            <img src="{{theme.image}}" height="50" width="150" alt="Image du Quiz" *ngIf="theme.image">
             <label for="image">Saisir le lien de l'image</label>
             <input [(ngModel)]="theme.image" id="image">
         </div>

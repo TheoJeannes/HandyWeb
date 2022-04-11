@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { THEME_LIST } from '../mocks/quiz-list.mock';
-import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {Theme} from "../models/theme.model";
 
@@ -37,6 +36,13 @@ export class ThemeService {
         });
     }
 
+    setSelectedTheme(themeId: number): void {
+        const urlWithId = this.themeUrl + '/' + themeId;
+        this.http.get<Theme>(urlWithId).subscribe((quiz) => {
+            this.themeSelected$.next(quiz);
+        });
+    }
+
     addTheme(theme: Theme): void {
         this.http.post<Theme>(this.themeUrl, theme, this.httpOptions).subscribe(() => this.retrieveTheme());
     }
@@ -48,8 +54,8 @@ export class ThemeService {
 
     editTheme(theme: Theme): void {
         const urlWithId = this.themeUrl + '/' + theme.id;
-        console.log(urlWithId)
-        console.log(theme)
+        console.log(urlWithId);
+        console.log(theme);
         this.http.put<Quiz>(urlWithId, theme, this.httpOptions).subscribe(()=> this.retrieveTheme());
     }
 }

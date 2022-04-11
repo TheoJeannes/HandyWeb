@@ -2,14 +2,13 @@ const { Router } = require('express')
 
 const { Theme } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
-const { buildTheme, buildThemes } = require('./manager')
+
 
 const router = new Router()
 
 router.get('/', (req, res) => {
     try {
-        const themes = buildThemes()
-        res.status(200).json(themes)
+        res.status(200).json(Theme.get())
     } catch (err) {
         manageAllErrors(res, err)
     }
@@ -17,7 +16,9 @@ router.get('/', (req, res) => {
 
 router.get('/:themeId', (req, res) => {
     try {
-        const theme = buildTheme(req.params.themeId)
+        console.log(req.params)
+        const theme = Theme.getById(req.params.themeId)
+        console.log(theme)
         res.status(200).json(theme)
     } catch (err) {
         manageAllErrors(res, err)
@@ -27,6 +28,7 @@ router.get('/:themeId', (req, res) => {
 router.post('/', (req, res) => {
     try {
         const theme = Theme.create({ ...req.body })
+        console.log(theme)
         res.status(201).json(theme)
     } catch (err) {
         manageAllErrors(res, err)
