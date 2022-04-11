@@ -15,11 +15,10 @@ export class HeaderComponent implements OnInit {
         this.userService.userSelected$.subscribe((user) => this.user = user);
     }
 
-    ngOnInit(): void {
+    ngOnInit() {
     }
 
     disconnectUser(): void {
         this.userService.disconnect()
     }
-
 }
