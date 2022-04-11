@@ -12,6 +12,8 @@ export class UserService {
   /*
    The list of user.
    */
+
+  public static USER = 'user';
   private users: User[] = [];
 
   /*
@@ -34,13 +36,20 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.retrieveUsers();
-    // put a default user
-    const user: User = {
-      firstName: "default",
-      lastName: "1"
-    }
 
-    setTimeout(() => this.logIn(user), 200);
+    const user = JSON.parse(localStorage.getItem(UserService.USER));
+    console.log(user);
+    if (user) {
+      setTimeout(() => this.logIn(user), 200);
+      console.log(this.userSelected)
+    }
+    // // put a default user
+    // const user: User = {
+    //   firstName: "default",
+    //   lastName: "1"
+    // }
+    //
+    // setTimeout(() => this.logIn(user), 200);
   }
 
   retrieveUsers(): void {
@@ -72,9 +81,16 @@ export class UserService {
     if (userDatabase !== undefined) {
       this.userSelected = userDatabase;
       this.userSelected$.next(userDatabase);
+      localStorage.setItem('user', JSON.stringify(this.userSelected))
       return true;
     }
     return false;
+  }
+
+  disconnect() {
+    this.userSelected = undefined;
+    this.userSelected$.next(undefined);
+    localStorage.removeItem(UserService.USER)
   }
 
   retrieveConfigs(): void {

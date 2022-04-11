@@ -2,6 +2,7 @@
     <button class="navigation" routerLink="/accueil">Accueil</button>
     <button class="navigation" routerLink="/quiz-list">Quiz</button>
     <button class="navigation" routerLink="/config">Paramètres</button>
-    <button class="navigation" routerLink="/connexion">Se Déconnecter</button>
+    <button class="navigation" *ngIf="user" routerLink="/connexion" (click)="disconnectUser()">Se Déconnecter</button>
+    <button class="navigation" *ngIf="!user" routerLink="/connexion">Se Connecter</button>
     <label class="user" *ngIf="user">Utilisateur : {{user.firstName}} {{user.lastName}}</label>
 </div>
