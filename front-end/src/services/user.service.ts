@@ -23,7 +23,7 @@ export class UserService {
     = new BehaviorSubject([]);
 
   private userSelected: User;
-  public userSelected$: Subject<User> = new Subject();
+  public userSelected$: BehaviorSubject<User> = new BehaviorSubject(JSON.parse(localStorage.getItem(UserService.USER)));
 
   private configs: Config[] = [];
   public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
@@ -38,10 +38,8 @@ export class UserService {
     this.retrieveUsers();
 
     const user = JSON.parse(localStorage.getItem(UserService.USER));
-    console.log(user);
     if (user) {
       setTimeout(() => this.logIn(user), 200);
-      console.log(this.userSelected)
     }
     // // put a default user
     // const user: User = {

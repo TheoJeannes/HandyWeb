@@ -28,7 +28,7 @@ export class ConnexionComponent implements OnInit {
         console.log(user)
         if (this.userService.logIn(user)) {
             console.log('Connexion réussie')
-            setTimeout(() => this.router.navigateByUrl('/accueil'), 200);
+            setTimeout(() => this.router.navigate(['/accueil']), 200);
         } else {
             alert('Erreur de connexion : l\'utilisateur : ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
             console.log('Connexion échouée')

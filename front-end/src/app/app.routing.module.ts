@@ -10,21 +10,23 @@ import {ConfigurationAutomatiqueComponent} from './configurations/configuration-
 import {ConfigurationManuelleComponent} from './configurations/configuration-manuelle/configuration-manuelle.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from "./questions/question-play/question-play.component";
+import {AuthGuardService as AuthGuard} from "../services/AuthGuardService";
+import {UserService} from "../services/user.service";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
 import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 
 const routes: Routes = [
-    {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list/:theme', component: QuizListComponent},
-    {path: 'edit-quiz/:id', component: EditQuizComponent},
-    {path: 'play-quiz/:idQuiz', component: PlayQuizComponent},
-    {path: 'accueil', component: AccueilComponent},
+    {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
+    {path: 'quiz-list/:theme', component: QuizListComponent, canActivate: [AuthGuard]},
+    {path: 'edit-quiz/:id', component: EditQuizComponent, canActivate: [AuthGuard]},
+    {path: 'play-quiz/:idQuiz', component: PlayQuizComponent, canActivate: [AuthGuard]},
+    {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard]},
     {path: 'connexion', component: ConnexionComponent},
-    {path: 'config', component: ConfigurationSelectionComponent},
-    {path: 'config/auto', component: ConfigurationAutomatiqueComponent},
-    {path: 'config/manuel', component: ConfigurationManuelleComponent},
-    {path: 'question-play', component: QuestionPlayComponent},
+    {path: 'config', component: ConfigurationSelectionComponent, canActivate: [AuthGuard]},
+    {path: 'config/auto', component: ConfigurationAutomatiqueComponent, canActivate: [AuthGuard]},
+    {path: 'config/manuel', component: ConfigurationManuelleComponent, canActivate: [AuthGuard]},
+    {path: 'question-play', component: QuestionPlayComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
     {path: 'theme', component: ThemeComponent},
     {path: 'edit-theme/:id', component: EditThemeComponent},
@@ -33,6 +35,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
+    providers : [AuthGuard, UserService],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
