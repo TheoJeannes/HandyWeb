@@ -14,6 +14,8 @@ export class UserService {
    */
 
   public static USER = 'user';
+  public static CONFIG = 'config';
+
   private users: User[] = [];
 
   /*
@@ -25,10 +27,9 @@ export class UserService {
   private userSelected: User;
   public userSelected$: BehaviorSubject<User> = new BehaviorSubject(JSON.parse(localStorage.getItem(UserService.USER)));
 
-  private configs: Config[] = [];
   public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
-  public configSelected$: Subject<Config> = new Subject();
+  public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(JSON.parse(localStorage.getItem(UserService.CONFIG)));
 
   private userUrl = serverUrl + '/users';
 
@@ -79,7 +80,7 @@ export class UserService {
     if (userDatabase !== undefined) {
       this.userSelected = userDatabase;
       this.userSelected$.next(userDatabase);
-      localStorage.setItem('user', JSON.stringify(this.userSelected))
+      localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected))
       return true;
     }
     return false;
@@ -88,13 +89,13 @@ export class UserService {
   disconnect() {
     this.userSelected = undefined;
     this.userSelected$.next(undefined);
-    localStorage.removeItem(UserService.USER)
+    localStorage.removeItem(UserService.USER);
+    localStorage.removeItem(UserService.CONFIG);
   }
 
   retrieveConfigs(): void {
     const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
     this.http.get<Config[]>(urlWithId, this.httpOptions).subscribe((configList) => {
-      this.configs = configList;
       this.configs$.next(configList);
     });
   }
@@ -106,11 +107,15 @@ export class UserService {
 
   setSelectedConfig(config: Config) {
     const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
-    this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => this.configSelected$.next(config));
+    this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
+      localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
+      this.configSelected$.next(config);
+    });
   }
 
   deleteConfig(config: Config) {
     const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
     this.http.delete<Config>(urlWithId, this.httpOptions).subscribe(() => this.retrieveConfigs())
+    localStorage.removeItem(UserService.CONFIG)
   }
 }
