@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { THEME_LIST } from '../mocks/quiz-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {Theme} from "../models/theme.model";
 
@@ -10,7 +9,7 @@ import {Theme} from "../models/theme.model";
     providedIn: 'root'
 })
 export class ThemeService {
-    private themes: Theme[] = THEME_LIST;
+    private themes: Theme[] = [];
 
     /*
      Observable which contains the list of themes.
