@@ -27,7 +27,7 @@ const routes: Routes = [
     {path: 'question-play', component: QuestionPlayComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
     {path: 'theme', component: ThemeComponent},
-    {path: 'edit-theme', component: EditThemeComponent},
+    {path: 'edit-theme/:themeId', component: EditThemeComponent},
     {path: 'theme-selection', component: ThemeSelectionComponent}
 ];
 

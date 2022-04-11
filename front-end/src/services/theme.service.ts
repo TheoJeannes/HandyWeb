@@ -37,8 +37,8 @@ export class ThemeService {
         });
     }
 
-    addTheme(quiz: Quiz): void {
-        this.http.post<Theme>(this.themeUrl, this.httpOptions).subscribe(() => this.retrieveTheme());
+    addTheme(theme: Theme): void {
+        this.http.post<Theme>(this.themeUrl, theme, this.httpOptions).subscribe(() => this.retrieveTheme());
     }
 
     deleteTheme(theme: Theme): void {
