@@ -12,7 +12,6 @@ import {Question} from '../../../models/question.model';
 export class EditQuizComponent implements OnInit {
 
     public quiz: Quiz;
-    // public index : number = 0;
     public selectedQuestion: Question;
 
     constructor(private route: ActivatedRoute, private quizService: QuizService) {
