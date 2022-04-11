@@ -12,10 +12,13 @@ import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from "./questions/question-play/question-play.component";
 import {AuthGuardService as AuthGuard} from "../services/AuthGuardService";
 import {UserService} from "../services/user.service";
+import {ThemeComponent} from "./themes/theme/theme.component";
+import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
+import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
-    {path: 'quiz-list', component: QuizListComponent, canActivate: [AuthGuard]},
+    {path: 'quiz-list/:themeName', component: QuizListComponent, canActivate: [AuthGuard]},
     {path: 'edit-quiz/:id', component: EditQuizComponent, canActivate: [AuthGuard]},
     {path: 'play-quiz/:idQuiz', component: PlayQuizComponent, canActivate: [AuthGuard]},
     {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard]},
@@ -25,7 +28,9 @@ const routes: Routes = [
     {path: 'config/manuel', component: ConfigurationManuelleComponent, canActivate: [AuthGuard]},
     {path: 'question-play', component: QuestionPlayComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
-    {path: '**', redirectTo:'/accueil'}
+    {path: 'theme', component: ThemeComponent},
+    {path: 'edit-theme/:themeId', component: EditThemeComponent},
+    {path: 'theme-selection', component: ThemeSelectionComponent}
 ];
 
 @NgModule({

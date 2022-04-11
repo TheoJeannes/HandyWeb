@@ -30,10 +30,8 @@ export class QuestionFormComponent implements OnInit {
     }
 
     editQuestion(): void {
+        console.log("Question")
+        console.log(this.question)
         this.questionEdited.emit(this.question);
-    }
-
-    changePicture() {
-        //TODO Submit un lien pour l'image a valider
     }
 }
