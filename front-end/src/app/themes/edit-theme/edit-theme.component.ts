@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component, Input, OnInit} from '@angular/core';
 import {ThemeService} from "../../../services/theme.service";
 import {Theme} from "../../../models/theme.model";
 import {Router} from '@angular/router';
@@ -10,23 +9,19 @@ import {Router} from '@angular/router';
     styleUrls: ['./edit-theme.component.scss']
 })
 export class EditThemeComponent implements OnInit {
-    public themeForm: FormGroup;
+   @Input()
+   theme: Theme
 
-    constructor(private router: Router, public formBuilder: FormBuilder, public themeService: ThemeService) {
-        this.themeForm = this.formBuilder.group({
-            name: [''],
-            image: ['']
-        });
+    constructor(private router: Router, private themeService: ThemeService) {
+        this.themeService.themeSelected$.subscribe((quiz) => this.theme = quiz);
+
     }
 
     ngOnInit(): void {
     }
 
-    addTheme(): void {
-        // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
-        const themeToCreate: Theme = this.themeForm.getRawValue() as Theme;
-        this.themeService.addTheme(themeToCreate);
-
+    editTheme(): void {
+        this.themeService.editTheme(this.theme);
         this.router.navigate(['theme-selection']);
     }
 }

@@ -46,7 +46,10 @@ export class ThemeService {
         this.http.delete<Theme>(urlWithId, this.httpOptions).subscribe(() => this.retrieveTheme());
     }
 
-    editTheme(quiz: Quiz, question: Question,newQuestion : Question): void {
-
+    editTheme(theme: Theme): void {
+        const urlWithId = this.themeUrl + '/' + theme.id;
+        console.log(urlWithId)
+        console.log(theme)
+        this.http.put<Quiz>(urlWithId, theme, this.httpOptions).subscribe(()=> this.retrieveTheme());
     }
 }

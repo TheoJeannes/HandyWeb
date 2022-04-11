@@ -1,16 +1,17 @@
-<button class="button-retour" routerLink="/quiz-list">Retour</button>
+<button class="button-retour" routerLink="/accueil">Retour</button>
 
 <div class="card">
     <h2>Modifiez un Thème !</h2>
-    <form class="theme-form" [formGroup]="themeForm">
-        <label for="name">Nom <br>
-            <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-        </label>
+    <div class="name">
+        <p>
+            Nom : <input [(ngModel)]="theme.name">
+        </p>
+    </div>
+        <div>
+            <img src="{{theme.image}}" height="50" width="150" alt="Image du Quiz">
+            <label for="image">Saisir le lien de l'image</label>
+            <input [(ngModel)]="theme.image" id="image">
+        </div>
         <br>
-        <label for="image">Image <br>
-            <input class="input-custom" type="text" id="image" [formControlName]="'image'">
-        </label>
-        <br>
-        <button type="submit" class="buttons" (click)="addTheme()">Valider</button>
-    </form>
+        <button type="submit" class="buttons" (click)="editTheme()">Valider</button>
 </div>
