@@ -1,16 +1,15 @@
 [
   {
     "id": 0,
-    "name": "Test",
-    "image": "http://www.planetecampus.com/wp-content/uploads/2013/11/POLYTECH_RVB.jpg"
+    "name": "Cu"
   },
   {
-    "id": 3,
-    "name": "Cuisine",
+    "id": 1,
+    "name": "Image",
     "image": "https://i.pinimg.com/originals/8e/1c/9a/8e1c9a70f75ddc548c7fcb894f731ddb.jpg"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Default"
   }
 ]
