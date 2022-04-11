@@ -16,6 +16,12 @@ export class UserService {
   public static USER = 'user';
   public static CONFIG = 'config';
 
+  private defaultConfig: Config = {
+    id: '0',
+    name: 'default',
+    size: 5,
+  }
+
   private users: User[] = [];
 
   /*
@@ -29,7 +35,7 @@ export class UserService {
 
   public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
-  public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(JSON.parse(localStorage.getItem(UserService.CONFIG)));
+  public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(this.defaultConfig);
 
   private userUrl = serverUrl + '/users';
 
@@ -41,6 +47,11 @@ export class UserService {
     const user = JSON.parse(localStorage.getItem(UserService.USER));
     if (user) {
       setTimeout(() => this.logIn(user), 200);
+    }
+
+    const config = JSON.parse(localStorage.getItem(UserService.CONFIG));
+    if (config) {
+      this.configSelected$.next(config);
     }
     // // put a default user
     // const user: User = {

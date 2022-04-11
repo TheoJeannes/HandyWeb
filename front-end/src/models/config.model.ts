@@ -1,5 +1,5 @@
 export interface Config {
-    id: string
+    id: string;
     name: string;
     size: number;
 }
