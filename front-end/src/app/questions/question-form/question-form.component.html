@@ -3,8 +3,9 @@
     <div class="summary">
         <label for="wording">Enoncé de la question</label>
         <input type="text" id="wording" [(ngModel)]="question.label">
-        <div id="Image-de-la-question" (click)="changePicture()">
-            <img *ngIf="question.image" class="image" src="{{question.image}}" alt="Image du Quizz"/>
+        <div id="Image-de-la-question">
+            <img *ngIf="question.image" width="150" height="50" class="image" src="{{question.image}}" alt="Image du Quizz"/>
+            <input [(ngModel)]="question.image"/>
         </div>
     </div>
 

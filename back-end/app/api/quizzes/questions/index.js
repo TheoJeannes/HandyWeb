@@ -51,7 +51,7 @@ router.put('/:questionId', (req, res) => {
     console.log("Update Question");
     // const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
     // console.log(question)
-    const updatedQuestion = Question.updateQuestion(req.params.questionId, req.params.quizId ,{ label: req.body.label, answers : req.body.answers })
+    const updatedQuestion = Question.updateQuestion(req.params.questionId, req.params.quizId ,{ label: req.body.label, answers : req.body.answers, image : req.body.image })
     console.log(updatedQuestion)
     res.status(200).json(updatedQuestion)
   } catch (err) {
