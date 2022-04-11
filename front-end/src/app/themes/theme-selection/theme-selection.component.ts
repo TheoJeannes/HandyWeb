@@ -24,4 +24,22 @@ export class ThemeSelectionComponent implements OnInit {
   themeSelected(theme: Theme): void {
     this.router.navigate(['/quiz-list/' + theme.name]);
   }
+
+  editTheme(theme: Theme): void {
+    this.router.navigate(['/edit-theme/' + theme.id]);
+  }
+
+  deleteTheme(theme: Theme): void {
+    this.themeService.deleteTheme(theme);
+  }
+
+  addTheme(): void{
+    let theme = {
+      id: this.themeList.length.toString(),
+      name: "Default"
+    }
+    this.themeService.addTheme(theme);
+
+    this.editTheme(theme);
+  }
 }

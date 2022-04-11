@@ -1,8 +1,17 @@
+<button class="button-retour" routerLink="/quiz-list">Back</button>
+
 <h1> Selectionnez un Thème !</h1>
+
+<button class="buttons add" (click)="addTheme()">Ajouter un thème</button>
+
 <div class="theme-selection">
     <div class="themes" *ngFor="let theme of themeList">
         <!--Inputs & Output allow communication between parent & child components.-->
         <!--More information: https://angular.io/guide/component-interaction-->
-        <app-theme [theme]="theme" (themeSelected)="themeSelected($event)"></app-theme>
+        <app-theme [theme]="theme"
+                   (themeSelected)="themeSelected($event)"
+                   (editTheme)="editTheme($event)"
+                   (deleteTheme)="deleteTheme($event)">
+        </app-theme>
     </div>
 </div>

@@ -1,5 +1,5 @@
 const { Theme } = require('../../models')
-const { filterQuizzFromTheme } = require('./quizzes/manager')
+const { filterQuizzFromTheme } = require('./../quizzes/manager')
 
 const buildTheme = (themeId) => {
     const theme = Theme.getById(themeId)

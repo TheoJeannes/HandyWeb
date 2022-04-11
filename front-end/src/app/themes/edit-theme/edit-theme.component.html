@@ -1,1 +1,16 @@
-<p>edit-theme works!</p>
+<button class="button-retour" routerLink="/quiz-list">Retour</button>
+
+<div class="card">
+    <h2>Modifiez un Thème !</h2>
+    <form class="theme-form" [formGroup]="themeForm">
+        <label for="name">Nom <br>
+            <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+        </label>
+        <br>
+        <label for="image">Image <br>
+            <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+        </label>
+        <br>
+        <button type="submit" class="buttons" (click)="addTheme()">Valider</button>
+    </form>
+</div>
