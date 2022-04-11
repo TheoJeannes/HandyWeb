@@ -22,7 +22,7 @@ export class QuizService {
   private quizzes: Quiz[] = [];
 
   /*
-   Observable which contains the list of the quiz.
+   Observable which contains the list of quizzes.
    Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]>

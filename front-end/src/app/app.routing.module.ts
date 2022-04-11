@@ -10,10 +10,13 @@ import {ConfigurationAutomatiqueComponent} from './configurations/configuration-
 import {ConfigurationManuelleComponent} from './configurations/configuration-manuelle/configuration-manuelle.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {QuestionPlayComponent} from "./questions/question-play/question-play.component";
+import {ThemeComponent} from "./themes/theme/theme.component";
+import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
+import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
-    {path: 'quiz-list', component: QuizListComponent},
+    {path: 'quiz-list/:themeName', component: QuizListComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
     {path: 'play-quiz/:idQuiz', component: PlayQuizComponent},
     {path: 'accueil', component: AccueilComponent},
@@ -23,6 +26,9 @@ const routes: Routes = [
     {path: 'config/manuel', component: ConfigurationManuelleComponent},
     {path: 'question-play', component: QuestionPlayComponent},
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
+    {path: 'theme', component: ThemeComponent},
+    {path: 'edit-theme', component: EditThemeComponent},
+    {path: 'theme-selection', component: ThemeSelectionComponent}
 ];
 
 @NgModule({

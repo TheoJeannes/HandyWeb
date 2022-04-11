@@ -1,1 +1,9 @@
-<p>theme works!</p>
+<div class="theme">
+    <h2>
+        <i class="fab fa-leanpub"></i>
+        {{theme.name}}
+    </h2>
+    <button class="buttons" (click)="selectTheme()">Select</button>
+    <button class="buttons edit" (click)="delete()">Delete</button>
+    <button class="buttons edit" (click)="edit()">Edit</button>
+</div>

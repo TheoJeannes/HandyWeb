@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Theme} from "../../../models/theme.model";
 
 @Component({
     selector: 'app-theme',
@@ -7,10 +8,34 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ThemeComponent implements OnInit {
 
+    @Input()
+    theme: Theme;
+
+    @Output()
+   themeSelected: EventEmitter<Theme> = new EventEmitter<Theme>();
+
+    @Output()
+    editTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
+
+    @Output()
+    deleteTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
+
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    selectTheme(): void {
+        this.themeSelected.emit(this.theme);
+    }
+
+    edit(): void {
+        this.editTheme.emit(this.theme);
+    }
+
+    delete(): void {
+        this.deleteTheme.emit(this.theme);
     }
 
 }
