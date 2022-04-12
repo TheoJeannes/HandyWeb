@@ -1,11 +1,12 @@
-const { Router } = require('express')
+const {Router} = require('express')
 
 const manageAllErrors = require('../../../utils/routes/error-management')
-const { User, Config} = require("../../../models");
-const { filterConfigsFromUser } = require("./manager");
+const {User, Config} = require("../../../models");
+const {filterConfigsFromUser} = require("./manager");
 const {getConfigFromUser} = require("./manager");
+const ValidationError = require("../../../utils/errors/validation-error");
 
-const router = new Router({ mergeParams: true })
+const router = new Router({mergeParams: true})
 
 router.get('/', (req, res) => {
     try {
@@ -33,10 +34,16 @@ router.post('/', (req, res) => {
         // Check if userId exists, if not it will throw a NotFoundError
         User.getById(req.params.userId)
         const userId = parseInt(req.params.userId, 10)
-        let config = Config.create({ name: req.body.name, userId: userId, size: req.body.size })
 
+        if (Config.get().find(c => c.userId === userId && c.name === req.body.name)) {
+            throw new ValidationError("L'utilisateur possède déjà une config avec le même nom",
+                "L'utilisateur possède déjà une config avec le même nom")
+        }
+
+        let config = Config.create({name: req.body.name, userId: userId, size: req.body.size, id: Date.now()})
         // If answers have been provided in the request, we create the answer and update the response to send.
         res.status(201).json(config)
+
     } catch (err) {
         manageAllErrors(res, err)
     }

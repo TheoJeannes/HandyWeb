@@ -26,7 +26,7 @@ export class ConfigurationListComponent implements OnInit {
   }
 
   selectConfig(config: Config) {
-    this.userService.setSelectedConfig(config);
+    this.userService.setSelectedUserConfig(config);
   }
 
 }

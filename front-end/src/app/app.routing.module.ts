@@ -15,6 +15,7 @@ import {UserService} from "../services/user.service";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
 import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
+import {AdminGuardService as AdminGuard} from '../services/AdminGuardService';
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
@@ -35,7 +36,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    providers : [AuthGuard, UserService],
+    providers : [AuthGuard, AdminGuard,UserService],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

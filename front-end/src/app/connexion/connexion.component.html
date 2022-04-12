@@ -1,5 +1,5 @@
 <div class="switches">
-    <div class="toggle-switch buttons">
+    <div class="toggle-switch buttons" (click)="excentrementButton()">
         <p>Excentrer</p>
         <label class="switch">
             <input type="checkbox">
@@ -7,7 +7,7 @@
         </label>
     </div>
 
-    <div class="toggle-switch buttons">
+    <div class="toggle-switch buttons" (click)="constarsteButton()">
         <p>Contraste</p>
         <label class="switch">
             <input type="checkbox">
@@ -22,10 +22,11 @@
     <form class="form-connexion" [formGroup]="loginForm">
         <input type="text" placeholder="Prénom" [formControlName]="'firstName'">
         <input type="text" placeholder="Nom" [formControlName]="'lastName'">
+        <input [ngClass]="{'visible' : adminButtonOn, 'hidden' : !adminButtonOn}" type="password" placeholder="Mot de passe" [formControlName]="'password'">
         <button class="button-card" (click)="logIn()">Se connecter</button>
     </form>
 
-    <div class="toggle-switch buttons administration">
+    <div class="toggle-switch buttons administration" (click)="adminButton()">
         <p>Administration</p>
         <label class="switch">
             <input type="checkbox">
