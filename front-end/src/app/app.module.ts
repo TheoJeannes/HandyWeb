@@ -29,7 +29,7 @@ import {ConfigurationListComponent} from "./configurations/configuration-list/co
 import {ConfigurationComponent} from "./configurations/configuration/configuration.component";
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DisplayQuizComponent} from "./quizzes/edit-quiz/display-quiz/display-quiz.component";
+import {DisplayQuizComponent} from "./quizzes/display-quiz/display-quiz.component";
 import {QuizSelectionComponent} from "./quizzes/quiz-selection/quiz-selection.component";
 
 import {
@@ -82,7 +82,7 @@ import {
         HttpClientModule,
         FormsModule,
         BrowserAnimationsModule,
-        MatListModule,
+        MatListModule
     ],
     providers: [],
     bootstrap: [AppComponent]

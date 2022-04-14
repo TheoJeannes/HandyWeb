@@ -1,6 +1,6 @@
 <div class="header">
     <button class="navigation" routerLink="/accueil">Accueil</button>
-    <button class="navigation" routerLink="/quiz-list">Quiz</button>
+    <button class="navigation" routerLink="/theme-selection">Quiz</button>
     <button class="navigation" routerLink="/config">Paramètres</button>
     <button class="navigation" *ngIf="(user)" routerLink="/connexion" (click)="disconnectUser()">Se Déconnecter</button>
     <button class="navigation" *ngIf="!(user)" routerLink="/connexion">Se Connecter</button>

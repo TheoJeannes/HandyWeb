@@ -2,7 +2,7 @@
     <h2>Create a new Quiz</h2>
     <form class="quiz-form" [formGroup]="quizForm">
         <label for="name">Title <br>
-            <input class="input-custom" type="text" id="name" [ngModel]="'name'">
+            <input class="input-custom" type="text" id="name" [formControlName]="'name'">
         </label>
         <br>
         <label for="theme">
@@ -13,5 +13,3 @@
         <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
     </form>
 </div>
-<!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->

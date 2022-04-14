@@ -22,7 +22,7 @@ export class ThemeSelectionComponent implements OnInit {
   }
 
   themeSelected(theme: Theme): void {
-    this.router.navigate(['/quiz-list/' + theme.name]);
+    this.router.navigate(['/quiz-list/' + theme.id]);
   }
 
   editTheme(theme: Theme): void {

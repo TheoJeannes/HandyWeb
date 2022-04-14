@@ -48,6 +48,7 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz): void {
+    console.log(quiz);
     this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
   }
 
@@ -60,8 +61,7 @@ export class QuizService {
 
   editQuiz(quiz: Quiz){
     const urlWithId = this.quizUrl + '/' + quiz.id;
-    console.log(urlWithId)
-    console.log(quiz)
+    console.log(quiz.theme)
     this.http.put<Quiz>(urlWithId,quiz,this.httpOptions).subscribe(()=> this.retrieveQuizzes());
   }
 

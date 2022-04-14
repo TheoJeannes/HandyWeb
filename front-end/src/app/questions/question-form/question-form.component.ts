@@ -14,24 +14,20 @@ export class QuestionFormComponent implements OnInit {
     @Output()
     questionEdited : EventEmitter<Question> = new EventEmitter<Question>();
 
-    constructor() {
-        // Form creation
-        console.log(this);
-    }
-
     ngOnInit(): void {
-        let i = this.question.answers.length,
-            answer = {id: 0,isCorrect: false,value: " ",type: "Nouveau",questionId:this.question.id,quizId:this.question.quizId};
-        for(i;i<4;i++){
-            answer.id = i;
-            this.question.answers.push(answer);
+        if(this.question){
+            let i = 0,
+                answer = {id: 0,isCorrect: false,value: " ",type: "Nouveau",questionId:this.question.id,quizId:this.question.quizId};
+            if(this.question.answers)
+                i=this.question.answers.length;
+            for(i;i<4;i++){
+                answer.id = i;
+                this.question.answers.push(answer);
+            }
         }
-
     }
 
     editQuestion(): void {
-        console.log("Question")
-        console.log(this.question)
         this.questionEdited.emit(this.question);
     }
 }
