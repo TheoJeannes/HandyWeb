@@ -16,6 +16,7 @@ import {ThemeComponent} from "./themes/theme/theme.component";
 import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
 import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 import {AdminGuardService as AdminGuard} from '../services/AdminGuardService';
+import {UserFormComponent} from './users/user-form/user-form.component';
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
@@ -31,7 +32,8 @@ const routes: Routes = [
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
     {path: 'theme', component: ThemeComponent},
     {path: 'edit-theme/:id', component: EditThemeComponent},
-    {path: 'theme-selection', component: ThemeSelectionComponent}
+    {path: 'theme-selection', component: ThemeSelectionComponent},
+    {path: 'user-form', component: UserFormComponent}
 ];
 
 @NgModule({

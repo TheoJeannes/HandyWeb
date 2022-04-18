@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {User} from '../../../models/user.model';
+import {Theme} from '../../../models/theme.model';
 
 @Component({
     selector: 'app-user',
@@ -15,6 +16,9 @@ export class UserComponent implements OnInit {
     @Output()
     deleteUser: EventEmitter<User> = new EventEmitter<User>();
 
+    @Output()
+    editTheme: EventEmitter<User> = new EventEmitter<User>();
+
     constructor() {
     }
 
@@ -23,6 +27,10 @@ export class UserComponent implements OnInit {
 
     delete(): void {
         this.deleteUser.emit(this.user);
+    }
+
+    edit(): void {
+        this.editTheme.emit(this.user);
     }
 
 }
