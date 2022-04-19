@@ -43,6 +43,7 @@ import {
   ConfigurationSelectionComponent
 } from './configurations/configuration-selection/configuration-selection.component';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
     declarations: [
@@ -82,7 +83,8 @@ import {EditUserComponent} from './users/edit-user/edit-user.component';
         HttpClientModule,
         FormsModule,
         BrowserAnimationsModule,
-        MatListModule
+        MatListModule,
+        MatRadioModule
     ],
     providers: [],
     bootstrap: [AppComponent]

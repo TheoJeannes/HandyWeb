@@ -13,6 +13,7 @@ export class EditUserComponent implements OnInit {
     @Input()
     user: User;
 
+
     constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {
         this.userService.userToModify$.subscribe((user) => this.user = user);
     }

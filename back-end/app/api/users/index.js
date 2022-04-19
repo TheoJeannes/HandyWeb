@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             throw new ValidationError("Un utilisateur de rôle admin doit avoir un mot de mot passe",
                 "Un utilisateur de rôle admin doit avoir un mot de mot passe");
         }
-        const user = User.create({...req.body, id: Date.now()})
+        const user = User.create({...req.body})
         res.status(201).json(user);
     } catch (err) {
         manageAllErrors(res, err)

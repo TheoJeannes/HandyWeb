@@ -32,16 +32,19 @@ export class UserListComponent implements OnInit {
 
 
     addUser(): void{
-        let id = Date.now();
         let user = {
-            firstName: "Default" + id,
+            firstName: "Default" + this.newId(),
             lastName: "Default",
             role: "user",
-            id: id
+            id: this.newId()
         }
         console.log(user);
         this.userService.addUser(user);
         this.editUser(user);
     }
 
+    newId():number{
+        if(this.userList.length === 0)
+            return 0;
+        return Math.max(...this.userList.map(x => x.id)) +1 ;    }
 }
