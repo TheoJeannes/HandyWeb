@@ -18,7 +18,9 @@ export class UserService {
 
     public defaultConfig: Config = {
         name: 'default',
-        size: 5,
+        size: 15,
+        font: "calibri",
+        colorButtons: "bleu"
     };
 
     private users: User[] = [];

@@ -20,17 +20,24 @@ export class ConnexionComponent implements OnInit {
 
     private configExcentrement: Config = {
         name: "excentrement",
-        size: 5
+        size: 15,
+        font: "calibri",
+        colorButtons: "bleu_navy"
     }
 
     private configConstraste: Config = {
         name: "constraste",
-        size: 20
+        size: 15,
+        font: "luciole",
+        colorButtons: "orange"
     }
 
     private configExcentrementContraste: Config = {
         name: "excentrement + constraste",
-        size: 30
+        size: 15,
+        font: "luciole",
+        colorButtons: "black"
+
     }
 
     constructor(public formBuilder: FormBuilder, public userService : UserService, public router: Router) {
