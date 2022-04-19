@@ -2,7 +2,8 @@
 
 <h1> Selectionnez un Utilisateur !</h1>
 
-<button class="buttons add" routerLink="/user-form">Ajouter un utilisateur</button>
+<button class="buttons add" (click)="addUser()">Ajouter un Utilisateur</button>
+
 
 <div class="user-list">
     <div class="user" *ngFor="let user of userList">

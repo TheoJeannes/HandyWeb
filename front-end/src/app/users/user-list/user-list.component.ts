@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 
 import {User} from '../../../models/user.model';
 import {UserService} from '../../../services/user.service';
-import {Theme} from '../../../models/theme.model';
 import {Router} from '@angular/router';
 
 @Component({
@@ -30,4 +29,19 @@ export class UserListComponent implements OnInit {
     editUser(user: User): void {
         this.router.navigate(['/edit-user/' + user.id]);
     }
+
+
+    addUser(): void{
+        let id = Date.now();
+        let user = {
+            firstName: "Default" + id,
+            lastName: "Default",
+            role: "user",
+            id: id
+        }
+        console.log(user);
+        this.userService.addUser(user);
+        this.editUser(user);
+    }
+
 }
