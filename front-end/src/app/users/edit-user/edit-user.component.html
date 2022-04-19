@@ -1,0 +1,17 @@
+<button class="button-retour" routerLink="/user-list">Retour</button>
+
+<div class="card" *ngIf="user">
+    <h2>Modifiez un utilisateur</h2>
+    <div class="firstName">
+        <p>
+            Prénom : <input [(ngModel)]="user.firstName">
+        </p>
+    </div>
+    <div class="lastName">
+        <p>
+            Nom : <input [(ngModel)]="user.lastName">
+        </p>
+    </div>
+    <br>
+    <button type="submit" class="buttons" (click)="editUser()">Valider</button>
+</div>

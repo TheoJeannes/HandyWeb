@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     deleteUser: EventEmitter<User> = new EventEmitter<User>();
 
     @Output()
-    editTheme: EventEmitter<User> = new EventEmitter<User>();
+    editUser: EventEmitter<User> = new EventEmitter<User>();
 
     constructor() {
     }
@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
     }
 
     edit(): void {
-        this.editTheme.emit(this.user);
+        this.editUser.emit(this.user);
     }
 
 }

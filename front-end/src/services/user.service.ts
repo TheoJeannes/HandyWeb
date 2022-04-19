@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {User} from '../models/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {Config} from '../models/config.model';
+import {Theme} from '../models/theme.model';
+import {Quiz} from '../models/quiz.model';
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +35,9 @@ export class UserService {
 
     private userSelected: User;
     public userSelected$: BehaviorSubject<User> = new BehaviorSubject(JSON.parse(localStorage.getItem(UserService.USER)));
+
+    public userToModify$: Subject<User> = new Subject();
+
 
     public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
@@ -73,13 +78,20 @@ export class UserService {
     addUser(user: User): void {
         this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(
             () => this.retrieveUsers(),
-            () => alert("L'utilisateur est déjà définie"));
+            () => alert("L'utilisateur est déjà défini"));
     }
 
     setSelectedUser(userId: string): void {
         const urlWithId = this.userUrl + '/' + userId;
         this.http.get<User>(urlWithId).subscribe((user) => {
             this.userSelected$.next(user);
+        });
+    }
+
+    setUserToModify(userId: number): void {
+        const urlWithId = this.userUrl + '/' + userId;
+        this.http.get<User>(urlWithId).subscribe((user) => {
+            this.userToModify$.next(user);
         });
     }
 
@@ -160,5 +172,12 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
         this.http.delete<Config>(urlWithId, this.httpOptions).subscribe(() => this.retrieveConfigs());
         localStorage.removeItem(UserService.CONFIG);
+    }
+
+    editUser(user: User): void {
+        const urlWithId = this.userUrl + '/' + user.id;
+        console.log(urlWithId);
+        console.log(user);
+        this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(()=> this.retrieveUsers());
     }
 }
