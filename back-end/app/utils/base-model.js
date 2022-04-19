@@ -99,4 +99,16 @@ module.exports = class BaseModel {
     return updatedItem
   }
 
+  deleteQuestion(quizId,id){
+    console.log("Tchou Tchoi")
+    if (typeof id === 'string') id = parseInt(id, 10)
+    if (typeof quizId === 'string') quizId = parseInt(quizId, 10)
+    console.log(quizId+" "+id)
+    const objIndex = this.items.findIndex((item) => item.id === id && item.quizId === quizId)
+    if (objIndex === -1) throw new NotFoundError(`Cannot delete ${this.name} id=${id} : not found`)
+    this.items = this.items.filter((item) => item.id !== id || item.quizId !== quizId)
+    this.save()
+
+  }
+
 }
