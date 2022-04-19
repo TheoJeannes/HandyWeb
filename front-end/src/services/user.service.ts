@@ -88,30 +88,41 @@ export class UserService {
         this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
     }
 
-    logInUser(user: User): boolean {
+    logInUser(user: User): void {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === user.firstName.toLowerCase()
             && u.lastName.toLowerCase() === user.lastName.toLowerCase());
-        if (userDatabase !== undefined) {
+        if (userDatabase !== undefined && userDatabase.role !== 'admin') {
             this.userSelected = userDatabase;
             this.userSelected$.next(userDatabase);
             localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
-            return true;
         }
-        return false;
+
+        console.log(user, userDatabase)
+
+        if (userDatabase === undefined) {
+            alert("L'utilisateur " + user.firstName + " " + user.lastName + " n'existe pas");
+        } else if (userDatabase.role === "admin") {
+            alert("L'utilisateur " + userDatabase.firstName + " " + userDatabase.lastName + " possède un rôle administrateur");
+        }
     }
 
-    logInAdmin(admin: User): boolean {
+    logInAdmin(admin: User): void {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === admin.firstName.toLowerCase()
-            && u.lastName.toLowerCase() === admin.lastName.toLowerCase()
-            && u.password === admin.password);
+            && u.lastName.toLowerCase() === admin.lastName.toLowerCase());
 
-        if (userDatabase !== undefined) {
+        if (userDatabase !== undefined && userDatabase.role === 'admin' && userDatabase.password === admin.password) {
             this.userSelected = userDatabase;
             this.userSelected$.next(userDatabase);
             localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
-            return true;
         }
-        return false;
+
+        if (userDatabase === undefined) {
+            alert("L'utilisateur " + admin.firstName + " " + admin.lastName + " n'existe pas");
+        } else if (userDatabase.role !== "admin") {
+            alert("L'utilisateur "+ userDatabase.firstName + " " + userDatabase.lastName + " possède un rôle utilisateur");
+        } else if (userDatabase.password !== admin.password) {
+            alert("Le mot de passe est incorrect");
+        }
     }
 
     disconnect() {
