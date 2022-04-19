@@ -17,7 +17,6 @@ export class AccueilComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        //while (this.config === undefined){}
         document.documentElement.style.setProperty('--button-color', '#1e98d7');
         document.documentElement.style.setProperty('--button-hover-color', '#166791');
         document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');

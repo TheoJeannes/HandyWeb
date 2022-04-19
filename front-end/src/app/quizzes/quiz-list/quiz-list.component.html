@@ -1,3 +1,5 @@
+<button class="button-retour" (click)="retour()">Retour</button>
+<h1>Selectionnez un Quiz !</h1>
 <button class="buttons add" (click)="addQuiz()">Ajouter un Quiz</button>
 <div class="quiz-list" *ngIf="quizList.length>0">
     <div class="quiz" *ngFor="let quiz of quizList">

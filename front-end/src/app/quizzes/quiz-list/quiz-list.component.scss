@@ -1,5 +1,11 @@
 @import '../../../styles.scss';
 
+h1{
+  text-align: center;
+}
+
 .quiz-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

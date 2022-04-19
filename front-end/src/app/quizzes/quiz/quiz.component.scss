@@ -1,5 +1,16 @@
 @import '../../../styles.scss';
 
+h2{
+  text-align: center;
+}
+
 .edit {
   margin-left: 0.3em;
+}
+
+.quiz{
+  background-color: #ffaa71;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
 }
