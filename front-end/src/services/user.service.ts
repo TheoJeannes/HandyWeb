@@ -18,7 +18,7 @@ export class UserService {
     public static USER = 'user';
     public static CONFIG = 'config';
 
-    private defaultConfig: Config = {
+    public defaultConfig: Config = {
         name: 'default',
         size: 5,
     };
@@ -71,7 +71,9 @@ export class UserService {
     }
 
     addUser(user: User): void {
-        this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(() => this.retrieveUsers());
+        this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(
+            () => this.retrieveUsers(),
+            () => alert("L'utilisateur est déjà définie"));
     }
 
     setSelectedUser(userId: string): void {

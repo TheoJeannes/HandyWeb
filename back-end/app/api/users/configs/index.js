@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
                 "L'utilisateur possède déjà une config avec le même nom")
         }
 
-        let config = Config.create({name: req.body.name, userId: userId, size: req.body.size, id: Date.now()})
+        let config = Config.create({... req.body, userId, size: req.body.size, id: Date.now()})
         // If answers have been provided in the request, we create the answer and update the response to send.
         res.status(201).json(config)
 

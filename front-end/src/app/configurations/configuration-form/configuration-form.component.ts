@@ -15,7 +15,11 @@ export class ConfigurationFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.configForm = this.formBuilder.group({
       name: [''],
-      size: ['']
+      size: [''],
+      //verticalEccentricity: [''],
+      //horizontalEccentricity: [''],
+      font: [''],
+      colorButtons: ['']
     })
   }
 

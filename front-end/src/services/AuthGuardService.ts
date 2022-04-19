@@ -1,26 +1,24 @@
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
 import {UserService} from "./user.service";
 import {User} from "../models/user.model";
-import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
+
 export class AuthGuardService implements CanActivate {
+    constructor(public userService: UserService, public router: Router) {}
 
-    private user: User;
 
-    constructor(private userService: UserService, private router: Router) {
-        this.userService.userSelected$.subscribe(user => this.user = user);
-    }
-
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        console.log("User AuthGuard ", this.user);
-        if (this.user == undefined) {
+    canActivate(): boolean {
+        let user: User;
+        this.userService.userSelected$.subscribe((u) => user = u);
+        console.log(user)
+        if (user == undefined) {
             this.router.navigate(['/connexion']);
-            console.log("blocked AuthGuard");
-            return false;
+            return true;
         }
-        console.log("passed AuthGuard");
         return true;
     }
 }

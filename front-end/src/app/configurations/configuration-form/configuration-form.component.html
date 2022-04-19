@@ -3,6 +3,24 @@
     <form class="form" [formGroup]="configForm">
         <input type="text" placeholder="nom" [formControlName]="'name'">
         <input type="number" placeholder="taille de la police" [formControlName]="'size'">
+
+<!--        <input type="number" placeholder="excentrement horizontal" [formControlName]="'verticalEccentricity'">-->
+<!--        <input type="text" placeholder="excentrement vertical" [formControlName]="'horizontalEccentricity'">-->
+
+        <select [formControlName]="'font'">
+            <option value="luciole">Luciole</option>
+            <option value="calibri">Calibri</option>
+            <option value="arial">Arial</option>
+        </select>
+
+        <select [formControlName]="'colorButtons'">
+            <option value="blue">Bleu</option>
+            <option value="green">Vert</option>
+            <option value="blue_navy">Bleu Navy</option>
+            <option value="black">Noir</option>
+            <option value="orange">Orange</option>
+        </select>
+
         <button class="button-card" (click)="addConfig()">Ajouter la configuration</button>
     </form>
 </div>

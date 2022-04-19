@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-configurations-manuelle',
@@ -8,10 +9,14 @@ import {Component, OnInit} from '@angular/core';
 export class ConfigurationManuelleComponent implements OnInit {
 
 
-    constructor() {}
+    constructor(public userService: UserService) {}
 
 
     ngOnInit(): void {
+    }
+
+    resetDefaultConfig(): void {
+        this.userService.setSelectedBaseConfig(this.userService.defaultConfig);
     }
 
 }
