@@ -53,4 +53,8 @@ export class QuizListComponent implements OnInit {
             return 0;
         return Math.max(...this.quizList.map(x => x.id)) +1 ;
     }
+
+    retour() {
+        this.router.navigate(['/theme-selection']);
+    }
 }

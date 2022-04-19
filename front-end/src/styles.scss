@@ -30,8 +30,7 @@ body {
   text-decoration: none;
   background-color: $button-color;
   color: $button-font-color;
-  font-size: $button-font-size;
-  //font-size: 22px;
+  font-size: $font-size;
 }
 
 .buttons:hover{
@@ -107,6 +106,7 @@ input:checked + .slider:before {
   border-radius: 20px;
   padding: 10px;
   text-align: center;
+  font-size: $font-size;
 }
 
 .button-retour:hover{

@@ -53,23 +53,12 @@ export class ConnexionComponent implements OnInit {
 
     public logIn() : void {
         const user : User = this.loginForm.getRawValue() as User
-        if (user.password) {
-            if (this.userService.logInAdmin(user)) {
-                console.log('Connexion réussie')
-                setTimeout(() => this.router.navigate(['/accueil']), 200);
-            } else{
-                alert('Erreur de connexion : l\'utilisateur : ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
-                console.log('Connexion échouée')
-            }
-        }
-        else {
-            if (this.userService.logInUser(user)) {
-                console.log('Connexion réussie')
-                setTimeout(() => this.router.navigate(['/accueil']), 200);
-            } else {
-                alert('Erreur de connexion : l\'utilisateur : ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
-                console.log('Connexion échouée')
-            }
+        if (this.adminButtonOn) {
+            this.userService.logInAdmin(user);
+            this.router.navigate(['/accueil']);
+        } else {
+            this.userService.logInUser(user);
+            this.router.navigate(['/accueil']);
         }
     }
 
