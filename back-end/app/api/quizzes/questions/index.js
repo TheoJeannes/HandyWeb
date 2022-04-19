@@ -62,8 +62,8 @@ router.put('/:questionId', (req, res) => {
 router.delete('/:questionId', (req, res) => {
   try {
     // Check if the question id exists & if the question has the same quizId as the one provided in the url.
-    getQuestionFromQuiz(req.params.quizId, req.params.questionId)
-    Question.delete(req.params.questionId)
+    // getQuestionFromQuiz(req.params.quizId, req.params.questionId)
+    Question.deleteQuestion(req.params.quizId,req.params.questionId);
     res.status(204).end()
   } catch (err) {
     manageAllErrors(res, err)

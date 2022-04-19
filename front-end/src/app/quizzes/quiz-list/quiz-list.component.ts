@@ -42,7 +42,8 @@ export class QuizListComponent implements OnInit {
             id: this.newId(),
             name: "Default",
             questions : [],
-            difficulte : 2
+            difficulte : 2,
+            theme : 0
         }
         this.quizService.addQuiz(quiz);
         this.editQuiz(quiz);
