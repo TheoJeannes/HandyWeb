@@ -4,7 +4,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {Answer} from '../models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +31,6 @@ export class QuizService {
 
   private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';
-  private answersPath = 'answers';
 
   private httpOptions = httpOptionsBase;
 
@@ -61,7 +59,6 @@ export class QuizService {
 
   editQuiz(quiz: Quiz){
     const urlWithId = this.quizUrl + '/' + quiz.id;
-    console.log(quiz.theme)
     this.http.put<Quiz>(urlWithId,quiz,this.httpOptions).subscribe(()=> this.retrieveQuizzes());
   }
 
@@ -83,11 +80,6 @@ export class QuizService {
 
   deleteQuestion(quiz: Quiz, question: Question): void {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
-    let answerUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
-    for(let answer of question.answers){
-       answerUrl = questionUrl+ '/' + this.answersPath + '/'+ answer.id;
-       this.http.delete<Answer>(answerUrl, this.httpOptions).subscribe( () => this.setSelectedQuiz(quiz.id));
-    }
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 }
