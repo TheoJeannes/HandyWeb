@@ -1,26 +1,31 @@
-<div class="form">
-    <label>Nommer la configuration</label>
+<div class="div-form">
+    <h2>Nommer la configuration</h2>
     <form class="form" [formGroup]="configForm">
-        <input type="text" placeholder="nom" [formControlName]="'name'">
-        <input type="number" placeholder="taille de la police" [formControlName]="'size'">
+        <input class="form-elem" type="text" placeholder="nom" [formControlName]="'name'">
+        <select class="form-elem"  [formControlName]="'size'">
+            <option value="15">Petit</option>
+            <option value="24">Moyen</option>
+            <option value="36">Grand</option>
+            <option value="48">Trés Grand</option>
+        </select>
 
 <!--        <input type="number" placeholder="excentrement horizontal" [formControlName]="'verticalEccentricity'">-->
 <!--        <input type="text" placeholder="excentrement vertical" [formControlName]="'horizontalEccentricity'">-->
 
-        <select [formControlName]="'font'">
+        <select class="form-elem"  [formControlName]="'font'">
             <option value="luciole">Luciole</option>
             <option value="calibri">Calibri</option>
             <option value="arial">Arial</option>
         </select>
 
-        <select [formControlName]="'colorButtons'">
+        <select class="form-elem" [formControlName]="'colorButtons'">
             <option value="blue">Bleu</option>
             <option value="green">Vert</option>
             <option value="blue_navy">Bleu Navy</option>
             <option value="black">Noir</option>
             <option value="orange">Orange</option>
         </select>
-
-        <button class="button-card" (click)="addConfig()">Ajouter la configuration</button>
     </form>
 </div>
+
+<button class="button-card" (click)="addConfig()">Ajouter la configuration</button>

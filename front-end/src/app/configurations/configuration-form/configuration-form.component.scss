@@ -2,7 +2,25 @@
 
 .form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin : 20px;
-  align-items: center;
+  justify-content: flex-start;
+}
+
+.form-elem {
+  width: 25%;
+}
+
+input, input::-webkit-input-placeholder {
+  size: 20px;
+}
+
+.div-form {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+
+input::placeholder {
+  font-size: $font-size;
 }
