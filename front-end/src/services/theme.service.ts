@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { Quiz } from '../models/quiz.model';
-import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {Theme} from "../models/theme.model";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {Quiz} from '../models/quiz.model';
+import {serverUrl, httpOptionsBase} from '../configs/server.config';
+import {Theme} from '../models/theme.model';
+import {QuizService} from './quiz.service';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +25,7 @@ export class ThemeService {
 
     private httpOptions = httpOptionsBase;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,public quizService: QuizService) {
         this.retrieveTheme();
     }
 
@@ -48,13 +49,27 @@ export class ThemeService {
 
     deleteTheme(theme: Theme): void {
         const urlWithId = this.themeUrl + '/' + theme.id;
+
+        this.deleteQuestions(theme)
+
         this.http.delete<Theme>(urlWithId, this.httpOptions).subscribe(() => this.retrieveTheme());
+    }
+
+    deleteQuestions(theme : Theme){
+        let quizList;
+        this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+            quizList = quizzes;
+        });
+        for(let quiz of quizList) {
+            if (quiz.theme == theme.id)
+                this.quizService.deleteQuiz(quiz);
+        }
     }
 
     editTheme(theme: Theme): void {
         const urlWithId = this.themeUrl + '/' + theme.id;
         console.log(urlWithId);
         console.log(theme);
-        this.http.put<Quiz>(urlWithId, theme, this.httpOptions).subscribe(()=> this.retrieveTheme());
+        this.http.put<Quiz>(urlWithId, theme, this.httpOptions).subscribe(() => this.retrieveTheme());
     }
 }

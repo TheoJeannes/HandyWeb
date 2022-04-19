@@ -1,6 +1,5 @@
-<app-quiz-form></app-quiz-form>
-<button class="buttons add" (click)="addQuiz()">Ajouter une Question</button>
-<div class="quiz-list">
+<button class="buttons add" (click)="addQuiz()">Ajouter un Quiz</button>
+<div class="quiz-list" *ngIf="quizList.length>0">
     <div class="quiz" *ngFor="let quiz of quizList">
         <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" *ngIf="quiz.theme === this.themeId"
                   (deleteQuiz)="deleteQuiz($event)"
