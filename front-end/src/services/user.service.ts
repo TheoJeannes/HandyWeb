@@ -4,6 +4,8 @@ import {BehaviorSubject} from 'rxjs';
 import {User} from '../models/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {Config} from '../models/config.model';
+import {Theme} from '../models/theme.model';
+import {Quiz} from '../models/quiz.model';
 
 @Injectable({
     providedIn: 'root'
@@ -145,5 +147,12 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
         this.http.delete<Config>(urlWithId, this.httpOptions).subscribe(() => this.retrieveConfigs());
         localStorage.removeItem(UserService.CONFIG);
+    }
+
+    editUser(user: User): void {
+        const urlWithId = this.userUrl + '/' + user.id;
+        console.log(urlWithId);
+        console.log(user);
+        this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(()=> this.retrieveUsers());
     }
 }

@@ -43,6 +43,7 @@ import {
 import {
   ConfigurationSelectionComponent
 } from './configurations/configuration-selection/configuration-selection.component';
+import {EditUserComponent} from './users/edit-user/edit-user.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +75,7 @@ import {
         DisplayQuizComponent,
         ThemeSelectionComponent,
         QuizSelectionComponent,
+        EditUserComponent,
     ],
     imports: [
         BrowserModule,
