@@ -10,6 +10,14 @@ body {
   background-color: $app-background-color;
 }
 
+h1{
+  font-size: $font-size;
+}
+
+h2{
+  font-size: $font-size;
+}
+
 .button-card {
   background-color: $white;
   border: solid 1px $blue;
