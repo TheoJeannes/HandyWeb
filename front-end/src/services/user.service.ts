@@ -4,7 +4,6 @@ import {BehaviorSubject, Subject} from 'rxjs';
 import {User} from '../models/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {Config} from '../models/config.model';
-import {Theme} from '../models/theme.model';
 import {Quiz} from '../models/quiz.model';
 
 @Injectable({
@@ -52,7 +51,11 @@ export class UserService {
 
         const user = JSON.parse(localStorage.getItem(UserService.USER));
         if (user) {
-            setTimeout(() => this.logInUser(user), 200);
+            if (user.role === "admin") {
+                setTimeout(() => this.logInAdmin(user), 200);
+            } else {
+                setTimeout(() => this.logInUser(user), 200);
+            }
         }
 
         const config = JSON.parse(localStorage.getItem(UserService.CONFIG));

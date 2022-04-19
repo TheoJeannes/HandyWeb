@@ -22,6 +22,8 @@ export class AccueilComponent implements OnInit {
         document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
         console.log("config");
         console.log(this.config);
-        document.documentElement.style.setProperty('--button-font-size', this.config.size.toString()+'px');
+        document.documentElement.style.setProperty('--font-size', this.config.size.toString()+'px');
+        document.documentElement.style.setProperty('--h1-font-size', (this.config.size * 2).toString()+'px');
+        document.documentElement.style.setProperty('--h2-font-size', (this.config.size* 1.5).toString()+'px');
     }
 }
