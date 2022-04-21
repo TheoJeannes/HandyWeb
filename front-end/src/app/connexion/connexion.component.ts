@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
-import {Config} from '../../models/config.model';
+import {Config} from '../../models/config/config.model';
 
 @Component({
     selector: 'app-connexion',

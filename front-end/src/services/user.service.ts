@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {User} from '../models/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
-import {Config} from '../models/config.model';
+import {Config} from '../models/config/config.model';
 import {Quiz} from '../models/quiz.model';
 
 @Injectable({

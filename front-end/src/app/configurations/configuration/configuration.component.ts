@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Config} from "../../../models/config.model";
+import {Config} from "../../../models/config/config.model";
 
 @Component({
   selector: 'app-configuration',
