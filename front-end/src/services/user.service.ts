@@ -14,10 +14,10 @@ export class UserService {
      The list of user.
      */
 
-    public static USER = 'user';
-    public static CONFIG = 'config';
+    public static readonly USER = 'user';
+    public static readonly CONFIG = 'config';
 
-    public defaultConfig: Config = {
+    public static readonly defaultConfig: Config = {
         name: 'default',
         size: 15,
         font: 'calibri',
@@ -40,7 +40,7 @@ export class UserService {
 
     public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
-    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(this.defaultConfig);
+    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(UserService.defaultConfig);
 
     private userUrl = serverUrl + '/users';
 
@@ -66,13 +66,6 @@ export class UserService {
         }
 
         this.configSelected$.subscribe(config => this.setStyle(config));
-        // // put a default user
-        // const user: User = {
-        //   firstName: "default",
-        //   lastName: "1"
-        // }
-        //
-        // setTimeout(() => this.logIn(user), 200);
     }
 
     retrieveUsers(): void {
@@ -104,10 +97,7 @@ export class UserService {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === user.firstName.toLowerCase()
             && u.lastName.toLowerCase() === user.lastName.toLowerCase());
         if (userDatabase !== undefined && userDatabase.role !== 'admin') {
-            this.userSelected = userDatabase;
-            this.userSelected$.next(userDatabase);
-            localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
-            this.retrieveConfigs();
+            this.setVariablesLogIn(userDatabase);
         }
 
         console.log(user, userDatabase);
@@ -124,10 +114,7 @@ export class UserService {
             && u.lastName.toLowerCase() === admin.lastName.toLowerCase());
 
         if (userDatabase !== undefined && userDatabase.role === 'admin' && userDatabase.password === admin.password) {
-            this.userSelected = userDatabase;
-            this.userSelected$.next(userDatabase);
-            localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
-            this.retrieveConfigs();
+            this.setVariablesLogIn(userDatabase);
         }
 
         if (userDatabase === undefined) {
@@ -137,6 +124,13 @@ export class UserService {
         } else if (userDatabase.password !== admin.password) {
             alert('Le mot de passe est incorrect');
         }
+    }
+
+    private setVariablesLogIn(user: User): void {
+        this.userSelected = user;
+        this.userSelected$.next(user);
+        localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
+        this.retrieveConfigs();
     }
 
     disconnect() {
