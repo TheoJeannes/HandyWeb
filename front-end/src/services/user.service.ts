@@ -88,13 +88,6 @@ export class UserService {
             () => alert('L\'utilisateur est déjà défini'));
     }
 
-    setSelectedUser(userId: string): void {
-        const urlWithId = this.userUrl + '/' + userId;
-        this.http.get<User>(urlWithId).subscribe((user) => {
-            this.userSelected$.next(user);
-        });
-    }
-
     setUserToModify(userId: number): void {
         const urlWithId = this.userUrl + '/' + userId;
         this.http.get<User>(urlWithId).subscribe((user) => {
@@ -114,6 +107,7 @@ export class UserService {
             this.userSelected = userDatabase;
             this.userSelected$.next(userDatabase);
             localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
+            this.retrieveConfigs();
         }
 
         console.log(user, userDatabase);
@@ -133,6 +127,7 @@ export class UserService {
             this.userSelected = userDatabase;
             this.userSelected$.next(userDatabase);
             localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
+            this.retrieveConfigs();
         }
 
         if (userDatabase === undefined) {
