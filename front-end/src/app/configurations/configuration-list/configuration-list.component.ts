@@ -11,7 +11,7 @@ export class ConfigurationListComponent implements OnInit {
 
   public configList: Config[];
 
-  constructor(public userService: UserService) {
+  constructor(private userService: UserService) {
     this.userService.retrieveConfigs()
     this.userService.configs$.subscribe((configList: Config[]) => {
       this.configList = configList

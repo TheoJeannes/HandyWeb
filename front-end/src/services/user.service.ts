@@ -20,8 +20,8 @@ export class UserService {
     public defaultConfig: Config = {
         name: 'default',
         size: 15,
-        font: "calibri",
-        colorButtons: "bleu"
+        font: 'calibri',
+        colorButtons: 'bleu'
     };
 
     private users: User[] = [];
@@ -47,21 +47,25 @@ export class UserService {
     private httpOptions = httpOptionsBase;
 
     constructor(private http: HttpClient) {
-        this.retrieveUsers();
-
         const user = JSON.parse(localStorage.getItem(UserService.USER));
         if (user) {
-            if (user.role === "admin") {
-                setTimeout(() => this.logInAdmin(user), 200);
-            } else {
-                setTimeout(() => this.logInUser(user), 200);
-            }
+            this.http.get<User[]>(this.userUrl).subscribe((userList) => {
+                this.users = userList;
+                this.users$.next(this.users);
+                if (user.role === 'admin') {
+                    this.logInAdmin(user);
+                } else {
+                    this.logInUser(user);
+                }
+            });
         }
 
         const config = JSON.parse(localStorage.getItem(UserService.CONFIG));
         if (config) {
             this.configSelected$.next(config);
         }
+
+        this.configSelected$.subscribe(config => this.setStyle(config));
         // // put a default user
         // const user: User = {
         //   firstName: "default",
@@ -81,7 +85,7 @@ export class UserService {
     addUser(user: User): void {
         this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(
             () => this.retrieveUsers(),
-            () => alert("L'utilisateur est déjà défini"));
+            () => alert('L\'utilisateur est déjà défini'));
     }
 
     setSelectedUser(userId: string): void {
@@ -112,12 +116,12 @@ export class UserService {
             localStorage.setItem(UserService.USER, JSON.stringify(this.userSelected));
         }
 
-        console.log(user, userDatabase)
+        console.log(user, userDatabase);
 
         if (userDatabase === undefined) {
-            alert("L'utilisateur " + user.firstName + " " + user.lastName + " n'existe pas");
-        } else if (userDatabase.role === "admin") {
-            alert("L'utilisateur " + userDatabase.firstName + " " + userDatabase.lastName + " possède un rôle administrateur");
+            alert('L\'utilisateur ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
+        } else if (userDatabase.role === 'admin') {
+            alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle administrateur');
         }
     }
 
@@ -132,11 +136,11 @@ export class UserService {
         }
 
         if (userDatabase === undefined) {
-            alert("L'utilisateur " + admin.firstName + " " + admin.lastName + " n'existe pas");
-        } else if (userDatabase.role !== "admin") {
-            alert("L'utilisateur "+ userDatabase.firstName + " " + userDatabase.lastName + " possède un rôle utilisateur");
+            alert('L\'utilisateur ' + admin.firstName + ' ' + admin.lastName + ' n\'existe pas');
+        } else if (userDatabase.role !== 'admin') {
+            alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle utilisateur');
         } else if (userDatabase.password !== admin.password) {
-            alert("Le mot de passe est incorrect");
+            alert('Le mot de passe est incorrect');
         }
     }
 
@@ -163,12 +167,14 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
+            this.setStyle(config);
         });
     }
 
     setSelectedBaseConfig(config: Config) {
         localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
         this.configSelected$.next(config);
+        this.setStyle(config);
     }
 
     deleteConfig(config: Config) {
@@ -181,6 +187,17 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + user.id;
         console.log(urlWithId);
         console.log(user);
-        this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(()=> this.retrieveUsers());
+        this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(() => this.retrieveUsers());
+    }
+
+    setStyle(config: Config): void {
+        document.documentElement.style.setProperty('--button-color', '#1e98d7');
+        document.documentElement.style.setProperty('--button-hover-color', '#166791');
+        document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
+        console.log("config");
+        console.log(config);
+        document.documentElement.style.setProperty('--font-size', config.size.toString()+'px');
+        document.documentElement.style.setProperty('--h1-font-size', (config.size * 2).toString()+'px');
+        document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.5).toString()+'px');
     }
 }

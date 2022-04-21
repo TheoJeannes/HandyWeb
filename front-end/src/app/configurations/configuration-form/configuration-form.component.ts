@@ -12,7 +12,7 @@ export class ConfigurationFormComponent implements OnInit {
 
   public configForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.configForm = this.formBuilder.group({
       name: [''],
       size: [''],
