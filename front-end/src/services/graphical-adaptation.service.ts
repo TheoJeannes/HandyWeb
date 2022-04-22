@@ -17,7 +17,8 @@ export class GraphicalAdaptationService {
         console.log("config");
         console.log(config);
         document.documentElement.style.setProperty('--font-size', config.size.toString()+'px');
-        document.documentElement.style.setProperty('--h1-font-size', (config.size * 2).toString()+'px');
-        document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.5).toString()+'px');
+        document.documentElement.style.setProperty('--h1-font-size', (config.size * 2.25).toString()+'px');
+        document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.75).toString()+'px');
+        document.documentElement.style.setProperty('--h3-font-size', (config.size* 1.5).toString()+'px')
     }
 }

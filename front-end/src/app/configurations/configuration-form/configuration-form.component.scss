@@ -11,10 +11,6 @@
   width: 25%;
 }
 
-input, input::-webkit-input-placeholder {
-  size: 20px;
-}
-
 .div-form {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -22,5 +18,13 @@ input, input::-webkit-input-placeholder {
 }
 
 input::placeholder {
+  font-size: $font-size;
+}
+
+option {
+  font-size: $font-size;
+}
+
+select {
   font-size: $font-size;
 }

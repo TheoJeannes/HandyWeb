@@ -1,23 +1,32 @@
+<h2>Créer une configuration</h2>
+
 <div class="div-form">
-    <h2>Nommer la configuration</h2>
     <form class="form" [formGroup]="configForm">
+        <h3>Nommer la configuration</h3>
         <input class="form-elem" type="text" placeholder="nom" [formControlName]="'name'">
+        <br>
+
+        <h3>Sélectionner le grossissement du texte</h3>
         <select class="form-elem"  [formControlName]="'size'">
             <option value="15">Petit</option>
             <option value="24">Moyen</option>
             <option value="36">Grand</option>
             <option value="48">Trés Grand</option>
         </select>
+        <br>
 
 <!--        <input type="number" placeholder="excentrement horizontal" [formControlName]="'verticalEccentricity'">-->
 <!--        <input type="text" placeholder="excentrement vertical" [formControlName]="'horizontalEccentricity'">-->
 
+        <h3>Sélectionner la police de caractères</h3>
         <select class="form-elem"  [formControlName]="'font'">
             <option value="{{configVariables.FONT_LUCIOLE}}">Luciole</option>
             <option value="{{configVariables.FONT_CALIBRI}}">Calibri</option>
             <option value="{{configVariables.FONT_ARIAL}}">Arial</option>
         </select>
+        <br>
 
+        <h3>Sélectionner la couleur des boutons</h3>
         <select class="form-elem" [formControlName]="'colorButtons'">
             <option value="{{configVariables.COLOR_BUTTONS_BLUE}}">Bleu</option>
             <option value="{{configVariables.COLOR_BUTTONS_GREEN}}">Vert</option>
@@ -27,5 +36,6 @@
         </select>
     </form>
 </div>
+<br>
 
-<button class="button-card" (click)="addConfig()">Ajouter la configuration</button>
+<a class="buttons" (click)="addConfig()">Ajouter la configuration</a>

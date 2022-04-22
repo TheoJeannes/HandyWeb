@@ -42,6 +42,8 @@ export class UserService {
     private httpOptions = httpOptionsBase;
 
     constructor(private http: HttpClient, private graphicalService: GraphicalAdaptationService) {
+        this.retrieveUsers();
+
         const user = JSON.parse(localStorage.getItem(UserService.USER));
         if (user) {
             this.http.get<User[]>(this.userUrl).subscribe((userList) => {

@@ -13,5 +13,10 @@ a {
   margin-top: 1em;
   display: flex;
   flex-direction: row;
-  column-gap: 35%;
+  column-gap: 30%;
+  align-items: flex-start;
+}
+
+#title {
+  text-align: center;
 }

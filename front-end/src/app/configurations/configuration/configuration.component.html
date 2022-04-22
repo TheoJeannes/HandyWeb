@@ -1,8 +1,8 @@
-<div class="card">
-    <h2>
+<div class="config">
+    <h3>
         {{config.name}}
-    </h2>
+    </h3>
 
-    <button class="button-card select" (click)="selectConfig()">Sélectionner</button>
-    <button class="button-card" (click)="delete()">Supprimer</button>
+    <a class="buttons" id="select_button" (click)="selectConfig()">Sélectionner</a>
+    <a class="buttons"  id="delete_button" (click)="delete()">Supprimer</a>
 </div>
