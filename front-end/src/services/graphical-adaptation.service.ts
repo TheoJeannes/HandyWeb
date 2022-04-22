@@ -15,6 +15,7 @@ export class GraphicalAdaptationService {
         document.documentElement.style.setProperty('--button-color', config.colorButtons);
         document.documentElement.style.setProperty('--button-hover-color', hover);
         document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
+        document.documentElement.style.setProperty('--font', config.font);
         document.documentElement.style.setProperty('--font-size', config.size.toString()+'px');
         document.documentElement.style.setProperty('--h1-font-size', (config.size * 2.25).toString()+'px');
         document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.75).toString()+'px');

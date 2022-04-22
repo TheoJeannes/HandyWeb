@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../../../services/user.service";
 import {Config} from "../../../models/config/config.model";
 import {ConfigModelVariables} from "../../../models/config/config.model.variables"
@@ -11,41 +10,30 @@ import {ConfigModelVariables} from "../../../models/config/config.model.variable
 })
 export class ConfigurationFormComponent implements OnInit {
 
-  public configForm: FormGroup;
+  public config : Config = {
+    id : Date.now(),
+    name : ConfigModelVariables.defaultConfig.name,
+    size : ConfigModelVariables.defaultConfig.size,
+    colorButtons : ConfigModelVariables.defaultConfig.colorButtons,
+    font : ConfigModelVariables.defaultConfig.font
+  };
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public configVariables: ConfigModelVariables) {
-    this.configForm = this.formBuilder.group({
-      name: [''],
-      size: [''],
-      //verticalEccentricity: [''],
-      //horizontalEccentricity: [''],
-      font: [''],
-      colorButtons: ['']
-    })
+  constructor(private userService: UserService, public configVariables: ConfigModelVariables) {
+
   }
 
   ngOnInit(): void {
+    console.log(this.config)
   }
 
   addConfig(): void {
-    const config: Config = this.configForm.getRawValue() as Config
-    switch (config.colorButtons){
-      default:
-        config.colorHover = '#166791';
-        break
-      case '#3D8900':
-        config.colorHover = '#285900';
-        break
-      case '#001889':
-        config.colorHover = '#001059';
-        break
-      case '#2D2D2D':
-        config.colorHover = '#000000'
+    try {
+      this.userService.addConfig(this.config)
+      this.userService.setSelectedUserConfig(this.config)
+    }catch (e) {
+      console.log("salut")
     }
 
-    console.log("config To")
-    console.log(config)
-    this.userService.addConfig(config)
   }
 
 }

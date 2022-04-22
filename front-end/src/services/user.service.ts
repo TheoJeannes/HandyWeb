@@ -147,11 +147,16 @@ export class UserService {
 
     addConfig(config: Config): void {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
-        this.http.post<Config>(urlWithId, config, this.httpOptions).subscribe(() => this.retrieveConfigs());
+             this.http.post<Config>(urlWithId, config, this.httpOptions).subscribe(() => {this.retrieveConfigs()
+             },(error) => {
+                 console.log(error)
+                 alert(error.error.extra)
+             });
     }
 
     setSelectedUserConfig(config: Config) {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
+        console.log(urlWithId)
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
             this.graphicalService.setStyle(config);

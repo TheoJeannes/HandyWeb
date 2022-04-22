@@ -31,18 +31,16 @@ router.get('/:configId', (req, res) => {
 
 router.post('/', (req, res) => {
     try {
+        console.log(req.body)
         // Check if userId exists, if not it will throw a NotFoundError
         User.getById(req.params.userId)
         const userId = parseInt(req.params.userId, 10)
         if (Config.get().find(c => c.userId === userId && c.name === req.body.name)) {
-            throw new ValidationError("L'utilisateur possède déjà une config avec le même nom",
-                "L'utilisateur possède déjà une config avec le même nom")
+                throw new ValidationError("Config Existante","La configuration "+req.body.name+" existe deja");
         }
-
-        let config = Config.create({... req.body, userId, size: req.body.size, id: Date.now()})
+        let config = Config.create({...req.body, userId, size: req.body.size})
         // If answers have been provided in the request, we create the answer and update the response to send.
         res.status(201).json(config)
-
     } catch (err) {
         manageAllErrors(res, err)
     }

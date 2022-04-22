@@ -1,41 +1,44 @@
 <h2>Créer une configuration</h2>
+<div class="main">
+    <div class="form">
+        <div class="element">
+            <h3>Nommer la configuration</h3>
+            <textarea maxlength="20" rows="1" autofocus required placeholder="Nom de votre Configuration"
+                      [(ngModel)]="config.name"></textarea>
+            <br>
+        </div>
 
-<div class="div-form">
-    <form class="form" [formGroup]="configForm">
-        <h3>Nommer la configuration</h3>
-        <input class="form-elem" type="text" placeholder="nom" [formControlName]="'name'">
-        <br>
+        <div class="element">
+            <h3>Sélectionner le grossissement du texte</h3>
+            <select [(ngModel)]="config.size">
+                <option value=15>Petit</option>
+                <option value="22">Moyen</option>
+                <option value="28">Grand</option>
+                <option value="36">Très Grand</option>
+            </select>
+        </div>
 
-        <h3>Sélectionner le grossissement du texte</h3>
-        <select class="form-elem"  [formControlName]="'size'">
-            <option value="15">Petit</option>
-            <option value="24">Moyen</option>
-            <option value="36">Grand</option>
-            <option value="48">Trés Grand</option>
-        </select>
-        <br>
+        <div class="element">
+            <h3>Sélectionner la police de caractères</h3>
+            <select [(ngModel)]="config.font">
+                <option value="{{configVariables.FONT_LUCIOLE}}">Luciole (Adapté pour la presbytie)</option>
+                <option value="{{configVariables.FONT_TISERIAS}}">Tiserias (Adapté pour la cataracte)</option>
+                <option value="{{configVariables.FONT_ROBOTO}}">Roboto (Tres Commun)</option>
+                <option value="{{configVariables.FONT_SERIF}}">Serif (Choix par defaut)</option>
+            </select>
+        </div>
 
-<!--        <input type="number" placeholder="excentrement horizontal" [formControlName]="'verticalEccentricity'">-->
-<!--        <input type="text" placeholder="excentrement vertical" [formControlName]="'horizontalEccentricity'">-->
+        <div class="element">
+            <h3>Sélectionner la couleur des boutons</h3>
+            <select [(ngModel)]="config.colorButtons">
+                <option value="{{configVariables.COLOR_BUTTONS_BLUE}}">Bleu</option>
+                <option value="{{configVariables.COLOR_BUTTONS_GREEN}}">Vert</option>
+                <option value="{{configVariables.COLOR_BUTTONS_BLUE_NAVY}}">Bleu Navy</option>
+                <option value="{{configVariables.COLOR_BUTTONS_BLACK}}">Noir</option>
+                <option value="{{configVariables.COLOR_BUTTONS_ORANGE}}">Orange</option>
+            </select>
+        </div>
+    </div>
 
-        <h3>Sélectionner la police de caractères</h3>
-        <select class="form-elem"  [formControlName]="'font'">
-            <option value="{{configVariables.FONT_LUCIOLE}}">Luciole</option>
-            <option value="{{configVariables.FONT_CALIBRI}}">Calibri</option>
-            <option value="{{configVariables.FONT_ARIAL}}">Arial</option>
-        </select>
-        <br>
-
-        <h3>Sélectionner la couleur des boutons</h3>
-        <select class="form-elem" [formControlName]="'colorButtons'">
-            <option value="{{configVariables.COLOR_BUTTONS_BLUE}}">Bleu</option>
-            <option value="{{configVariables.COLOR_BUTTONS_GREEN}}">Vert</option>
-            <option value="{{configVariables.COLOR_BUTTONS_BLUE_NAVY}}">Bleu Navy</option>
-            <option value="{{configVariables.COLOR_BUTTONS_BLACK}}">Noir</option>
-            <option value="{{configVariables.COLOR_BUTTONS_ORANGE}}">Orange</option>
-        </select>
-    </form>
+    <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>
 </div>
-<br>
-
-<a class="buttons" (click)="addConfig()">Ajouter la configuration</a>

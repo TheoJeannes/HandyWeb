@@ -3,7 +3,12 @@
 body {
   margin: 0;
   background-color: $app-background-color;
-  font-family: Tiresias, serif;
+  font-family: $font, serif;
+  font-size: $font-size;
+}
+
+textarea{
+  font-family: $font, serif;
   font-size: $font-size;
 }
 
@@ -17,6 +22,9 @@ h2{
 
 h3 {
   font-size: $h3-font-size;
+}
+input{
+  font-size: $font-size;
 }
 
 .button-card {

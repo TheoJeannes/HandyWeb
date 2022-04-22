@@ -9,6 +9,6 @@ module.exports = new BaseModel('Config', {
     horizontalEccentricity: Joi.number(),
     colorButtons: Joi.string().required(),
     font: Joi.string()
-        .valid("calibri", "luciole", "arial")
+        .valid("Roboto", "Luciole","Tiserias", "serif")
         .required()
 })

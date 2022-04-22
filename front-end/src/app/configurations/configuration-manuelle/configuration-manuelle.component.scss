@@ -1,13 +1,5 @@
 @import '../../../styles.scss';
 
-a {
-  background-color: #1e98d7;
-  text-decoration: none;
-  color: white;
-  border-radius: 20px;
-  padding: 20px;
-}
-
 .header {
   margin-top: 1em;
   display: flex;
@@ -19,3 +11,18 @@ a {
 #title {
   text-align: center;
 }
+
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+

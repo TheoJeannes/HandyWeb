@@ -7,9 +7,10 @@ import {Config} from './config.model';
 
 export class ConfigModelVariables {
 
-    public FONT_ARIAL = "arial"
-    public FONT_CALIBRI = "calibri"
-    public FONT_LUCIOLE = "luciole"
+    public FONT_SERIF = 'serif'
+    public FONT_ROBOTO = 'Roboto'
+    public FONT_LUCIOLE = 'Luciole'
+    public FONT_TISERIAS= 'Tiserias'
 
     public COLOR_BUTTONS_BLUE = '#1e98d7'
     public COLOR_BUTTONS_GREEN = "#5B793D"
@@ -20,8 +21,8 @@ export class ConfigModelVariables {
     public static readonly defaultConfig: Config = {
         name: 'default',
         size: 15,
-        font: 'calibri',
-        colorButtons: '#1e98d7'
+        colorButtons: '#1e98d7',
+        font: 'Tiserias'
     };
 
 
@@ -45,6 +46,7 @@ export class ConfigModelVariables {
         font: "luciole",
         colorButtons: "black"
     }
+
 
 
 

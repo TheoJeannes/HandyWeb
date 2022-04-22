@@ -1,19 +1,42 @@
 @import '../../../styles.scss';
 
-.form {
+textarea{
+  resize: none;
+}
+
+option{
+  font-size: $font-size;
+  font-family: $font;
+}
+
+select{
+  font-size: $font-size;
+  font-family: $font;
+  margin: .2em;
+  padding: .4em;
+}
+
+.form{
+  display: grid;
+  grid-gap: .1em ;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.element{
+  padding: .3em;
+  margin: .4em;
   display: flex;
   flex-direction: column;
-  margin : 20px;
-  justify-content: flex-start;
+  align-items: center;
 }
 
-.form-elem {
-  width: 25%;
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.div-form {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0.5em;
+.buttons{
+  margin: 2.5em;
 }
-
