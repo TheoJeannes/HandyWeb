@@ -7,8 +7,7 @@ module.exports = new BaseModel('Config', {
     size: Joi.number().required(),
     verticalEccentricity: Joi.number(),
     horizontalEccentricity: Joi.number(),
-    colorButtons: Joi.string()
-        .required(),
+    colorButtons: Joi.string().required(),
     font: Joi.string()
         .valid("calibri", "luciole", "arial")
         .required()

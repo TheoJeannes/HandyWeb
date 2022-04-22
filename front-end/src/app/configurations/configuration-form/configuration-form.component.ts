@@ -29,8 +29,7 @@ export class ConfigurationFormComponent implements OnInit {
 
   addConfig(): void {
     const config: Config = this.configForm.getRawValue() as Config
-
-    /*switch (config.colorButtons){
+    switch (config.colorButtons){
       default:
         config.colorHover = '#166791';
         break
@@ -42,8 +41,9 @@ export class ConfigurationFormComponent implements OnInit {
         break
       case '#2D2D2D':
         config.colorHover = '#000000'
-    }*/
+    }
 
+    console.log("config To")
     console.log(config)
     this.userService.addConfig(config)
   }

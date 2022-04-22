@@ -6,11 +6,22 @@ import {Config} from './config.model';
 })
 
 export class ConfigModelVariables {
+
+    public FONT_ARIAL = "arial"
+    public FONT_CALIBRI = "calibri"
+    public FONT_LUCIOLE = "luciole"
+
+    public COLOR_BUTTONS_BLUE = '#1e98d7'
+    public COLOR_BUTTONS_GREEN = "#5B793D"
+    public COLOR_BUTTONS_BLUE_NAVY = "#2F00FF"
+    public COLOR_BUTTONS_BLACK = "#696969"
+    public COLOR_BUTTONS_ORANGE = "#eab18d"
+
     public static readonly defaultConfig: Config = {
         name: 'default',
         size: 15,
         font: 'calibri',
-        colorButtons: 'bleu'
+        colorButtons: '#1e98d7'
     };
 
 
@@ -18,7 +29,7 @@ export class ConfigModelVariables {
         name: "excentrement",
         size: 15,
         font: "calibri",
-        colorButtons: "bleu_navy"
+        colorButtons: "#2F00FF"
     }
 
     public static readonly configConstraste: Config = {
@@ -33,15 +44,8 @@ export class ConfigModelVariables {
         size: 15,
         font: "luciole",
         colorButtons: "black"
-
     }
-    public FONT_ARIAL = "arial"
-    public FONT_CALIBRI = "calibri"
-    public FONT_LUCIOLE = "luciole"
 
-    public COLOR_BUTTONS_BLUE = "blue"
-    public COLOR_BUTTONS_GREEN = "green"
-    public COLOR_BUTTONS_BLUE_NAVY = "blue_navy"
-    public COLOR_BUTTONS_BLACK = "black"
-    public COLOR_BUTTONS_ORANGE = "orange"
+
+
 }

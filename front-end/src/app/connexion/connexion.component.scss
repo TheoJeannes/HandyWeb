@@ -33,20 +33,11 @@
 input {
   margin: 5px;
   text-align: center;
-  font-size: $font-size;
-}
-
-input::placeholder {
-  font-size: $font-size;
 }
 
 .buttons {
   padding: .3em;
   border-radius: 30px;
-}
-
-label {
-  font-size: $font-size;
 }
 
 .administration {

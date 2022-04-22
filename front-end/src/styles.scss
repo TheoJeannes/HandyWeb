@@ -1,14 +1,10 @@
 @import './styles/variables.scss';
 
-/* You can add global styles to this file, and also import other style files */
-html {
-  font: 500 20px/32px Roboto, $font, sans-serif;
-  //"Helvetica Neue"
-}
-
 body {
   margin: 0;
   background-color: $app-background-color;
+  font-family: Tiresias, serif;
+  font-size: $font-size;
 }
 
 h1{
@@ -43,10 +39,10 @@ h3 {
   text-decoration: none;
   background-color: $button-color;
   color: $button-font-color;
-  font-size: $font-size;
 }
 
 .buttons:hover{
+  //filter: brightness(.7);
   background-color: $button-hover-color;
 }
 
@@ -119,7 +115,6 @@ input:checked + .slider:before {
   border-radius: 20px;
   padding: 10px;
   text-align: center;
-  font-size: $font-size;
 }
 
 .button-retour:hover{
@@ -135,7 +130,19 @@ input:checked + .slider:before {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: "Luciole";
+  src: url("styles/Luciole-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("styles/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tiresias";
+  src: url("styles/tiresias.ttf") format("truetype");
+}

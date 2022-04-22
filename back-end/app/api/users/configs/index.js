@@ -34,7 +34,6 @@ router.post('/', (req, res) => {
         // Check if userId exists, if not it will throw a NotFoundError
         User.getById(req.params.userId)
         const userId = parseInt(req.params.userId, 10)
-
         if (Config.get().find(c => c.userId === userId && c.name === req.body.name)) {
             throw new ValidationError("L'utilisateur possède déjà une config avec le même nom",
                 "L'utilisateur possède déjà une config avec le même nom")
