@@ -4,7 +4,10 @@ import {User} from "../models/user.model";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
+
 export class AdminGuardService implements CanActivate {
 
     private user: User;

@@ -5,6 +5,8 @@ import {User} from '../models/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {Config} from '../models/config/config.model';
 import {Quiz} from '../models/quiz.model';
+import {ConfigVariableModel} from '../models/config/config.variable.model';
+import {GraphicalAdaptationService} from './graphical-adaptation.service';
 
 @Injectable({
     providedIn: 'root'
@@ -16,13 +18,6 @@ export class UserService {
 
     public static readonly USER = 'user';
     public static readonly CONFIG = 'config';
-
-    public static readonly defaultConfig: Config = {
-        name: 'default',
-        size: 15,
-        font: 'calibri',
-        colorButtons: 'bleu'
-    };
 
     private users: User[] = [];
 
@@ -40,13 +35,13 @@ export class UserService {
 
     public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
-    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(UserService.defaultConfig);
+    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(ConfigVariableModel.defaultConfig);
 
     private userUrl = serverUrl + '/users';
 
     private httpOptions = httpOptionsBase;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private graphicalService: GraphicalAdaptationService) {
         const user = JSON.parse(localStorage.getItem(UserService.USER));
         if (user) {
             this.http.get<User[]>(this.userUrl).subscribe((userList) => {
@@ -65,7 +60,7 @@ export class UserService {
             this.configSelected$.next(config);
         }
 
-        this.configSelected$.subscribe(config => this.setStyle(config));
+        this.configSelected$.subscribe(config => this.graphicalService.setStyle(config));
     }
 
     retrieveUsers(): void {
@@ -156,14 +151,14 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
-            this.setStyle(config);
+            this.graphicalService.setStyle(config);
         });
     }
 
     setSelectedBaseConfig(config: Config) {
         localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
         this.configSelected$.next(config);
-        this.setStyle(config);
+        this.graphicalService.setStyle(config);
     }
 
     deleteConfig(config: Config) {
@@ -177,16 +172,5 @@ export class UserService {
         console.log(urlWithId);
         console.log(user);
         this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(() => this.retrieveUsers());
-    }
-
-    setStyle(config: Config): void {
-        document.documentElement.style.setProperty('--button-color', '#1e98d7');
-        document.documentElement.style.setProperty('--button-hover-color', '#166791');
-        document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
-        console.log("config");
-        console.log(config);
-        document.documentElement.style.setProperty('--font-size', config.size.toString()+'px');
-        document.documentElement.style.setProperty('--h1-font-size', (config.size * 2).toString()+'px');
-        document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.5).toString()+'px');
     }
 }

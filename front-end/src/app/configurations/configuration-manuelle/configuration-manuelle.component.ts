@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
+import {ConfigVariableModel} from '../../../models/config/config.variable.model';
 
 @Component({
     selector: 'app-configurations-manuelle',
@@ -16,7 +17,7 @@ export class ConfigurationManuelleComponent implements OnInit {
     }
 
     resetDefaultConfig(): void {
-        this.userService.setSelectedBaseConfig(this.userService.defaultConfig);
+        this.userService.setSelectedBaseConfig(ConfigVariableModel.defaultConfig);
     }
 
 }

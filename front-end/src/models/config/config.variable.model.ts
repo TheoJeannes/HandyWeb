@@ -1,10 +1,40 @@
 import {Injectable} from '@angular/core';
+import {Config} from './config.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class ConfigVariableModel {
+    public static readonly defaultConfig: Config = {
+        name: 'default',
+        size: 15,
+        font: 'calibri',
+        colorButtons: 'bleu'
+    };
+
+
+    public static readonly configExcentrement: Config = {
+        name: "excentrement",
+        size: 15,
+        font: "calibri",
+        colorButtons: "bleu_navy"
+    }
+
+    public static readonly configConstraste: Config = {
+        name: "constraste",
+        size: 15,
+        font: "luciole",
+        colorButtons: "orange"
+    }
+
+    public static readonly configExcentrementContraste: Config = {
+        name: "excentrement + constraste",
+        size: 15,
+        font: "luciole",
+        colorButtons: "black"
+
+    }
     public FONT_ARIAL = "arial"
     public FONT_CALIBRI = "calibri"
     public FONT_LUCIOLE = "luciole"

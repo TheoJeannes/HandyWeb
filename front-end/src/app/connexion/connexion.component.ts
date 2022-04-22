@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
 import {Config} from '../../models/config/config.model';
+import {ConfigVariableModel} from '../../models/config/config.variable.model';
 
 @Component({
     selector: 'app-connexion',
@@ -17,28 +18,6 @@ export class ConnexionComponent implements OnInit {
     private excentrementButtonOn: boolean = false;
     private contrasteButtonOn: boolean = false;
     private i = 0;
-
-    private configExcentrement: Config = {
-        name: "excentrement",
-        size: 15,
-        font: "calibri",
-        colorButtons: "bleu_navy"
-    }
-
-    private configConstraste: Config = {
-        name: "constraste",
-        size: 15,
-        font: "luciole",
-        colorButtons: "orange"
-    }
-
-    private configExcentrementContraste: Config = {
-        name: "excentrement + constraste",
-        size: 15,
-        font: "luciole",
-        colorButtons: "black"
-
-    }
 
     constructor(public formBuilder: FormBuilder, public userService : UserService, public router: Router) {
         this.loginForm = this.formBuilder.group({
@@ -87,11 +66,11 @@ export class ConnexionComponent implements OnInit {
     public setConfig(): void {
         let config: Config;
         if (this.contrasteButtonOn && this.excentrementButtonOn) {
-            config = this.configExcentrementContraste
+            config = ConfigVariableModel.configExcentrementContraste;
         } else if (this.contrasteButtonOn) {
-            config = this.configConstraste
+            config = ConfigVariableModel.configConstraste
         } else {
-            config = this.configExcentrement
+            config =  ConfigVariableModel.configExcentrement
         }
 
         this.userService.setSelectedBaseConfig(config);
