@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
-import {User} from '../../../models/user.model';
-import {Theme} from '../../../models/theme.model';
+import {User} from '../../../models/user/user.model';
 
 @Component({
     selector: 'app-user',

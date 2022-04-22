@@ -89,11 +89,11 @@ h3 {
 }
 
 input:checked + .slider {
-  background-color: #E72323;
+  background-color: $button-color;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #E72323;
+  box-shadow: 0 0 1px $button-color;
 }
 
 input:checked + .slider:before {

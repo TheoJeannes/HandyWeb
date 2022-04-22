@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {User} from '../models/user.model';
+import {User} from '../models/user/user.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {Config} from '../models/config/config.model';
 import {Quiz} from '../models/quiz.model';
-import {ConfigVariableModel} from '../models/config/config.variable.model';
+import {ConfigModelVariables} from '../models/config/config.model.variables';
 import {GraphicalAdaptationService} from './graphical-adaptation.service';
+import {UserModelVariables} from '../models/user/user.model.variables';
 
 @Injectable({
     providedIn: 'root'
@@ -35,7 +36,7 @@ export class UserService {
 
     public configs$: BehaviorSubject<Config[]> = new BehaviorSubject<Config[]>([]);
 
-    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(ConfigVariableModel.defaultConfig);
+    public configSelected$: BehaviorSubject<Config> = new BehaviorSubject<Config>(ConfigModelVariables.defaultConfig);
 
     private userUrl = serverUrl + '/users';
 
@@ -65,7 +66,7 @@ export class UserService {
         this.configSelected$.subscribe(config => this.graphicalService.setStyle(config));
     }
 
-    retrieveUsers(): void {
+    private retrieveUsers(): void {
         this.http.get<User[]>(this.userUrl).subscribe((userList) => {
             this.users = userList;
             this.users$.next(this.users);
@@ -93,7 +94,7 @@ export class UserService {
     logInUser(user: User): void {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === user.firstName.toLowerCase()
             && u.lastName.toLowerCase() === user.lastName.toLowerCase());
-        if (userDatabase !== undefined && userDatabase.role !== 'admin') {
+        if (userDatabase !== undefined && userDatabase.role === UserModelVariables.ROLE_USER) {
             this.setVariablesLogIn(userDatabase);
         }
 
@@ -101,7 +102,7 @@ export class UserService {
 
         if (userDatabase === undefined) {
             alert('L\'utilisateur ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
-        } else if (userDatabase.role === 'admin') {
+        } else if (userDatabase.role !== UserModelVariables.ROLE_USER) {
             alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle administrateur');
         }
     }
@@ -110,13 +111,13 @@ export class UserService {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === admin.firstName.toLowerCase()
             && u.lastName.toLowerCase() === admin.lastName.toLowerCase());
 
-        if (userDatabase !== undefined && userDatabase.role === 'admin' && userDatabase.password === admin.password) {
+        if (userDatabase !== undefined && userDatabase.role === UserModelVariables.ROLE_ADMIN && userDatabase.password === admin.password) {
             this.setVariablesLogIn(userDatabase);
         }
 
         if (userDatabase === undefined) {
             alert('L\'utilisateur ' + admin.firstName + ' ' + admin.lastName + ' n\'existe pas');
-        } else if (userDatabase.role !== 'admin') {
+        } else if (userDatabase.role !== UserModelVariables.ROLE_ADMIN) {
             alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle utilisateur');
         } else if (userDatabase.password !== admin.password) {
             alert('Le mot de passe est incorrect');
@@ -137,7 +138,7 @@ export class UserService {
         localStorage.removeItem(UserService.CONFIG);
     }
 
-    retrieveConfigs(): void {
+    private retrieveConfigs(): void {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
         this.http.get<Config[]>(urlWithId, this.httpOptions).subscribe((configList) => {
             this.configs$.next(configList);
@@ -174,5 +175,17 @@ export class UserService {
         console.log(urlWithId);
         console.log(user);
         this.http.put<Quiz>(urlWithId, user, this.httpOptions).subscribe(() => this.retrieveUsers());
+    }
+
+    isConnected(): boolean {
+        return this.userSelected !== undefined;
+    }
+
+    isRoleUser(): boolean {
+        return this.userSelected.role === UserModelVariables.ROLE_USER;
+    }
+
+    isRoleAdmin(): boolean {
+        return this.userSelected.role === UserModelVariables.ROLE_ADMIN;
     }
 }

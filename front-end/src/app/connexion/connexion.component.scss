@@ -33,7 +33,11 @@
 input {
   margin: 5px;
   text-align: center;
-  font-size: 150%;
+  font-size: $font-size;
+}
+
+input::placeholder {
+  font-size: $font-size;
 }
 
 .buttons {
@@ -42,7 +46,7 @@ input {
 }
 
 label {
-  font-size: 24px;
+  font-size: $font-size;
 }
 
 .administration {

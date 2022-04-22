@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../../../services/user.service";
 import {Config} from "../../../models/config/config.model";
-import {ConfigVariableModel} from "../../../models/config/config.variable.model"
+import {ConfigModelVariables} from "../../../models/config/config.model.variables"
 
 @Component({
   selector: 'app-configuration-form',
@@ -13,7 +13,7 @@ export class ConfigurationFormComponent implements OnInit {
 
   public configForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public configVariables: ConfigVariableModel) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public configVariables: ConfigModelVariables) {
     this.configForm = this.formBuilder.group({
       name: [''],
       size: [''],

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Theme} from "../../../models/theme.model";
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-theme',
@@ -20,7 +21,7 @@ export class ThemeComponent implements OnInit {
     @Output()
     deleteTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
 
-    constructor() {
+    constructor(public userService: UserService) {
     }
 
     ngOnInit(): void {

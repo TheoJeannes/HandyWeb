@@ -2,7 +2,7 @@
 
 <h1> Selectionnez un Thème !</h1>
 
-<button class="buttons add" (click)="addTheme()">Ajouter un thème</button>
+<button class="buttons add" *ngIf="this.userService.isRoleAdmin()" (click)="addTheme()">Ajouter un thème</button>
 
 <div class="theme-selection">
     <div class="themes" *ngFor="let theme of themeList">

@@ -5,7 +5,7 @@ import {Config} from './config.model';
     providedIn: 'root'
 })
 
-export class ConfigVariableModel {
+export class ConfigModelVariables {
     public static readonly defaultConfig: Config = {
         name: 'default',
         size: 15,

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {UserService} from '../../../services/user.service';
-import {User} from '../../../models/user.model';
+import {User} from '../../../models/user/user.model';
 
 @Component({
     selector: 'app-user-form',

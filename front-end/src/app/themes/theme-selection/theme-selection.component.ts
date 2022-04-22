@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Theme} from "../../../models/theme.model";
 import {ThemeService} from "../../../services/theme.service";
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-theme-selection',
@@ -12,7 +13,7 @@ export class ThemeSelectionComponent implements OnInit {
 
   public themeList: Theme[] = [];
 
-  constructor(private router: Router, public themeService: ThemeService) {
+  constructor(private router: Router, public themeService: ThemeService, public  userService: UserService) {
     this.themeService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
     });

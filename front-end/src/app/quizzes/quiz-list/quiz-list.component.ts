@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {QuizService} from '../../../services/quiz.service';
 import {Quiz} from '../../../models/quiz.model';
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-quiz-list',
@@ -13,7 +14,7 @@ export class QuizListComponent implements OnInit {
     public quizList: Quiz[] = [];
     public themeId : string;
 
-    constructor(private activateRoute: ActivatedRoute,private router: Router, public quizService: QuizService) {
+    constructor(public userService: UserService, private activateRoute: ActivatedRoute,private router: Router, public quizService: QuizService) {
         this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
             this.quizList = quizzes;
         });

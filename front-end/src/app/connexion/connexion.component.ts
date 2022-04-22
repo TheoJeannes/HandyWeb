@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {User} from "../../models/user.model";
+import {User} from "../../models/user/user.model";
 import {Router} from "@angular/router";
 import {Config} from '../../models/config/config.model';
-import {ConfigVariableModel} from '../../models/config/config.variable.model';
+import {ConfigModelVariables} from '../../models/config/config.model.variables';
 
 @Component({
     selector: 'app-connexion',
@@ -66,11 +66,11 @@ export class ConnexionComponent implements OnInit {
     public setConfig(): void {
         let config: Config;
         if (this.contrasteButtonOn && this.excentrementButtonOn) {
-            config = ConfigVariableModel.configExcentrementContraste;
+            config = ConfigModelVariables.configExcentrementContraste;
         } else if (this.contrasteButtonOn) {
-            config = ConfigVariableModel.configConstraste
+            config = ConfigModelVariables.configConstraste
         } else {
-            config =  ConfigVariableModel.configExcentrement
+            config =  ConfigModelVariables.configExcentrement
         }
 
         this.userService.setSelectedBaseConfig(config);
