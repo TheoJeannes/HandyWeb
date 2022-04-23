@@ -1,3 +1,4 @@
+@import '../../../styles.scss';
 
 .container{
   box-shadow: black;
@@ -31,4 +32,9 @@
 
 .infos{
   margin: .5em;
+}
+
+option, select, input{
+  font-size: $font-size;
+  font-family: $font;
 }

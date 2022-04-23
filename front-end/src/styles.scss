@@ -125,12 +125,14 @@ input:checked + .slider:before {
 }
 
 .button-retour {
-  margin:10px;
+  margin: 1em;
   background-color: red;
   color: white;
   border-radius: 20px;
-  padding: 10px;
+  padding: 0.8em;
   text-align: center;
+  font-size: $font-size;
+  border: none;
 }
 
 .button-retour:hover{
