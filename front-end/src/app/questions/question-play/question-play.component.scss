@@ -9,16 +9,31 @@
   list-style: none;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 
-.liste{
-  flex-grow: 1;
+.meta{
+  display: flex;
+  justify-content: space-between;
+  max-height: 5%;
+  width: auto;
+}
+ .offset{
+  width: 30%;
+ }
+
+img{
+  max-height: 10em;
+}
+
+h2{
+  align-self: center;
+  display: flex;
   flex-wrap: wrap;
 }
 
 .answer{
-  width :80%
+  width :80%;
+  height : 80%;
 }
 
 .select {

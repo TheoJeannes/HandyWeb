@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Question} from '../../../models/question.model';
 import {Answer} from '../../../models/answer.model';
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-question-play',
@@ -17,7 +18,9 @@ export class QuestionPlayComponent implements OnInit, OnChanges {
     @Output()
     isCorrect: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    constructor() {
+    public offset = false;
+
+    constructor(private userService : UserService) {
 
     }
 
@@ -26,6 +29,7 @@ export class QuestionPlayComponent implements OnInit, OnChanges {
     }
 
     ngOnInit(): void {
+        this.offset = this.userService.isOffset()
     }
 
     selected(answer): void{
