@@ -3,11 +3,19 @@
 .info{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 img{
   display: flex;
   width: auto;
   max-height: 13em
+}
+
+button{
+  display: flex;
+  justify-content: center;
+}
+h1,h3{
+  display: flex;
+  justify-content: center;
 }
