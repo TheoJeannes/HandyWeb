@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Config} from '../models/config/config.model';
+import {ConfigModelVariables} from '../models/config/config.model.variables';
 
 @Injectable({
     providedIn: 'root'
@@ -11,10 +12,16 @@ export class GraphicalAdaptationService {
     }
 
     setStyle(config: Config): void {
-        let hover = this.ColorLuminance(config.colorButtons,-.40);
+        let hover = -.4;
+        let fontColor = ConfigModelVariables.FONT_COLOR_WHITE;
+        if(config.colorButtons === ConfigModelVariables.COLOR_BUTTONS_ORANGE){
+            fontColor = ConfigModelVariables.FONT_COLOR_BLACK;
+            hover = .4;
+        }
+
         document.documentElement.style.setProperty('--button-color', config.colorButtons);
-        document.documentElement.style.setProperty('--button-hover-color', hover);
-        document.documentElement.style.setProperty('--button-font-color', '#FFFFFF');
+        document.documentElement.style.setProperty('--button-hover-color', this.ColorLuminance(config.colorButtons,hover));
+        document.documentElement.style.setProperty('--button-font-color', fontColor);
         document.documentElement.style.setProperty('--font', config.font);
         document.documentElement.style.setProperty('--font-size', config.size.toString()+'px');
         document.documentElement.style.setProperty('--h1-font-size', (config.size * 2.25).toString()+'px');

@@ -39,6 +39,12 @@ export class ConfigModelVariables {
     public COLOR_BUTTONS_BLACK = ConfigModelVariables.COLOR_BUTTONS_BLACK;
     public COLOR_BUTTONS_ORANGE = ConfigModelVariables.COLOR_BUTTONS_ORANGE;
 
+    public static FONT_COLOR_BLACK = '#000000';
+    public static FONT_COLOR_WHITE = '#FFFFFF';
+
+    public FONT_COLOR_BLACK = ConfigModelVariables.FONT_COLOR_BLACK;
+    public FONT_COLOR_WHITE = ConfigModelVariables.FONT_COLOR_WHITE;
+
 
     public static readonly defaultConfig: Config = {
         name: 'default',
