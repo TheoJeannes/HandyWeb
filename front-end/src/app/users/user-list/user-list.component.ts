@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class UserListComponent implements OnInit {
 
     public userList: User[] = [];
+    public userId : number;
 
     constructor(private router: Router, private userService: UserService) {
         this.userService.users$.subscribe((users: User[]) => {
@@ -20,6 +21,7 @@ export class UserListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.userId = this.userService.userSelected$.value.id;
     }
 
     deleteUser(user: User): void {

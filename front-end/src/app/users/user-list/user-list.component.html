@@ -6,7 +6,7 @@
 
 <div  class="user-list">
     <div *ngFor="let user of userList">
-        <app-user [user]="user" (deleteUser)="deleteUser($event)"
+        <app-user [user]="user" (deleteUser)="deleteUser($event)" *ngIf="user.id !== userId"
                   (editUser)="editUser($event)"
         ></app-user>
     </div>
