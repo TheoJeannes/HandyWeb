@@ -2,22 +2,21 @@
 
 <div class="card" *ngIf="user">
     <h2>Modifiez un utilisateur</h2>
-    <div class="firstName">
-        <p>
+    <div >
+        <p class="firstName">
             Prénom : <input [(ngModel)]="user.firstName">
         </p>
-    </div>
-    <div class="lastName">
+
         <p>
-            Nom : <input [(ngModel)]="user.lastName">
+            <label for="lastName">Nom : </label>
+            <input id="lastName" [(ngModel)]="user.lastName">
         </p>
     </div>
-    <br>
-    <mat-radio-group label="Sélectionnez un type de compte">
-        <mat-radio-button value="1">Utilisateur</mat-radio-button>
-        <br>
-        <mat-radio-button value="2">Administrateur</mat-radio-button>
-    </mat-radio-group>
-    <br>
+    <div class="example-radio-group">
+        <input type="radio" name="roleSelection" value="user" [(ngModel)]="user.role"> Utilisateur
+        <input type="radio" name="roleSelection" value="admin" [(ngModel)]="user.role"> Administrateur
+    </div>
+
+    <input type="password" placeholder="Votre mot de passe" *ngIf="user.role === 'admin'" [(ngModel)]="user.password">
     <button type="submit" class="buttons" (click)="editUser()">Valider</button>
 </div>
