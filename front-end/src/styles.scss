@@ -7,6 +7,12 @@ body {
   font-size: $font-size;
 }
 
+.list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $voffset $hoffset;
+}
+
 textarea{
   font-family: $font, serif;
   font-size: $font-size;
@@ -47,6 +53,8 @@ input{
   text-decoration: none;
   background-color: $button-color;
   color: $button-font-color;
+  font-size: $font-size;
+  font-family: $font;
 }
 
 .buttons:hover{

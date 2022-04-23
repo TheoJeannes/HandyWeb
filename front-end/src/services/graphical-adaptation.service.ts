@@ -27,6 +27,8 @@ export class GraphicalAdaptationService {
         document.documentElement.style.setProperty('--h1-font-size', (config.size * 2.25).toString()+'px');
         document.documentElement.style.setProperty('--h2-font-size', (config.size* 1.75).toString()+'px');
         document.documentElement.style.setProperty('--h3-font-size', (config.size* 1.5).toString()+'px')
+        document.documentElement.style.setProperty('--hoffset', config.horizontalEccentricity)
+        document.documentElement.style.setProperty('--voffset', config.verticalEccentricity)
     }
 
     ColorLuminance(hex, lum) : string{

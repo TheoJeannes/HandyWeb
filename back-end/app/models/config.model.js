@@ -5,8 +5,8 @@ module.exports = new BaseModel('Config', {
     userId: Joi.number().required(),
     name: Joi.string().required(),
     size: Joi.number().required(),
-    verticalEccentricity: Joi.number(),
-    horizontalEccentricity: Joi.number(),
+    verticalEccentricity: Joi.string(),
+    horizontalEccentricity: Joi.string(),
     colorButtons: Joi.string().required(),
     font: Joi.string()
         .valid("Roboto", "Luciole","Tiserias", "serif")

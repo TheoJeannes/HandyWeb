@@ -38,6 +38,26 @@
                 <option value="{{configVariables.COLOR_BUTTONS_ORANGE}}">Orange</option>
             </select>
         </div>
+
+        <div class="element">
+            <h3>Choisir l'ecart vertical entre les boutons</h3>
+            <select [(ngModel)]="config.verticalEccentricity">
+                <option value="{{configVariables.VERTICAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
+                <option value="{{configVariables.VERTICAL_ECCENTRICITY_LOW}}">Espacement faible</option>
+                <option value="{{configVariables.VERTICAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
+                <option value="{{configVariables.VERTICAL_ECCENTRICITY_HIGH}}">Espacement elevé</option>
+            </select>
+        </div>
+
+        <div class="element">
+            <h3>Choisir l'ecart horizontal entre les boutons</h3>
+            <select [(ngModel)]="config.horizontalEccentricity">
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_LOW}}">Espacement faible</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Espacement elevé</option>
+            </select>
+        </div>
     </div>
 
     <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>

@@ -2,9 +2,9 @@
 
 <h1> Selectionnez un Thème !</h1>
 
-<button class="buttons add" *ngIf="this.userService.isRoleAdmin()" (click)="addTheme()">Ajouter un thème</button>
+<button class="buttons add" *ngIf="isAdmin" (click)="addTheme()">Ajouter un thème</button>
 
-<div class="theme-selection" ><!--*ngClass=""-->
+<div [ngClass]="offset ? 'list' : 'theme-selection'">
         <!--Inputs & Output allow communication between parent & child components.-->
         <!--More information: https://angular.io/guide/component-interaction-->
         <app-theme *ngFor="let theme of themeList"

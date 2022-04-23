@@ -15,7 +15,9 @@ export class ConfigurationFormComponent implements OnInit {
         name: Math.floor(Math.random() * 100000000) + '',
         size: ConfigModelVariables.defaultConfig.size,
         colorButtons: ConfigModelVariables.defaultConfig.colorButtons,
-        font: ConfigModelVariables.defaultConfig.font
+        font: ConfigModelVariables.defaultConfig.font,
+        horizontalEccentricity: ConfigModelVariables.defaultConfig.horizontalEccentricity,
+        verticalEccentricity: ConfigModelVariables.defaultConfig.verticalEccentricity
     };
 
     constructor(private userService: UserService, public configVariables: ConfigModelVariables) {

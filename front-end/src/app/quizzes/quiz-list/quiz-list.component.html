@@ -1,10 +1,8 @@
 <button class="button-retour" (click)="retour()">Retour</button>
 <h1>Selectionnez un Quiz !</h1>
 <button class="buttons add" *ngIf="this.userService.isRoleAdmin()" (click)="addQuiz()">Ajouter un Quiz</button>
-<div class="quiz-list" *ngIf="quizList.length>0">
-    <div class="quiz" *ngFor="let quiz of quizList">
-        <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" *ngIf="quiz.theme == this.themeId"
+<div [ngClass]="offset ? 'list' : 'quiz-selection'" >
+        <app-quiz [quiz]="quiz" *ngFor="let quiz of quizList" (quizSelected)="quizSelected($event)"
                   (deleteQuiz)="deleteQuiz($event)"
                   (editQuiz)="editQuiz($event)"></app-quiz>
-    </div>
 </div>

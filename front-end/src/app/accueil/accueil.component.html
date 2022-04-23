@@ -1,8 +1,9 @@
 <h1 id="title">Bienvenue sur PolyQuizz</h1>
 
-<div class="buttons-container">
-    <a class="buttons button-accueil" routerLink="/theme-selection">Sélectionner un Quiz</a>
-    <a class="buttons button-accueil" routerLink="/quiz-list/1">Quiz aléatoire</a>
-    <a class="buttons button-accueil" routerLink="/config/auto">Test de Calibrage</a>
-    <a *ngIf="this.userService.isRoleAdmin()" class="buttons button-accueil" routerLink="/user-list">Gestion des Utilisateurs</a>
+<div [ngClass]="offset ? 'list' : 'buttons-container'">
+    <button *ngIf="!admin" class="buttons" routerLink="/theme-selection">Sélectionner un Theme</button>
+    <button *ngIf="admin" class="buttons" routerLink="/theme-selection">Gerer les Themes</button>
+    <button *ngIf="!admin" class="buttons" routerLink="/quiz-list/1">Quiz aléatoire</button>
+    <button *ngIf="!admin" class="buttons" routerLink="/config/auto">Test de Calibrage</button>
+    <button *ngIf="admin" class="buttons button-accueil" routerLink="/user-list">Gestion des Utilisateurs</button>
 </div>

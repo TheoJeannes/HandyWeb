@@ -21,10 +21,13 @@ export class QuizComponent implements OnInit {
     @Output()
     deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
+    public admin = false;
+
     constructor(public userService: UserService) {
     }
 
     ngOnInit(): void {
+        this.admin = this.userService.isRoleAdmin()
     }
 
     selectQuiz(): void {

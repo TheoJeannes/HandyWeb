@@ -12,6 +12,8 @@ import {UserService} from '../../../services/user.service';
 export class ThemeSelectionComponent implements OnInit {
 
   public themeList: Theme[] = [];
+  public offset = false;
+  public isAdmin = false;
 
   constructor(private router: Router, public themeService: ThemeService, public  userService: UserService) {
     this.themeService.themes$.subscribe((themes: Theme[]) => {
@@ -20,6 +22,8 @@ export class ThemeSelectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isAdmin = this.userService.isRoleAdmin()
+    this.offset = this.userService.isOffset()
   }
 
   themeSelected(theme: Theme): void {

@@ -42,15 +42,33 @@ export class ConfigModelVariables {
     public static FONT_COLOR_BLACK = '#000000';
     public static FONT_COLOR_WHITE = '#FFFFFF';
 
-    public FONT_COLOR_BLACK = ConfigModelVariables.FONT_COLOR_BLACK;
-    public FONT_COLOR_WHITE = ConfigModelVariables.FONT_COLOR_WHITE;
+    public static HORIZONTAL_ECCENTRICITY_NONE = '0%';
+    public static HORIZONTAL_ECCENTRICITY_LOW = '20%';
+    public static HORIZONTAL_ECCENTRICITY_MEDIUM = '40%';
+    public static HORIZONTAL_ECCENTRICITY_HIGH = '60%';
 
+    public HORIZONTAL_ECCENTRICITY_NONE = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE;
+    public HORIZONTAL_ECCENTRICITY_LOW = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_LOW;
+    public HORIZONTAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM;
+    public HORIZONTAL_ECCENTRICITY_HIGH = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH;
+
+    public static VERTICAL_ECCENTRICITY_NONE = '0%';
+    public static VERTICAL_ECCENTRICITY_LOW = '20%';
+    public static VERTICAL_ECCENTRICITY_MEDIUM = '40%';
+    public static VERTICAL_ECCENTRICITY_HIGH = '60%';
+
+    public VERTICAL_ECCENTRICITY_NONE = ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE;
+    public VERTICAL_ECCENTRICITY_LOW = ConfigModelVariables.VERTICAL_ECCENTRICITY_LOW;
+    public VERTICAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM;
+    public VERTICAL_ECCENTRICITY_HIGH = ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH;
 
     public static readonly defaultConfig: Config = {
         name: 'default',
         size: ConfigModelVariables.FONT_SIZE_LARGE,
         colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLUE,
-        font: ConfigModelVariables.FONT_LUCIOLE
+        font: ConfigModelVariables.FONT_LUCIOLE,
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE
     };
 
 
@@ -58,20 +76,26 @@ export class ConfigModelVariables {
         name: 'excentrement',
         size: ConfigModelVariables.FONT_SIZE_LARGE,
         font: ConfigModelVariables.FONT_TISERIAS,
-        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLUE
+        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLUE,
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM
     };
 
     public static readonly configConstraste: Config = {
         name: 'constraste',
         size: ConfigModelVariables.FONT_SIZE_XTRALARGE,
         font: ConfigModelVariables.FONT_LUCIOLE,
-        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK
+        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK,
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE
     };
 
     public static readonly configExcentrementContraste: Config = {
         name: 'excentrement + constraste',
         size: ConfigModelVariables.FONT_SIZE_XTRALARGE,
         font: ConfigModelVariables.FONT_TISERIAS,
-        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK
+        colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK,
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM
     };
 }

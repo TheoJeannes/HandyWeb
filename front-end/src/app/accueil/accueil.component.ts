@@ -7,9 +7,16 @@ import {UserService} from '../../services/user.service';
     styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit{
+
+    public admin = true;
+    public offset = false;
+
     constructor(public userService: UserService) {
     }
 
     ngOnInit(): void {
+        this.admin = this.userService.isRoleAdmin()
+        this.offset = this.userService.isOffset()
+        console.log(this.admin)
     }
 }

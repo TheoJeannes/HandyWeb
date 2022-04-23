@@ -98,8 +98,6 @@ export class UserService {
             this.setVariablesLogIn(userDatabase);
         }
 
-        console.log(user, userDatabase);
-
         if (userDatabase === undefined) {
             alert('L\'utilisateur ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
         } else if (userDatabase.role !== UserModelVariables.ROLE_USER) {
@@ -148,15 +146,11 @@ export class UserService {
     addConfig(config: Config): void {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
              this.http.post<Config>(urlWithId, config, this.httpOptions).subscribe(() => {this.retrieveConfigs()
-             },(error) => {
-                 console.log(error)
-                 alert(error.error.extra)
-             });
+             },(error) => alert(error.error.extra));
     }
 
     setSelectedUserConfig(config: Config) {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
-        console.log(urlWithId)
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
             this.graphicalService.setStyle(config);
@@ -186,11 +180,15 @@ export class UserService {
         return this.userSelected !== undefined;
     }
 
-    isRoleUser(): boolean {
-        return this.userSelected.role === UserModelVariables.ROLE_USER;
+    isRoleAdmin(): boolean {
+        if(this.userSelected)
+            return this.userSelected.role === UserModelVariables.ROLE_ADMIN;
+        return false
     }
 
-    isRoleAdmin(): boolean {
-        return this.userSelected.role === UserModelVariables.ROLE_ADMIN;
+    isOffset() {
+        if(this.configSelected$)
+            return this.configSelected$.value.horizontalEccentricity !== ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE || this.configSelected$.value.verticalEccentricity !== ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE
+        return false;
     }
 }
