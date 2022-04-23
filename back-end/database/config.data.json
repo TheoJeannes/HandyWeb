@@ -6,19 +6,11 @@
     "id": 1650357545187
   },
   {
-    "id": 1650659693572,
-    "name": "TRest",
-    "size": "22",
-    "colorButtons": "#eab18d",
-    "font": "Tiserias",
-    "userId": 1649779952694
-  },
-  {
-    "id": 1650663973715,
-    "name": "default",
-    "size": 15,
+    "id": 1650696900168,
+    "name": "Ma configuration n° 01",
+    "size": 24,
     "colorButtons": "#1e98d7",
-    "font": "Tiserias",
+    "font": "Luciole",
     "userId": 1648546148600
   }
 ]

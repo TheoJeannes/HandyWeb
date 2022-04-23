@@ -138,7 +138,7 @@ export class UserService {
         localStorage.removeItem(UserService.CONFIG);
     }
 
-    private retrieveConfigs(): void {
+    retrieveConfigs(): void {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
         this.http.get<Config[]>(urlWithId, this.httpOptions).subscribe((configList) => {
             this.configs$.next(configList);

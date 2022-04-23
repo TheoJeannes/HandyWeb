@@ -2,7 +2,7 @@ const manageAllErrors = (res, err) => {
   if (err.name === 'NotFoundError') {
     res.status(404).end()
   } else if (err.name === 'ValidationError') {
-    res.status(400).json(err.extra)
+    res.status(400).json(err)
   } else {
     res.status(500).json(err)
   }

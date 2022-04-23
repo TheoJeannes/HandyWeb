@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {Config} from "../../../models/config/config.model";
 import {ConfigModelVariables} from "../../../models/config/config.model.variables"
@@ -12,7 +12,7 @@ export class ConfigurationFormComponent implements OnInit {
 
   public config : Config = {
     id : Date.now(),
-    name : ConfigModelVariables.defaultConfig.name,
+    name : Math.floor(Math.random() * 100000000)+"",
     size : ConfigModelVariables.defaultConfig.size,
     colorButtons : ConfigModelVariables.defaultConfig.colorButtons,
     font : ConfigModelVariables.defaultConfig.font
@@ -23,17 +23,12 @@ export class ConfigurationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.config)
   }
 
   addConfig(): void {
-    try {
       this.userService.addConfig(this.config)
       this.userService.setSelectedUserConfig(this.config)
-    }catch (e) {
-      console.log("salut")
-    }
-
+      this.config.name= Math.floor(Math.random() * 100000000)+"";
   }
 
 }
