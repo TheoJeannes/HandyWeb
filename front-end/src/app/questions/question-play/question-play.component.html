@@ -12,5 +12,5 @@
                     (click)="selected(answer)">{{answer.value}}</button>
         </li>
     </ul>
-    <button class="buttons" (click)="verify()">Valider</button>
+    <button class="buttons" (click)="verify()" *ngIf="!correction">Valider</button>
 </div>

@@ -1,9 +1,6 @@
 <div class="theme">
-    <h2>
-        <i class="fab fa-leanpub"></i>
-        {{theme.name}}
-    </h2>
-<!--    <img src="">-->
+    <h2>{{theme.name}}</h2>
+    <img alt="image du quiz" src="{{theme.image}}">
     <button class="buttons" (click)="selectTheme()">Select</button>
     <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="delete()">Delete</button>
     <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="edit()">Edit</button>

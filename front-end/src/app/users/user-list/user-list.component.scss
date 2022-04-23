@@ -5,7 +5,8 @@ h1{
   text-align: center;
 }
 
-.user-list {
+.user-list{
   display: flex;
-
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -33,7 +33,9 @@ export class QuestionPlayComponent implements OnInit, OnChanges {
     }
 
     verify() {
-        this.correction = true;
-        this.isCorrect.emit(this.selectedAnswer.isCorrect)
+        if(this.selectedAnswer){
+            this.correction = true;
+            this.isCorrect.emit(this.selectedAnswer.isCorrect)
+        }
     }
 }

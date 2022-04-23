@@ -2,21 +2,20 @@
 
 <div class="card" *ngIf="theme">
     <h2>Modifiez un Thème !</h2>
-    <div class="center">
     <div class="theme">
-        <div class="name">
-            <p>
-                Nom : <input [(ngModel)]="theme.name">
-            </p>
+        <div style="padding: 10px">
+            <label for="name">Nom : </label>
+        <textarea id="name" [(ngModel)]="theme.name" maxlength="20" rows="1"></textarea>
         </div>
-        <div class="image">
-            <br>
-            <img src="{{theme.image}}" height="50" width="150" alt="Image du Quiz" *ngIf="theme.image">
-            <label for="image">Saisir le lien de l'image : </label>
-            <input [(ngModel)]="theme.image" id="image">
+        <div class="image" >
+            <img src="{{theme.image}}" alt="Image du Quiz" *ngIf="theme.image">
+            <div class="champ">
+                <label for="image">Saisir le lien de l'image : </label>
+                <br>
+                <textarea [(ngModel)]="theme.image" id="image"></textarea>
+            </div>
+
         </div>
-        <br>
-        <button type="submit" class="buttons" (click)="editTheme()">Valider</button>
-    </div>
+        <button type="submit" class="buttons" (click)="editTheme()" >Valider</button>
     </div>
 </div>

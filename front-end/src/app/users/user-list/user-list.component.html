@@ -4,12 +4,12 @@
 
 <button class="buttons add" (click)="addUser()">Ajouter un Utilisateur</button>
 
-
-<div class="user-list">
-    <div class="user" *ngFor="let user of userList">
+<div  class="user-list">
+    <div *ngFor="let user of userList">
         <app-user [user]="user" (deleteUser)="deleteUser($event)"
                   (editUser)="editUser($event)"
         ></app-user>
     </div>
-
 </div>
+
+

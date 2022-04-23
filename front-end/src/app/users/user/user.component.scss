@@ -6,3 +6,9 @@
   padding: 20px;
   margin: 10px;
 }
+
+.card{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
