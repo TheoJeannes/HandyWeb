@@ -13,4 +13,14 @@ h2{
   border-radius: 20px;
   padding: 20px;
   margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img{
+  display: flex;
+  width: auto;
+  max-height: 100px;
 }
