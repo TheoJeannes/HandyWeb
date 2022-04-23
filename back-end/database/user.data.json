@@ -24,11 +24,5 @@
     "role": "admin",
     "id": 3,
     "password": "ux"
-  },
-  {
-    "firstName": "Default4",
-    "lastName": "Default",
-    "role": "user",
-    "id": 4
   }
 ]

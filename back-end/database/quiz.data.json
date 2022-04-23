@@ -92,5 +92,12 @@
     "questions": [],
     "difficulte": 2,
     "theme": "1"
+  },
+  {
+    "id": 13,
+    "name": "Default",
+    "questions": [],
+    "difficulte": 2,
+    "theme": 0
   }
 ]
