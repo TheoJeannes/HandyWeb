@@ -1,17 +1,17 @@
 <div class="switches">
-    <div class="toggle-switch" (click)="excentrementButton()">
+    <div class="toggle-switch">
         <p>Excentrer</p>
         <label class="switch">
             <input type="checkbox">
-            <span class="slider round"></span>
+            <span class="slider round" (click)="excentrementButton()"></span>
         </label>
     </div>
 
-    <div class="toggle-switch" (click)="constarsteButton()">
+    <div class="toggle-switch">
         <p>Contraste</p>
         <label class="switch">
             <input type="checkbox">
-            <span class="slider round"></span>
+            <span class="slider round" (click)="constarsteButton()"></span>
         </label>
     </div>
 </div>
@@ -26,11 +26,11 @@
         <a class="buttons" (click)="logIn()">Se connecter</a>
     </form>
 
-    <div class="toggle-switch administration" (click)="adminButton()">
+    <div class="toggle-switch administration">
         <label>Administration</label>
         <label class="switch">
             <input type="checkbox">
-            <span class="slider round"></span>
+            <span class="slider round" (click)="adminButton()"></span>
         </label>
     </div>
 

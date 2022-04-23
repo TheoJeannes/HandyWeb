@@ -7,60 +7,60 @@ import {Config} from './config.model';
 
 export class ConfigModelVariables {
 
-    public static FONT_SIZE_SMALL = 16;
-    public static FONT_SIZE_MEDIUM = 20;
-    public static FONT_SIZE_LARGE = 24;
-    public static FONT_SIZE_XTRALARGE = 32;
+    public static readonly FONT_SIZE_SMALL = 16;
+    public static readonly FONT_SIZE_MEDIUM = 20;
+    public static readonly FONT_SIZE_LARGE = 24;
+    public static readonly FONT_SIZE_XTRALARGE = 32;
 
-    public FONT_SIZE_SMALL = ConfigModelVariables.FONT_SIZE_SMALL;
-    public FONT_SIZE_MEDIUM = ConfigModelVariables.FONT_SIZE_MEDIUM;
-    public FONT_SIZE_LARGE = ConfigModelVariables.FONT_SIZE_LARGE;
-    public FONT_SIZE_XTRALARGE = ConfigModelVariables.FONT_SIZE_XTRALARGE;
+    public readonly FONT_SIZE_SMALL = ConfigModelVariables.FONT_SIZE_SMALL;
+    public readonly FONT_SIZE_MEDIUM = ConfigModelVariables.FONT_SIZE_MEDIUM;
+    public readonly FONT_SIZE_LARGE = ConfigModelVariables.FONT_SIZE_LARGE;
+    public readonly FONT_SIZE_XTRALARGE = ConfigModelVariables.FONT_SIZE_XTRALARGE;
 
-    public static FONT_SERIF = 'serif';
-    public static FONT_ROBOTO = 'Roboto';
-    public static FONT_LUCIOLE = 'Luciole';
-    public static FONT_TISERIAS = 'Tiserias';
+    public static readonly FONT_SERIF = 'serif';
+    public static readonly FONT_ROBOTO = 'Roboto';
+    public static readonly FONT_LUCIOLE = 'Luciole';
+    public static readonly FONT_TISERIAS = 'Tiserias';
 
-    public FONT_SERIF = ConfigModelVariables.FONT_SERIF;
-    public FONT_ROBOTO = ConfigModelVariables.FONT_ROBOTO;
-    public FONT_LUCIOLE = ConfigModelVariables.FONT_LUCIOLE;
-    public FONT_TISERIAS = ConfigModelVariables.FONT_TISERIAS;
+    public readonly FONT_SERIF = ConfigModelVariables.FONT_SERIF;
+    public readonly FONT_ROBOTO = ConfigModelVariables.FONT_ROBOTO;
+    public readonly FONT_LUCIOLE = ConfigModelVariables.FONT_LUCIOLE;
+    public  readonly FONT_TISERIAS = ConfigModelVariables.FONT_TISERIAS;
 
-    public static COLOR_BUTTONS_BLUE = '#1e98d7';
-    public static COLOR_BUTTONS_GREEN = '#5B793D';
-    public static COLOR_BUTTONS_BLUE_NAVY = '#2F00FF';
-    public static COLOR_BUTTONS_BLACK = '#696969';
-    public static COLOR_BUTTONS_ORANGE = '#eab18d';
+    public static readonly COLOR_BUTTONS_BLUE = '#1e98d7';
+    public static readonly COLOR_BUTTONS_GREEN = '#5B793D';
+    public static readonly COLOR_BUTTONS_BLUE_NAVY = '#2F00FF';
+    public static readonly COLOR_BUTTONS_BLACK = '#696969';
+    public static readonly COLOR_BUTTONS_ORANGE = '#eab18d';
 
-    public COLOR_BUTTONS_BLUE = ConfigModelVariables.COLOR_BUTTONS_BLUE;
-    public COLOR_BUTTONS_GREEN = ConfigModelVariables.COLOR_BUTTONS_GREEN;
-    public COLOR_BUTTONS_BLUE_NAVY = ConfigModelVariables.COLOR_BUTTONS_BLUE_NAVY;
-    public COLOR_BUTTONS_BLACK = ConfigModelVariables.COLOR_BUTTONS_BLACK;
-    public COLOR_BUTTONS_ORANGE = ConfigModelVariables.COLOR_BUTTONS_ORANGE;
+    public readonly COLOR_BUTTONS_BLUE = ConfigModelVariables.COLOR_BUTTONS_BLUE;
+    public readonly COLOR_BUTTONS_GREEN = ConfigModelVariables.COLOR_BUTTONS_GREEN;
+    public readonly COLOR_BUTTONS_BLUE_NAVY = ConfigModelVariables.COLOR_BUTTONS_BLUE_NAVY;
+    public readonly COLOR_BUTTONS_BLACK = ConfigModelVariables.COLOR_BUTTONS_BLACK;
+    public readonly COLOR_BUTTONS_ORANGE = ConfigModelVariables.COLOR_BUTTONS_ORANGE;
 
-    public static FONT_COLOR_BLACK = '#000000';
-    public static FONT_COLOR_WHITE = '#FFFFFF';
+    public static readonly FONT_COLOR_BLACK = '#000000';
+    public static readonly FONT_COLOR_WHITE = '#FFFFFF';
 
-    public static HORIZONTAL_ECCENTRICITY_NONE = '0%';
-    public static HORIZONTAL_ECCENTRICITY_LOW = '20%';
-    public static HORIZONTAL_ECCENTRICITY_MEDIUM = '40%';
-    public static HORIZONTAL_ECCENTRICITY_HIGH = '60%';
+    public static readonly HORIZONTAL_ECCENTRICITY_NONE = '0%';
+    public static readonly HORIZONTAL_ECCENTRICITY_LOW = '20%';
+    public static readonly HORIZONTAL_ECCENTRICITY_MEDIUM = '40%';
+    public static readonly HORIZONTAL_ECCENTRICITY_HIGH = '60%';
 
-    public HORIZONTAL_ECCENTRICITY_NONE = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE;
-    public HORIZONTAL_ECCENTRICITY_LOW = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_LOW;
-    public HORIZONTAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM;
-    public HORIZONTAL_ECCENTRICITY_HIGH = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH;
+    public readonly HORIZONTAL_ECCENTRICITY_NONE = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_NONE;
+    public readonly HORIZONTAL_ECCENTRICITY_LOW = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_LOW;
+    public readonly HORIZONTAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM;
+    public readonly HORIZONTAL_ECCENTRICITY_HIGH = ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH;
 
-    public static VERTICAL_ECCENTRICITY_NONE = '0%';
-    public static VERTICAL_ECCENTRICITY_LOW = '20%';
-    public static VERTICAL_ECCENTRICITY_MEDIUM = '40%';
-    public static VERTICAL_ECCENTRICITY_HIGH = '60%';
+    public static readonly VERTICAL_ECCENTRICITY_NONE = '0%';
+    public static readonly VERTICAL_ECCENTRICITY_LOW = '20%';
+    public static readonly VERTICAL_ECCENTRICITY_MEDIUM = '40%';
+    public static readonly VERTICAL_ECCENTRICITY_HIGH = '60%';
 
-    public VERTICAL_ECCENTRICITY_NONE = ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE;
-    public VERTICAL_ECCENTRICITY_LOW = ConfigModelVariables.VERTICAL_ECCENTRICITY_LOW;
-    public VERTICAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM;
-    public VERTICAL_ECCENTRICITY_HIGH = ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH;
+    public readonly VERTICAL_ECCENTRICITY_NONE = ConfigModelVariables.VERTICAL_ECCENTRICITY_NONE;
+    public readonly VERTICAL_ECCENTRICITY_LOW = ConfigModelVariables.VERTICAL_ECCENTRICITY_LOW;
+    public readonly VERTICAL_ECCENTRICITY_MEDIUM = ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM;
+    public readonly VERTICAL_ECCENTRICITY_HIGH = ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH;
 
     public static readonly defaultConfig: Config = {
         name: 'default',
