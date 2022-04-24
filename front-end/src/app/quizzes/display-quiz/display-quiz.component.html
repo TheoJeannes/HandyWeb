@@ -1,36 +1,32 @@
-<div class="container" *ngIf="quiz">
-    <div class="presentation">
-        <div class="first">
-            <div class="contexte">
-                <div>
-                    <img src="{{quiz.image}}" height="50" width="150" alt="Image du Quiz">
-                    <label for="image">Saisir le lien de l'image</label>
-                    <input [(ngModel)]="quiz.image" id="image">
-                </div>
-                <div class="nbQuestions">
-                    <p>Nombre de Questions : {{quiz.questions.length}}</p>
-                </div>
-            </div>
-            <div class="infos">
-                <input [(ngModel)]="quiz.name">
-                <div class="temps">Durée Moyenne : {{quiz.questions.length*quiz.difficulte}}</div>
-                <div class="difficultee">
-                    Difficulté :
-                    <select [(ngModel)]='quiz.difficulte' name="dropdownOption" id="dropdownOption">
-                        <option value="1">Facile</option>
-                        <option value="2">Normal</option>
-                        <option value="3">Difficile</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="theme">
-            <p>
-                Theme : <select [(ngModel)]="quiz.theme">
-                        <option *ngFor="let theme of themeList" [value]="theme.id">{{theme.name}}</option>
-                    </select>
-            </p>
-        </div>
+    <div class="center">
+        <img src="{{quiz.image}}" alt="Image du Quiz" *ngIf="quiz.image">
+        <p>
+            <label for="image">Saisir le lien de l'image</label>
+            <textarea [(ngModel)]="quiz.image" rows="4" id="image"></textarea>
+        </p>
     </div>
-    <button class="buttons" (click)="validate()">Valider</button>
-</div>
+    <div class="center">
+        <p>
+            <label for="name">Saisir le nom</label>
+            <textarea id="name" [(ngModel)]="quiz.name" maxlength="20" rows="1"></textarea>
+        </p>
+        <p>Durée Moyenne : {{quiz.questions.length * quiz.difficulte}}</p>
+        <p>Nombre de Questions : {{quiz.questions.length}}</p>
+    </div>
+    <div class="center">
+        <p>
+            Difficulté :
+            <select [(ngModel)]='quiz.difficulte' name="dropdownOption" id="dropdownOption">
+                <option value="1">Facile</option>
+                <option value="2">Normal</option>
+                <option value="3">Difficile</option>
+            </select>
+        </p>
+        <p>
+            Theme :
+            <select [(ngModel)]="quiz.theme">
+                <option *ngFor="let theme of themeList" [value]="theme.id">{{theme.name}}</option>
+            </select>
+        </p>
+        <button class="buttons" (click)="validate()">Valider</button>
+    </div>

@@ -30,4 +30,11 @@ export class QuestionFormComponent implements OnInit {
     editQuestion(): void {
         this.questionEdited.emit(this.question);
     }
+
+    isCorrect(id) {
+        for(let answer of this.question.answers){
+            answer.isCorrect = (answer.id===id);
+        }
+        console.log(this.question)
+    }
 }

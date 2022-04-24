@@ -3,19 +3,25 @@
 
 .edit{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .container{
   display: flex;
 }
 
-.display{
-  padding: .5em;
+.meta{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.list{
-  flex-grow: 1;
-  border : red 3px solid;
+.display{
+  background-color: #ffaa71;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
 }
 

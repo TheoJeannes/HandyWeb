@@ -1,26 +1,25 @@
 <div class="page-quiz" *ngIf="question">
 
-    <div class="summary">
-        <label for="wording">Enoncé de la question</label>
-        <input type="text" id="wording" [(ngModel)]="question.label">
-        <div id="Image-de-la-question">
-            <img *ngIf="question.image" width="150" height="50" class="image" src="{{question.image}}" alt="Image du Quizz"/>
-            <input [(ngModel)]="question.image"/>
-        </div>
+    <img src="{{question.image}}" alt="Image du Quiz" *ngIf="question.image">
+    <div>
+        <p>
+            <label for="name">Saisir la Question</label>
+            <textarea id="name" [(ngModel)]="question.label" maxlength="120" rows="3" cols="40"></textarea>
+        </p>
+        <p>
+            <label for="image">Saisir le lien de l'image : </label>
+            <textarea [(ngModel)]="question.image" rows="4" id="image"></textarea>
+        </p>
     </div>
-
     <div class="answers">
         <div *ngFor="let answer of question.answers; let i=index">
-                <label>
-                    <button class="button">
-                        <input type="text" [(ngModel)]="answer.value">
-                        <input type="checkbox" [(ngModel)]="answer.isCorrect">
-                    </button>
-                </label>
+            <button [ngClass]="answer.isCorrect ? 'correct buttons' : 'buttons'" v(click)=isCorrect(answer.id)>
+                <textarea [(ngModel)]="answer.value" rows="2" cols="30" maxlength="60"></textarea>
+            </button>
         </div>
     </div>
-
+    <div>
+        <p>La bonne reponse est surlignée en vert. Cliquez sur une reponse pour la selectionner comme correcte.</p>
+    </div>
     <button type="submit" class="buttons" (click)="editQuestion()">Valider</button>
 </div>
-<!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->

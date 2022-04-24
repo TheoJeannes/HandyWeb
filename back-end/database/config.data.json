@@ -36,40 +36,20 @@
     "userId": 3
   },
   {
-    "id": 1650789513336,
-    "name": "15535539",
-    "size": 24,
-    "colorButtons": "#1e98d7",
-    "font": "Luciole",
-    "horizontalEccentricity": "0%",
-    "verticalEccentricity": "0%",
-    "userId": 1
-  },
-  {
-    "id": 1650789637857,
-    "name": "81318509",
-    "size": "16",
-    "colorButtons": "#1e98d7",
-    "font": "Luciole",
-    "horizontalEccentricity": "0%",
-    "verticalEccentricity": "0%",
-    "userId": 1
-  },
-  {
-    "id": 1650790002312,
-    "name": "23472443",
+    "id": 1650801893022,
+    "name": "Tres (trop) grand",
     "size": "32",
     "colorButtons": "#1e98d7",
-    "font": "Roboto",
+    "font": "Luciole",
     "horizontalEccentricity": "0%",
     "verticalEccentricity": "0%",
     "userId": 1
   },
   {
-    "id": 1650790972845,
-    "name": "64858073",
+    "id": 1650803452554,
+    "name": "cAsU",
     "size": "16",
-    "colorButtons": "#eab18d",
+    "colorButtons": "#1e98d7",
     "font": "Roboto",
     "horizontalEccentricity": "0%",
     "verticalEccentricity": "0%",
