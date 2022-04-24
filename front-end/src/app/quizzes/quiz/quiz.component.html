@@ -4,8 +4,8 @@
     </h2>
     <img src="{{quiz.image}}" *ngIf="quiz.image">
     <div>
-        <button class="buttons select" routerLink="/play-quiz/{{quiz.id}}" *ngIf="!admin">Select</button>
-        <button class="buttons" *ngIf="this.userService.isRoleAdmin()" (click)="delete()">Delete</button>
-        <button class="buttons edit" *ngIf="this.userService.isRoleAdmin()" routerLink="/edit-quiz/{{quiz.id}}">Edit</button>
+        <button class="buttons select" routerLink="/play-quiz/{{quiz.id}}" *ngIf="!admin">Sélectionner</button>
+        <button class="buttons" *ngIf="this.userService.isRoleAdmin()" (click)="delete()">Supprimer</button>
+        <button class="buttons edit" *ngIf="this.userService.isRoleAdmin()" routerLink="/edit-quiz/{{quiz.id}}">Modifier</button>
     </div>
 </div>

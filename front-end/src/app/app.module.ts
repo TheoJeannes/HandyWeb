@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {MatListModule} from '@angular/material/list';
 
 import {AppComponent} from './app.component';
 import {QuizListComponent} from './quizzes/quiz-list/quiz-list.component';
@@ -29,7 +28,6 @@ import {ConfigurationComponent} from "./configurations/configuration/configurati
 import {ConfigurationFormComponent} from "./configurations/configuration-form/configuration-form.component";
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DisplayQuizComponent} from "./quizzes/display-quiz/display-quiz.component";
-import {QuizSelectionComponent} from "./quizzes/quiz-selection/quiz-selection.component";
 
 import {
   ConfigurationAutomatiqueComponent
@@ -43,7 +41,6 @@ import {
   ConfigurationSelectionComponent
 } from './configurations/configuration-selection/configuration-selection.component';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
-import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
     declarations: [
@@ -73,7 +70,6 @@ import {MatRadioModule} from '@angular/material/radio';
         ConfigurationFormComponent,
         DisplayQuizComponent,
         ThemeSelectionComponent,
-        QuizSelectionComponent,
         EditUserComponent,
     ],
     imports: [
@@ -82,9 +78,7 @@ import {MatRadioModule} from '@angular/material/radio';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        BrowserAnimationsModule,
-        MatListModule,
-        MatRadioModule
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

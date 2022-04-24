@@ -1,12 +1,10 @@
 <button class="button-retour" routerLink="/accueil">Retour</button>
 
-<h1> Selectionnez un Thème !</h1>
+<h1> Sélectionnez un Thème !</h1>
 
 <button class="buttons add" *ngIf="isAdmin" (click)="addTheme()">Ajouter un thème</button>
 
 <div [ngClass]="offset ? 'list' : 'theme-selection'">
-        <!--Inputs & Output allow communication between parent & child components.-->
-        <!--More information: https://angular.io/guide/component-interaction-->
         <app-theme *ngFor="let theme of themeList"
                    [theme]="theme"
                    (themeSelected)="themeSelected($event)"
