@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
-import {ConfigModelVariables} from '../../../models/config/config.model.variables';
 
 @Component({
     selector: 'app-configurations-manuelle',
@@ -9,15 +8,14 @@ import {ConfigModelVariables} from '../../../models/config/config.model.variable
 })
 export class ConfigurationManuelleComponent implements OnInit {
 
+    public offset = false;
 
     constructor(private userService: UserService) {}
 
 
     ngOnInit(): void {
+    this.offset=this.userService.isOffset()
     }
 
-    resetDefaultConfig(): void {
-        this.userService.setSelectedBaseConfig(ConfigModelVariables.defaultConfig);
-    }
 
 }

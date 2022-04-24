@@ -1,13 +1,8 @@
-<h2>Créer une configuration</h2>
-<div class="main">
-    <div class="form">
         <div class="element">
             <h3>Nommer la configuration</h3>
             <textarea maxlength="20" rows="1" autofocus required placeholder="Nom de votre Configuration"
                       [(ngModel)]="config.name"></textarea>
-            <br>
         </div>
-
         <div class="element">
             <h3>Sélectionner le grossissement du texte</h3>
             <select [(ngModel)]="config.size">
@@ -58,7 +53,7 @@
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Espacement elevé</option>
             </select>
         </div>
-    </div>
 
     <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>
-</div>
+
+    <button class="buttons" (click)="resetDefaultConfig()">Reinitialiser vos paramètres</button>

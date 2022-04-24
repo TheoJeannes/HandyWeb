@@ -16,16 +16,8 @@ select{
   padding: .4em;
 }
 
-.form{
-  display: grid;
-  grid-gap: .1em ;
-  grid-auto-rows: minmax(100px, auto);
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .element{
-  padding: .3em;
-  margin: .4em;
+  padding: .2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +27,5 @@ select{
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: fit-content;
 }

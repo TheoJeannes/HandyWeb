@@ -12,15 +12,17 @@
   text-align: center;
 }
 
-.listA{
+.listes{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.footer{
+.form{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 

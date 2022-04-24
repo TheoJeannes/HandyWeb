@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../services/user.service';
 
 @Component({
     selector: 'app-configurations-selection',
@@ -7,10 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ConfigurationSelectionComponent implements OnInit {
 
-    constructor() {
+    public offset = false;
+    public admin = false;
+    constructor(private userS : UserService) {
+
     }
 
     ngOnInit(): void {
+        this.offset=this.userS.isOffset()
+        this.admin=this.userS.isRoleAdmin()
+
     }
 
 }

@@ -10,6 +10,8 @@ import {ConfigModelVariables} from '../../../models/config/config.model.variable
 })
 export class ConfigurationFormComponent implements OnInit {
 
+    public offset = false;
+
     public config: Config = {
         id: Date.now(),
         name: Math.floor(Math.random() * 100000000) + '',
@@ -25,13 +27,18 @@ export class ConfigurationFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.offset=this.userService.isOffset()
     }
 
     addConfig(): void {
+        console.log(this.config)
         this.userService.addConfig(this.config);
         this.userService.setSelectedUserConfig(this.config);
         this.config.name = Math.floor(Math.random() * 100000000) + '';
         this.config.id = Date.now();
     }
 
+    resetDefaultConfig(): void {
+        this.userService.setSelectedBaseConfig(ConfigModelVariables.defaultConfig);
+    }
 }

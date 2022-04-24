@@ -1,13 +1,5 @@
 [
   {
-    "id": 3,
-    "name": "Default",
-    "questions": [],
-    "difficulte": 2,
-    "theme": 0,
-    "image": "http://www.planetecampus.com/wp-content/uploads/2013/11/POLYTECH_RVB.jpg"
-  },
-  {
     "id": 12,
     "name": "Asiatique",
     "questions": [
@@ -85,19 +77,5 @@
     "difficulte": 2,
     "theme": 0,
     "image": "https://tse1.mm.bing.net/th?id=OIP.BDxa4KeroKHF_bUooC1OAwHaDt&pid=Api"
-  },
-  {
-    "id": 14,
-    "name": "Test",
-    "questions": [],
-    "difficulte": 2,
-    "theme": "1"
-  },
-  {
-    "id": 13,
-    "name": "Default",
-    "questions": [],
-    "difficulte": 2,
-    "theme": 0
   }
 ]

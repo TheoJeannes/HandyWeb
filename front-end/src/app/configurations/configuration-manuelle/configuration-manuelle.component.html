@@ -3,13 +3,9 @@
         <a class="button-retour">Retour</a>
         <h1 id="title">Page de configuration manuelle</h1>
     </div>
-
-    <app-configurations-list class="listA"></app-configurations-list>
-
-    <app-configuration-form class="form"></app-configuration-form>
-
-    <div class="footer">
-        <h2>Pour remettre la configuration par défaut</h2>
-        <button class="buttons" (click)="resetDefaultConfig()">Reinitialiser vos paramètres</button>
-    </div>
+ <div class="listes">
+     <app-configurations-list [ngClass]="offset ? 'list':'form'"></app-configurations-list>
+     <h2>Ajouter une nouvelle configuration</h2>
+     <app-configuration-form class="list"></app-configuration-form>
+ </div>
 </div>
