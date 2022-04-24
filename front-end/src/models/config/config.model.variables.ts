@@ -77,8 +77,8 @@ export class ConfigModelVariables {
         size: ConfigModelVariables.FONT_SIZE_LARGE,
         font: ConfigModelVariables.FONT_TISERIAS,
         colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLUE,
-        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM,
-        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH
     };
 
     public static readonly configConstraste: Config = {
@@ -95,7 +95,7 @@ export class ConfigModelVariables {
         size: ConfigModelVariables.FONT_SIZE_XTRALARGE,
         font: ConfigModelVariables.FONT_TISERIAS,
         colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK,
-        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_MEDIUM,
-        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_MEDIUM
+        horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH,
+        verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH
     };
 }

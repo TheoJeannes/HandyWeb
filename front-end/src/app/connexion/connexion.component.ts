@@ -15,8 +15,8 @@ export class ConnexionComponent implements OnInit {
 
     public loginForm: FormGroup;
     public adminButtonOn: boolean = false;
-    private excentrementButtonOn: boolean = false;
-    private contrasteButtonOn: boolean = false;
+    public excentrementButtonOn: boolean = false;
+    public contrasteButtonOn: boolean = false;
 
     constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router) {
         this.loginForm = this.formBuilder.group({

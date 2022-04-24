@@ -20,7 +20,13 @@
 }
 
 .div-connexion {
-  margin: 8%;
+  margin: 10% 8% 8%;
+  display: flex;
+  flex-direction: column;
+}
+
+.offset {
+  margin-right: $hoffset;
   display: flex;
   flex-direction: column;
 }

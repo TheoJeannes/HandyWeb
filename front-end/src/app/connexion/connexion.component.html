@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="div-connexion">
+<div [ngClass]="excentrementButtonOn?'offset':'div-connexion'">
     <label>Formulaire de connexion :</label>
 
     <form class="form-connexion" [formGroup]="loginForm">
@@ -26,7 +26,7 @@
         <a class="buttons" (click)="logIn()">Se connecter</a>
     </form>
 
-    <div class="toggle-switch administration">
+    <div class="toggle-switch administration" *ngIf="!contrasteButtonOn && !excentrementButtonOn">
         <label>Administration</label>
         <label class="switch">
             <input type="checkbox">

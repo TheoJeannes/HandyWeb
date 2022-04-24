@@ -77,5 +77,12 @@
     "difficulte": 2,
     "theme": 0,
     "image": "https://tse1.mm.bing.net/th?id=OIP.BDxa4KeroKHF_bUooC1OAwHaDt&pid=Api"
+  },
+  {
+    "id": 13,
+    "name": "Default",
+    "questions": [],
+    "difficulte": 2,
+    "theme": 0
   }
 ]
