@@ -1,9 +1,10 @@
-<div class="card">
+<div class="user">
     <h2>
         <i class="fas fa-user"></i>
         {{user.firstName}} {{user.lastName}}
     </h2>
-    <button class="buttons edit" (click)="delete()">Delete</button>
-    <button class="buttons edit" (click)="edit()">Edit</button>
-
+    <div>
+        <button class="buttons edit" (click)="delete()">Delete</button>
+        <button class="buttons edit" (click)="edit()">Edit</button>
+    </div>
 </div>

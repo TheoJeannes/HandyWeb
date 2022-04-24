@@ -1,22 +1,24 @@
 <button class="button-retour" routerLink="/user-list">Retour</button>
 
-<div class="card" *ngIf="user">
+<div class="center" *ngIf="user">
     <h2>Modifiez un utilisateur</h2>
-    <div >
-        <p class="firstName">
-            Prénom : <input [(ngModel)]="user.firstName">
-        </p>
-
-        <p>
-            <label for="lastName">Nom : </label>
-            <input id="lastName" [(ngModel)]="user.lastName">
-        </p>
+    <div class="theme">
+            <p>
+                <label for="firstName">Prenom : </label>
+                <textarea id="firstName" rows="1" maxlength="20" [(ngModel)]="user.firstName"></textarea>
+            </p>
+            <p>
+                <label for="lastName">Nom : </label>
+                <textarea id="lastName" rows="1" maxlength="20" [(ngModel)]="user.lastName"></textarea>
+            </p>
+            <p *ngIf="user.role === 'admin'">
+                <label for="password">Mot de Passe : </label>
+                <textarea id="password" placeholder="Mot de passe" rows="1" [(ngModel)]="user.password"></textarea>
+            </p>
+        <div class="example-radio-group">
+            <input type="radio" name="roleSelection" value="user" [(ngModel)]="user.role"> Utilisateur
+            <input type="radio" name="roleSelection" value="admin" [(ngModel)]="user.role"> Administrateur
+        </div>
+        <button type="submit" class="buttons" (click)="editUser()">Valider</button>
     </div>
-    <div class="example-radio-group">
-        <input type="radio" name="roleSelection" value="user" [(ngModel)]="user.role"> Utilisateur
-        <input type="radio" name="roleSelection" value="admin" [(ngModel)]="user.role"> Administrateur
-    </div>
-
-    <input type="password" placeholder="Votre mot de passe" *ngIf="user.role === 'admin'" [(ngModel)]="user.password">
-    <button type="submit" class="buttons" (click)="editUser()">Valider</button>
 </div>

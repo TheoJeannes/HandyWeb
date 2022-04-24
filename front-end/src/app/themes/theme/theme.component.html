@@ -1,7 +1,10 @@
 <div class="theme">
     <h2>{{theme.name}}</h2>
     <img alt="image du quiz" src="{{theme.image}}"  *ngIf="theme.image">
-    <button class="buttons" (click)="selectTheme()">Select</button>
-    <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="delete()">Delete</button>
-    <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="edit()">Edit</button>
+    <div>
+        <button class="buttons" (click)="selectTheme()">Select</button>
+        <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="delete()">Delete</button>
+        <button *ngIf="this.userService.isRoleAdmin()" class="buttons edit" (click)="edit()">Edit</button>
+    </div>
+
 </div>

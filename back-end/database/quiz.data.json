@@ -84,5 +84,20 @@
     "questions": [],
     "difficulte": 2,
     "theme": 0
+  },
+  {
+    "id": 0,
+    "name": "Dummy",
+    "questions": [],
+    "difficulte": "1",
+    "theme": "2",
+    "image": "http://www.planetecampus.com/wp-content/uploads/2013/11/POLYTECH_RVB.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Default",
+    "questions": [],
+    "difficulte": 2,
+    "theme": 0
   }
 ]

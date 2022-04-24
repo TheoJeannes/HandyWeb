@@ -1,21 +1,17 @@
 <button class="button-retour" routerLink="/theme-selection">Retour</button>
 
-<div class="card" *ngIf="theme">
+<div class="center" *ngIf="theme">
     <h2>Modifiez un Thème !</h2>
     <div class="theme">
-        <div style="padding: 10px">
-            <label for="name">Nom : </label>
-        <textarea id="name" [(ngModel)]="theme.name" maxlength="20" rows="1"></textarea>
-        </div>
-        <div class="image" >
-            <img src="{{theme.image}}" alt="Image du Quiz" *ngIf="theme.image">
-            <div class="champ">
-                <label for="image">Saisir le lien de l'image : </label>
-                <br>
-                <textarea [(ngModel)]="theme.image" id="image"></textarea>
-            </div>
-
-        </div>
-        <button type="submit" class="buttons" (click)="editTheme()" >Valider</button>
+        <p>
+            <label for="name">Saisir le nom</label>
+            <textarea id="name" [(ngModel)]="theme.name" maxlength="20" rows="1"></textarea>
+        </p>
+        <img src="{{theme.image}}" alt="Image du Quiz" *ngIf="theme.image">
+        <p>
+            <label for="image">Saisir le lien de l'image : </label>
+            <textarea [(ngModel)]="theme.image" rows="4" id="image"></textarea>
+        </p>
     </div>
+    <button type="submit" class="buttons" (click)="editTheme()">Valider</button>
 </div>
