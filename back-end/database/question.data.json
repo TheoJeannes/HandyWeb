@@ -106,7 +106,7 @@
   },
   {
     "id": 0,
-    "label": "Quel est ce plat",
+    "label": "Quel est ce plat ?",
     "quizId": 12,
     "answers": [
       {
@@ -142,7 +142,7 @@
   },
   {
     "id": 1,
-    "label": "Combien un ramen",
+    "label": "Combien coute un ramen ?",
     "quizId": 12,
     "answers": [
       {

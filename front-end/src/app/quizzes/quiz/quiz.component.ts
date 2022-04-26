@@ -19,7 +19,9 @@ export class QuizComponent implements OnInit {
     editQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
     @Output()
-    deleteQuiz: EventEmitter<Quiz> = new EventEmitter<Quiz>();
+    deleteQuiz = new EventEmitter<Quiz>();
+
+    difficulte : String;
 
     public admin = false;
 
@@ -27,11 +29,18 @@ export class QuizComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.admin = this.userService.isRoleAdmin()
-    }
+        this.admin = this.userService.isRoleAdmin();
+        switch (this.quiz.difficulte){
+            case 1:
+                this.difficulte = "Facile";
+                break;
+            case 3:
+                this.difficulte = "Difficile";
+                break;
+            default:
+                this.difficulte = "Moyenne";
+        }
 
-    selectQuiz(): void {
-        this.quizSelected.emit(this.quiz);
     }
 
     edit(): void {

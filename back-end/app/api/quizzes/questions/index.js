@@ -35,11 +35,6 @@ router.post('/', (req, res) => {
     Quiz.getById(req.params.quizId)
     const quizId = parseInt(req.params.quizId, 10)
     let question = Question.create({ id: parseInt(req.body.id),label: req.body.label, quizId, answers: req.body.answers})
-    // If answers have been provided in the request, we create the answer and update the response to send.
-    // if (req.body.answers && req.body.answers.length > 0) {
-    //   const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
-    //   question = { ...question, answers }
-    // }
     res.status(201).json(question)
   } catch (err) {
     manageAllErrors(res, err)
@@ -48,7 +43,6 @@ router.post('/', (req, res) => {
 
 router.put('/:questionId', (req, res) => {
   try {
-    console.log("Update Question");
     // const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
     // console.log(question)
     const updatedQuestion = Question.updateQuestion(req.params.questionId, req.params.quizId ,{ label: req.body.label, answers : req.body.answers, image : req.body.image })

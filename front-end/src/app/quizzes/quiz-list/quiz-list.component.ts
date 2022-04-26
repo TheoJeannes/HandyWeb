@@ -12,14 +12,14 @@ import {UserService} from '../../../services/user.service';
 export class QuizListComponent implements OnInit {
 
     public quizList: Quiz[] = [];
-    public themeId : number;
+    public themeId: number;
     public offset = false;
 
     constructor(public userService: UserService, private activateRoute: ActivatedRoute,private router: Router, public quizService: QuizService) {
         this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
             this.quizList = quizzes;
         });
-        this.themeId= parseInt(this.activateRoute.snapshot.paramMap.get('theme'));
+        this.themeId= parseInt(this.activateRoute.snapshot.paramMap.get('theme'), 10);
     }
 
     ngOnInit(): void {
@@ -52,9 +52,9 @@ export class QuizListComponent implements OnInit {
     }
 
     newId():number{
-        if(this.quizList.length === 0)
+        if (this.quizList.length === 0)
             return 0;
-        return Math.max(...this.quizList.map(x => x.id)) +1 ;
+        return Math.max(...this.quizList.map(x => x.id)) + 1 ;
     }
 
     retour() {
