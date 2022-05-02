@@ -1,10 +1,14 @@
-<div class="config-list" *ngFor="let config of configList">
-    <!--Inputs & Output allow communication between parent & child components.-->
-    <!--More information: https://angular.io/guide/component-interaction-->
-    <app-configuration [config]="config"
-                       (configSelected)="selectConfig($event)"
-                       (configDeleted)="deleteConfig($event)">
-    </app-configuration>
+<div class="page">
+    <div class="header">
+        <button class="button-retour" routerLink="/config/manuel">Retour</button>
+    </div>
+
+    <div [ngClass]="offset?'list':'form'">
+        <div class="config-list" *ngFor="let config of configList">
+            <app-configuration [config]="config"
+                               (configSelected)="selectConfig($event)"
+                               (configDeleted)="deleteConfig($event)">
+            </app-configuration>
+        </div>
+    </div>
 </div>
-
-

@@ -1,3 +1,10 @@
+
+<div class="page">
+    <div>
+        <button class="button-retour" routerLink="/config/manuel">Retour</button>
+        <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>
+    </div>
+    <div class="list">
         <div class="element">
             <h3>Nommer la configuration</h3>
             <textarea maxlength="20" rows="1" autofocus required placeholder="Nom de votre Configuration"
@@ -5,7 +12,7 @@
         </div>
         <div class="element">
             <h3>Sélectionner le grossissement du texte</h3>
-            <select [(ngModel)]="config.size">
+            <select [(ngModel)]="config.size" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.FONT_SIZE_SMALL}}">Petit</option>
                 <option value="{{configVariables.FONT_SIZE_MEDIUM}}">Moyen</option>
                 <option value="{{configVariables.FONT_SIZE_LARGE}}">Grand</option>
@@ -14,29 +21,33 @@
         </div>
 
         <div class="element">
-            <h3>Sélectionner la police de caractères</h3>
-            <select [(ngModel)]="config.font">
-                <option value="{{configVariables.FONT_LUCIOLE}}">Luciole (Adaptée pour la presbytie)</option>
-                <option value="{{configVariables.FONT_TISERIAS}}">Tiserias (Adaptée pour la DMLA)</option>
-                <option value="{{configVariables.FONT_ROBOTO}}">Roboto (Très Commun)</option>
-                <option value="{{configVariables.FONT_SERIF}}">Serif (Choix par défaut)</option>
+            <h3>Sélectionner le style d'ecriture</h3>
+            <select [(ngModel)]="config.font" (ngModelChange)="updateStyle()">
+                <option style="font-family: 'Luciole',serif" value="{{configVariables.FONT_LUCIOLE}}">Style adapté pour
+                    la presbytie
+                </option>
+                <option style="font-family: 'Tiresias',serif" value="{{configVariables.FONT_TIRESIAS}}">Style adapté
+                    pour la DMLA
+                </option>
+                <option style="font-family: 'Roboto',serif" value="{{configVariables.FONT_ROBOTO}}">Style commun
+                </option>
+                <option style="font-family: serif" value="{{configVariables.FONT_SERIF}}">Choix par défaut</option>
             </select>
         </div>
 
         <div class="element">
             <h3>Sélectionner la couleur des boutons</h3>
-            <select [(ngModel)]="config.colorButtons">
+            <select [(ngModel)]="config.colorButtons" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.COLOR_BUTTONS_BLUE}}">Bleu</option>
                 <option value="{{configVariables.COLOR_BUTTONS_GREEN}}">Vert</option>
                 <option value="{{configVariables.COLOR_BUTTONS_BLUE_NAVY}}">Bleu Navy</option>
                 <option value="{{configVariables.COLOR_BUTTONS_BLACK}}">Noir</option>
-<!--                <option value="{{configVariables.COLOR_BUTTONS_ORANGE}}">Orange</option>-->
             </select>
         </div>
 
         <div class="element">
             <h3>Choisir l'ecart vertical entre les boutons</h3>
-            <select [(ngModel)]="config.verticalEccentricity">
+            <select [(ngModel)]="config.verticalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_LOW}}">Espacement faible</option>
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
@@ -46,14 +57,12 @@
 
         <div class="element">
             <h3>Choisir l'ecart horizontal entre les boutons</h3>
-            <select [(ngModel)]="config.horizontalEccentricity">
+            <select [(ngModel)]="config.horizontalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_LOW}}">Espacement faible</option>
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Espacement élevé</option>
             </select>
         </div>
-
-    <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>
-
-    <button class="buttons" (click)="resetDefaultConfig()">Réinitialiser vos paramètres</button>
+    </div>
+</div>

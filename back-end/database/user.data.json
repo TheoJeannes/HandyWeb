@@ -23,5 +23,12 @@
     "lastName": "ifjen",
     "role": "user",
     "id": 6
+  },
+  {
+    "firstName": "Anne",
+    "lastName": "D",
+    "role": "admin",
+    "id": 7,
+    "password": "a"
   }
 ]

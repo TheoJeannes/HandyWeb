@@ -8,9 +8,9 @@ import {Config} from './config.model';
 export class ConfigModelVariables {
 
     public static readonly FONT_SIZE_SMALL = 16;
-    public static readonly FONT_SIZE_MEDIUM = 20;
-    public static readonly FONT_SIZE_LARGE = 24;
-    public static readonly FONT_SIZE_XTRALARGE = 32;
+    public static readonly FONT_SIZE_MEDIUM = 24;
+    public static readonly FONT_SIZE_LARGE = 36;
+    public static readonly FONT_SIZE_XTRALARGE = 48;
 
     public readonly FONT_SIZE_SMALL = ConfigModelVariables.FONT_SIZE_SMALL;
     public readonly FONT_SIZE_MEDIUM = ConfigModelVariables.FONT_SIZE_MEDIUM;
@@ -20,12 +20,12 @@ export class ConfigModelVariables {
     public static readonly FONT_SERIF = 'serif';
     public static readonly FONT_ROBOTO = 'Roboto';
     public static readonly FONT_LUCIOLE = 'Luciole';
-    public static readonly FONT_TISERIAS = 'Tiserias';
+    public static readonly FONT_TIRESIAS = 'Tiresias';
 
     public readonly FONT_SERIF = ConfigModelVariables.FONT_SERIF;
     public readonly FONT_ROBOTO = ConfigModelVariables.FONT_ROBOTO;
     public readonly FONT_LUCIOLE = ConfigModelVariables.FONT_LUCIOLE;
-    public  readonly FONT_TISERIAS = ConfigModelVariables.FONT_TISERIAS;
+    public  readonly FONT_TIRESIAS = ConfigModelVariables.FONT_TIRESIAS;
 
     public static readonly COLOR_BUTTONS_BLUE = '#1e98d7';
     public static readonly COLOR_BUTTONS_GREEN = '#5B793D';
@@ -75,7 +75,7 @@ export class ConfigModelVariables {
     public static readonly configExcentrement: Config = {
         name: 'excentrement',
         size: ConfigModelVariables.FONT_SIZE_LARGE,
-        font: ConfigModelVariables.FONT_TISERIAS,
+        font: ConfigModelVariables.FONT_TIRESIAS,
         colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLUE,
         horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH,
         verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH
@@ -93,7 +93,7 @@ export class ConfigModelVariables {
     public static readonly configExcentrementContraste: Config = {
         name: 'excentrement + constraste',
         size: ConfigModelVariables.FONT_SIZE_XTRALARGE,
-        font: ConfigModelVariables.FONT_TISERIAS,
+        font: ConfigModelVariables.FONT_TIRESIAS,
         colorButtons: ConfigModelVariables.COLOR_BUTTONS_BLACK,
         horizontalEccentricity: ConfigModelVariables.HORIZONTAL_ECCENTRICITY_HIGH,
         verticalEccentricity: ConfigModelVariables.VERTICAL_ECCENTRICITY_HIGH

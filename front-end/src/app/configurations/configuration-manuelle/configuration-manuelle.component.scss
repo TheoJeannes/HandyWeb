@@ -12,17 +12,25 @@
   text-align: center;
 }
 
-.listes{
+.form {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.form{
+.offset{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  max-width: 80%;
+  border: red 3px solid;
+}
+
+.reset{
+  font-size: 48px;
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
 }
 
 

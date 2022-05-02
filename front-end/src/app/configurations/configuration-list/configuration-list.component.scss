@@ -1,8 +1,42 @@
 @import '../../../styles.scss';
 
-.config-list {
+.header {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30%;
+  align-items: flex-start;
+}
+
+#title {
+  text-align: center;
+}
+
+.listes{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: row;
 }
+
+.offset{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.buttons{
+  font-size: $font-size;
+}
+
+
+
+

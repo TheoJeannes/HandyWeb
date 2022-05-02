@@ -1,11 +1,11 @@
 <div class="page">
     <div class="header">
-        <a class="button-retour">Retour</a>
-        <h1 id="title">Page de configuration manuelle</h1>
+        <button class="button-retour" routerLink="/config">Retour</button>
+        <button class="buttons reset" (click)="resetDefaultConfig()">Réinitialiser vos paramètres</button>
     </div>
- <div class="listes">
-     <app-configurations-list [ngClass]="offset ? 'list':'form'"></app-configurations-list>
-     <h2>Ajouter une nouvelle configuration</h2>
-     <app-configuration-form class="list"></app-configuration-form>
+    <h1 id="title">Page de configuration manuelle</h1>
+ <div [ngClass]="offset ? 'list':'form'">
+     <button class="buttons" (click)="configList()">Choisir une configuration</button>
+     <button class="buttons" (click)="configForm()">Ajouter une configuration</button>
  </div>
 </div>

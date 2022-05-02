@@ -10,6 +10,7 @@ import {UserService} from "../../../services/user.service";
 export class ConfigurationListComponent implements OnInit {
 
   public configList: Config[];
+  public offset = false;
 
   constructor(private userService: UserService) {
     this.userService.configs$.subscribe((configList: Config[]) => {
@@ -18,6 +19,7 @@ export class ConfigurationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.offset=this.userService.isOffset()
   }
 
   deleteConfig(config: Config) {

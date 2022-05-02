@@ -112,7 +112,7 @@
       {
         "id": 1,
         "value": "Gyoza",
-        "isCorrect": true,
+        "isCorrect": false,
         "questionId": 0,
         "quizId": 12
       },
@@ -132,8 +132,8 @@
       },
       {
         "id": 4,
-        "value": "Fish & Ships",
-        "isCorrect": false,
+        "value": "Sushi",
+        "isCorrect": true,
         "questionId": 0,
         "quizId": 12
       }
@@ -213,42 +213,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Sushi_004.jpg/280px-Sushi_004.jpg"
   },
   {
-    "id": 28,
-    "label": "Quelle est l'ancienne capitale de la Tchécoslovaquie, dernier pays du bloc soviétique à être dissous en 1927 ?",
-    "quizId": 13,
-    "answers": [
-      {
-        "id": 1,
-        "value": "A definir",
-        "isCorrect": true,
-        "questionId": 28,
-        "quizId": 13
-      },
-      {
-        "id": 2,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 28,
-        "quizId": 13
-      },
-      {
-        "id": 3,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 28,
-        "quizId": 13
-      },
-      {
-        "id": 4,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 28,
-        "quizId": 13
-      }
-    ],
-    "image": "https://tse1.mm.bing.net/th?id=OIP.ILKQPn9Wl0NZeOxH19zOQAHaCp&pid=Api"
-  },
-  {
     "id": 29,
     "label": "Nouveau",
     "quizId": 13,
@@ -325,30 +289,100 @@
     "answers": [
       {
         "id": 1,
-        "value": "A definir",
+        "value": "UX",
         "isCorrect": false,
         "questionId": 0,
         "quizId": 14
       },
       {
         "id": 2,
-        "value": "A definir",
+        "value": "EST",
         "isCorrect": false,
         "questionId": 0,
         "quizId": 14
       },
       {
         "id": 3,
-        "value": "A definir",
+        "value": "TURBO",
         "isCorrect": false,
         "questionId": 0,
         "quizId": 14
       },
       {
         "id": 4,
-        "value": "A definir",
+        "value": "CON",
         "isCorrect": true,
         "questionId": 0,
+        "quizId": 14
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "label": "Nouveau",
+    "quizId": 12,
+    "answers": [
+      {
+        "id": 1,
+        "value": "A definir",
+        "isCorrect": true,
+        "questionId": 6,
+        "quizId": 12
+      },
+      {
+        "id": 2,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 6,
+        "quizId": 12
+      },
+      {
+        "id": 3,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 6,
+        "quizId": 12
+      },
+      {
+        "id": 4,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 6,
+        "quizId": 12
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "label": "Nouveau",
+    "quizId": 14,
+    "answers": [
+      {
+        "id": 1,
+        "value": "A definir",
+        "isCorrect": true,
+        "questionId": 1,
+        "quizId": 14
+      },
+      {
+        "id": 2,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 1,
+        "quizId": 14
+      },
+      {
+        "id": 3,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 1,
+        "quizId": 14
+      },
+      {
+        "id": 4,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 1,
         "quizId": 14
       }
     ]

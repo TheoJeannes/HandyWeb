@@ -18,6 +18,8 @@ import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.
 import {AdminGuardService as AdminGuard} from '../services/AdminGuardService';
 import {UserFormComponent} from './users/user-form/user-form.component';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
+import {ConfigurationListComponent} from './configurations/configuration-list/configuration-list.component';
+import {ConfigurationFormComponent} from './configurations/configuration-form/configuration-form.component';
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
@@ -27,6 +29,8 @@ const routes: Routes = [
     {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard]},
     {path: 'connexion', component: ConnexionComponent},
     {path: 'config', component: ConfigurationSelectionComponent, canActivate: [AuthGuard]},
+    {path: 'config/list', component: ConfigurationListComponent, canActivate: [AuthGuard]},
+    {path: 'config/form', component: ConfigurationFormComponent, canActivate: [AuthGuard]},
     {path: 'config/auto', component: ConfigurationAutomatiqueComponent, canActivate: [AuthGuard]},
     {path: 'config/manuel', component: ConfigurationManuelleComponent, canActivate: [AuthGuard]},
     {path: 'question-play', component: QuestionPlayComponent, canActivate: [AuthGuard]},

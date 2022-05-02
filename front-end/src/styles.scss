@@ -11,6 +11,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $voffset $hoffset;
+  max-width: 60%;
 }
 
 textarea{
@@ -58,7 +59,6 @@ input{
 }
 
 .buttons:hover{
-  //filter: brightness(.7);
   background-color: $button-hover-color;
 }
 
@@ -126,7 +126,7 @@ input:checked + .slider:before {
 
 .button-retour {
   margin: 1em;
-  background-color: red;
+  background-color: #f08475;
   color: white;
   border-radius: 20px;
   padding: 0.8em;
