@@ -121,6 +121,7 @@ export class UserService {
         } else if (userDatabase.password !== admin.password) {
             return ErrorsConnexion.WRONG_PASSWORD;
         }
+        console.log(this.userSelected)
     }
 
     private setVariablesLogIn(user: User): void {
@@ -142,7 +143,15 @@ export class UserService {
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs';
         this.http.get<Config[]>(urlWithId, this.httpOptions).subscribe((configList) => {
             this.configs$.next(configList);
+            this.setSavedConfig();
         });
+    }
+
+    private setSavedConfig() {
+        if (this.userSelected.idConfig !== undefined) {
+            this.configSelected$.next(this.configs$.getValue().find(config => config.id === this.userSelected.idConfig));
+            localStorage.setItem(UserService.CONFIG, JSON.stringify(this.configSelected$.getValue()));
+        }
     }
 
     addConfig(config: Config): void {
@@ -157,14 +166,10 @@ export class UserService {
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
             this.graphicalService.setStyle(config);
-            // const urlWithIdSendConfig = this.userUrl + '/' + this.userSelected.id + '/configs/configSelected/' + config.id;
-            // this.http.put<Config>(urlWithIdSendConfig, config, this.httpOptions).subscribe(() => {
-            //     this.retrieveUsers()
-            //     setTimeout(() => {
-            //         this.userSelected = this.users.find(user => this.userSelected.id === user.id);
-            //         this.userSelected$.next(this.userSelected);
-            //     }, 200)
-            // })
+            const urlWithIdSendConfig = this.userUrl + '/' + this.userSelected.id + '/configs/configSelected/' + config.id;
+            this.http.put<Config>(urlWithIdSendConfig, config, this.httpOptions).subscribe()
+            this.userSelected.idConfig = config.id;
+           this.userSelected$.next(this.userSelected);
         });
         localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
     }

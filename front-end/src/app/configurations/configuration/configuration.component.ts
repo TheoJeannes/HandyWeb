@@ -21,7 +21,10 @@ export class ConfigurationComponent implements OnInit {
   private configAlreadySelected: Config;
 
   constructor(private userService: UserService) {
-    this.userService.configSelected$.subscribe(config => this.configAlreadySelected = config);
+    this.userService.configSelected$.subscribe(config => {
+      console.log(config)
+      this.configAlreadySelected = config
+    });
   }
 
   ngOnInit(): void {
