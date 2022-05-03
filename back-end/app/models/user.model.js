@@ -5,5 +5,6 @@ module.exports = new BaseModel('User', {
   firstName: Joi.string().lowercase().alphanum().required(),
   lastName: Joi.string().lowercase().alphanum().required(),
   role: Joi.string().lowercase().valid('user', 'admin').required(),
-  password: Joi.string().optional()
+  password: Joi.string().optional(),
+  idConfigSelected: Joi.number()
 })
