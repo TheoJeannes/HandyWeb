@@ -31,13 +31,16 @@ export class ConnexionComponent implements OnInit {
 
     public logIn(): void {
         const user: User = this.loginForm.getRawValue() as User;
+        let ErrorMessage: string;
         if (this.adminButtonOn) {
-            this.userService.logInAdmin(user);
+            ErrorMessage = this.userService.logInAdmin(user);
             this.router.navigate(['/accueil']);
         } else {
-            this.userService.logInUser(user);
+            ErrorMessage = this.userService.logInUser(user);
             this.router.navigate(['/accueil']);
         }
+
+        this.printErrorMessage(ErrorMessage);
     }
 
     public adminButton(): void {
@@ -47,12 +50,14 @@ export class ConnexionComponent implements OnInit {
     public excentrementButton(): void {
         this.excentrementButtonOn = !this.excentrementButtonOn;
         console.log(this.excentrementButtonOn);
+        this.removeAdminField();
         this.setConfig();
     }
 
-    public constarsteButton(): void {
+    public contrasteButton(): void {
         this.contrasteButtonOn = !this.contrasteButtonOn;
         console.log(this.contrasteButtonOn);
+        this.removeAdminField();
         this.setConfig();
     }
 
@@ -69,5 +74,14 @@ export class ConnexionComponent implements OnInit {
         }
 
         this.userService.setSelectedBaseConfig(config);
+    }
+
+    public printErrorMessage(message: string) {
+        document.getElementById("error-message").innerText = message;
+    }
+
+    private removeAdminField(): void {
+        this.adminButtonOn = false;
+        this.loginForm.patchValue({password : ''})
     }
 }

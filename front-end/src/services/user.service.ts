@@ -8,6 +8,7 @@ import {Quiz} from '../models/quiz.model';
 import {ConfigModelVariables} from '../models/config/config.model.variables';
 import {GraphicalAdaptationService} from './graphical-adaptation.service';
 import {UserModelVariables} from '../models/user/user.model.variables';
+import {ErrorsConnexion} from '../models/errors/errors.connexion';
 
 @Injectable({
     providedIn: 'root'
@@ -91,7 +92,7 @@ export class UserService {
         this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
     }
 
-    logInUser(user: User): void {
+    logInUser(user: User): string {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === user.firstName.toLowerCase()
             && u.lastName.toLowerCase() === user.lastName.toLowerCase());
         if (userDatabase !== undefined && userDatabase.role === UserModelVariables.ROLE_USER) {
@@ -99,13 +100,13 @@ export class UserService {
         }
 
         if (userDatabase === undefined) {
-            alert('L\'utilisateur ' + user.firstName + ' ' + user.lastName + ' n\'existe pas');
+            return ErrorsConnexion.getMessageUserUnknown(user);
         } else if (userDatabase.role !== UserModelVariables.ROLE_USER) {
-            alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle administrateur');
+            return ErrorsConnexion.getMessageWrongRoleUser(user)
         }
     }
 
-    logInAdmin(admin: User): void {
+    logInAdmin(admin: User): string {
         const userDatabase = this.users.find(u => u.firstName.toLowerCase() === admin.firstName.toLowerCase()
             && u.lastName.toLowerCase() === admin.lastName.toLowerCase());
 
@@ -114,11 +115,11 @@ export class UserService {
         }
 
         if (userDatabase === undefined) {
-            alert('L\'utilisateur ' + admin.firstName + ' ' + admin.lastName + ' n\'existe pas');
+            return ErrorsConnexion.getMessageUserUnknown(admin);
         } else if (userDatabase.role !== UserModelVariables.ROLE_ADMIN) {
-            alert('L\'utilisateur ' + userDatabase.firstName + ' ' + userDatabase.lastName + ' possède un rôle utilisateur');
+            return ErrorsConnexion.getMessageWrongRoleAdmin(admin);
         } else if (userDatabase.password !== admin.password) {
-            alert('Le mot de passe est incorrect');
+            return ErrorsConnexion.WRONG_PASSWORD;
         }
     }
 
@@ -165,10 +166,10 @@ export class UserService {
             //     }, 200)
             // })
         });
+        localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
     }
 
     setSelectedBaseConfig(config: Config) {
-        localStorage.setItem(UserService.CONFIG, JSON.stringify(config));
         this.configSelected$.next(config);
         this.graphicalService.setStyle(config);
     }
