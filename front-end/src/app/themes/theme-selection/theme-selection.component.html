@@ -1,14 +1,13 @@
 <button class="button-retour" routerLink="/accueil">Retour</button>
-
-<h1> Sélectionnez un Thème !</h1>
-
-<button class="buttons add" *ngIf="isAdmin" (click)="addTheme()">Ajouter un thème</button>
-
-<div [ngClass]="offset ? 'list' : 'theme-selection'">
+<div class="page">
+    <h1> Sélectionnez un Thème !</h1>
+    <button class="buttons add" *ngIf="isAdmin" (click)="addTheme()">Ajouter un thème</button>
+    <div [ngClass]="offset ? 'list' : 'theme-selection'">
         <app-theme *ngFor="let theme of themeList"
                    [theme]="theme"
                    (themeSelected)="themeSelected($event)"
                    (editTheme)="editTheme($event)"
                    (deleteTheme)="deleteTheme($event)">
         </app-theme>
+    </div>
 </div>

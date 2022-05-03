@@ -318,41 +318,6 @@
     ]
   },
   {
-    "id": 6,
-    "label": "Nouveau",
-    "quizId": 12,
-    "answers": [
-      {
-        "id": 1,
-        "value": "A definir",
-        "isCorrect": true,
-        "questionId": 6,
-        "quizId": 12
-      },
-      {
-        "id": 2,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 6,
-        "quizId": 12
-      },
-      {
-        "id": 3,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 6,
-        "quizId": 12
-      },
-      {
-        "id": 4,
-        "value": "A definir",
-        "isCorrect": false,
-        "questionId": 6,
-        "quizId": 12
-      }
-    ]
-  },
-  {
     "id": 1,
     "label": "Nouveau",
     "quizId": 14,

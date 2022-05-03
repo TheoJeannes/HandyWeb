@@ -34,4 +34,16 @@ select{
   width: 50%;
 }
 
+.reset{
+  font-size: 48px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.stick{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 
