@@ -15,8 +15,10 @@ export class AccueilComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        this.admin = this.userService.isRoleAdmin()
-        this.offset = this.userService.isOffset()
-        console.log(this.admin)
+        this.userService.userSelected$.subscribe(() => {
+            this.admin = this.userService.isRoleAdmin()
+            this.offset = this.userService.isOffset()
+            console.log(this.admin)
+        });
     }
 }
