@@ -54,6 +54,17 @@ router.put('/:configId', (req, res) => {
     }
 })
 
+router.put('/configSelected/:configId', (req, res) => {
+    try {
+        let user = User.getById(req.params.userId)
+        user.idConfigSelected = req.params.configId
+        delete user.userId
+        res.status(200).json(User.update(req.params.userId, {...user}))
+    } catch (err) {
+        manageAllErrors(res, err)
+    }
+})
+
 router.delete('/:configId', (req, res) => {
     try {
         Config.delete(req.params.configId)

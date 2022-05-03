@@ -154,7 +154,17 @@ export class UserService {
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
             this.graphicalService.setStyle(config);
+            const urlWithIdSendConfig = this.userUrl + '/' + this.userSelected.id + '/configs/configSelected/' + config.id;
+            this.http.put<Config>(urlWithIdSendConfig, config, this.httpOptions).subscribe(() => {
+                this.retrieveUsers()
+                setTimeout(() => {
+                    this.userSelected = this.users.find(user => this.userSelected.id === user.id);
+                    this.userSelected$.next(this.userSelected);
+                }, 200)
+            })
         });
+
+        console.log(this.userSelected);
     }
 
     setSelectedBaseConfig(config: Config) {
