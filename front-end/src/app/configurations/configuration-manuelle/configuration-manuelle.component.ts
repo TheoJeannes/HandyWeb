@@ -17,8 +17,6 @@ export class ConfigurationManuelleComponent implements OnInit {
 
     ngOnInit(): void {
     this.offset=this.userService.isOffset()
-        this.userService.setSelectedUserConfig(
-            this.userService.configSelected$.getValue())
     }
 
     resetDefaultConfig(): void {

@@ -3,6 +3,7 @@
         {{config.name}}
     </h3>
 
-    <button class="buttons" (click)="selectConfig()">Sélectionner</button>
-    <button class="buttons" (click)="delete()">Supprimer</button>
+    <button *ngIf="!isAlreadySelected()" class="buttons" (click)="selectConfig()">Sélectionner</button>
+    <button *ngIf="!isAlreadySelected()" class="buttons" (click)="delete()">Supprimer</button>
+    <p *ngIf="isAlreadySelected()">Configuration sélectionnée</p>
 </div>

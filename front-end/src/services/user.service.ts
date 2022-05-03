@@ -131,7 +131,8 @@ export class UserService {
 
     disconnect() {
         this.userSelected = undefined;
-        this.userSelected$.next(undefined);
+        this.userSelected$.next(this.userSelected);
+        this.configSelected$.next(ConfigModelVariables.defaultConfig);
         localStorage.removeItem(UserService.USER);
         localStorage.removeItem(UserService.CONFIG);
     }
@@ -150,21 +151,20 @@ export class UserService {
     }
 
     setSelectedUserConfig(config: Config) {
+        console.log("here setSelectedConfig")
         const urlWithId = this.userUrl + '/' + this.userSelected.id + '/configs/' + config.id;
         this.http.get<Config>(urlWithId, this.httpOptions).subscribe(config => {
             this.setSelectedBaseConfig(config);
             this.graphicalService.setStyle(config);
-            const urlWithIdSendConfig = this.userUrl + '/' + this.userSelected.id + '/configs/configSelected/' + config.id;
-            this.http.put<Config>(urlWithIdSendConfig, config, this.httpOptions).subscribe(() => {
-                this.retrieveUsers()
-                setTimeout(() => {
-                    this.userSelected = this.users.find(user => this.userSelected.id === user.id);
-                    this.userSelected$.next(this.userSelected);
-                }, 200)
-            })
+            // const urlWithIdSendConfig = this.userUrl + '/' + this.userSelected.id + '/configs/configSelected/' + config.id;
+            // this.http.put<Config>(urlWithIdSendConfig, config, this.httpOptions).subscribe(() => {
+            //     this.retrieveUsers()
+            //     setTimeout(() => {
+            //         this.userSelected = this.users.find(user => this.userSelected.id === user.id);
+            //         this.userSelected$.next(this.userSelected);
+            //     }, 200)
+            // })
         });
-
-        console.log(this.userSelected);
     }
 
     setSelectedBaseConfig(config: Config) {

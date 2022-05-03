@@ -21,7 +21,7 @@
         </div>
 
         <div class="element">
-            <h3>Sélectionner le style d'ecriture</h3>
+            <h3>Sélectionner le style d'écriture</h3>
             <select [(ngModel)]="config.font" (ngModelChange)="updateStyle()">
                 <option style="font-family: 'Luciole',serif" value="{{configVariables.FONT_LUCIOLE}}">Style adapté pour
                     la presbytie
@@ -46,7 +46,7 @@
         </div>
 
         <div class="element">
-            <h3>Choisir l'ecart vertical entre les boutons</h3>
+            <h3>Choisir l'écart vertical entre les boutons</h3>
             <select [(ngModel)]="config.verticalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_LOW}}">Espacement faible</option>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="element">
-            <h3>Choisir l'ecart horizontal entre les boutons</h3>
+            <h3>Choisir l'écart horizontal entre les boutons</h3>
             <select [(ngModel)]="config.horizontalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_LOW}}">Espacement faible</option>

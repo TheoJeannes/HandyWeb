@@ -14,7 +14,6 @@ export class AuthGuardService implements CanActivate {
     canActivate(): boolean {
         let user: User;
         this.userService.userSelected$.subscribe((u) => user = u);
-        console.log(user)
         if (user == undefined) {
             this.router.navigate(['/connexion']);
             return true;
