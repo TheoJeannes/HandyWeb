@@ -1,4 +1,3 @@
-
 <div class="page">
     <div class="stick">
         <button class="buttons reset" routerLink="/config/manuel">Revenir à la configuration précédente</button>
@@ -45,7 +44,7 @@
             </select>
         </div>
 
-        <div class="element">
+        <!--<div class="element">
             <h3>Choisir l'écart vertical entre les boutons</h3>
             <select [(ngModel)]="config.verticalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
@@ -53,15 +52,13 @@
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
                 <option value="{{configVariables.VERTICAL_ECCENTRICITY_HIGH}}">Espacement élevé</option>
             </select>
-        </div>
+        </div>-->
 
         <div class="element">
-            <h3>Choisir l'écart horizontal entre les boutons</h3>
+            <h3>Activer l'excentrement des boutons (pour DMLA)</h3>
             <select [(ngModel)]="config.horizontalEccentricity" (ngModelChange)="updateStyle()">
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'espacement</option>
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_LOW}}">Espacement faible</option>
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_MEDIUM}}">Espacement moyen</option>
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Espacement élevé</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'excentrement</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Excentrement activé</option>
             </select>
         </div>
     </div>

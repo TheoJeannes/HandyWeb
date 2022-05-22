@@ -1,7 +1,7 @@
 <div class="header" *ngIf="user">
     <button class="navigation" routerLink="/accueil">Accueil</button>
     <button class="navigation" routerLink="/theme-selection">Thèmes</button>
-    <button class="navigation" routerLink="/config">Paramètres</button>
+    <button class="navigation" routerLink="/config/manuel">Configurations</button>
     <button class="navigation" *ngIf="(user)" routerLink="/connexion" (click)="disconnectUser()">Se Déconnecter</button>
     <button class="navigation" *ngIf="!(user)" routerLink="/connexion">Se Connecter</button>
     <label class="user" *ngIf="user">Utilisateur : {{user.firstName}} {{user.lastName}}</label>

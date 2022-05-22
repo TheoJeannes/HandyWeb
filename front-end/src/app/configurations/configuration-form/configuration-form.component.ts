@@ -43,13 +43,16 @@ export class ConfigurationFormComponent implements OnInit {
         this.graphicalService.setStyle(this.config);
     }
 
-
     addConfig(): void {
         this.userService.addConfig(this.config);
         this.userService.setSelectedUserConfig(this.config);
         this.config.name = Math.floor(Math.random() * 100000000) + '';
         this.config.id = Date.now();
+        this.config.verticalEccentricity = this.configVariables.VERTICAL_ECCENTRICITY_NONE;
+        /*if(this.excentrementButtonOn) this.config.horizontalEccentricity = this.configVariables.HORIZONTAL_ECCENTRICITY_HIGH;
+        else this.config.horizontalEccentricity = this.configVariables.HORIZONTAL_ECCENTRICITY_NONE;*/
         this.routerQuitService.setQuitConfigFormWithoutSaving(false);
         this.router.navigate(['/config/manuel']);
     }
+
 }
