@@ -30,16 +30,9 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DisplayQuizComponent} from "./quizzes/display-quiz/display-quiz.component";
 
 import {
-  ConfigurationAutomatiqueComponent
-} from './configurations/configuration-automatique/configuration-automatique.component';
-
-import {
   ConfigurationManuelleComponent
 } from './configurations/configuration-manuelle/configuration-manuelle.component';
 
-import {
-  ConfigurationSelectionComponent
-} from './configurations/configuration-selection/configuration-selection.component';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
 
 @NgModule({
@@ -58,9 +51,7 @@ import {EditUserComponent} from './users/edit-user/edit-user.component';
         AccueilComponent,
         ConnexionComponent,
         ThemeComponent,
-        ConfigurationAutomatiqueComponent,
         ConfigurationManuelleComponent,
-        ConfigurationSelectionComponent,
         EditThemeComponent,
         PlayQuizComponent,
         QuestionPlayComponent,

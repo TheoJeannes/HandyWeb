@@ -1,6 +1,0 @@
-<button class="button-retour" routerLink="/accueil">Retour</button>
-
-<div [ngClass]="offset ? 'list' : 'button-container'" >
-    <button *ngIf="!admin" class="buttons" routerLink="/config/auto">Lancer un test de calibrage</button>
-    <button class="buttons" routerLink="/config/manuel">Configuration Manuelle</button>
-</div>

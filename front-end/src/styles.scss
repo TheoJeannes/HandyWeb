@@ -21,6 +21,8 @@ textarea{
 
 h1{
   font-size: $h1-font-size;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 h2{
@@ -125,7 +127,8 @@ input:checked + .slider:before {
 }
 
 .button-retour {
-  margin: 1em;
+  margin-top: 20px;
+  margin-bottom: 10px;
   background-color: #f08475;
   color: white;
   border-radius: 20px;
@@ -163,4 +166,8 @@ body { margin: 0;}
 @font-face {
   font-family: "Tiresias";
   src: url("styles/tiresias.ttf") format("truetype");
+}
+
+.page{
+  margin-top: 0px;
 }
