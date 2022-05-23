@@ -77,7 +77,7 @@ export class UserService {
     addUser(user: User): void {
         this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(
             () => this.retrieveUsers(),
-            () => alert('L\'utilisateur est déjà défini'));
+            () => alert('Le résident est déjà défini'));
     }
 
     setUserToModify(userId: number): void {

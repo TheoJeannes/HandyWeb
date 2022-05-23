@@ -3,7 +3,8 @@
     "firstName": "theo",
     "lastName": "j",
     "role": "user",
-    "id": 0
+    "id": 0,
+    "idConfigSelected": "1653303365960"
   },
   {
     "firstName": "Gabrielle",
@@ -16,7 +17,8 @@
     "lastName": "Jeannes",
     "role": "admin",
     "id": 5,
-    "password": "abc"
+    "password": "abc",
+    "idConfigSelected": "1653316708685"
   },
   {
     "firstName": "etupazjr",
@@ -30,5 +32,24 @@
     "role": "admin",
     "id": 7,
     "password": "a"
+  },
+  {
+    "firstName": "Default8",
+    "lastName": "Default",
+    "role": "user",
+    "id": 8
+  },
+  {
+    "firstName": "Test",
+    "lastName": "To",
+    "role": "admin",
+    "id": 9,
+    "password": "Test"
+  },
+  {
+    "firstName": "Default10",
+    "lastName": "Default",
+    "role": "user",
+    "id": 10
   }
 ]

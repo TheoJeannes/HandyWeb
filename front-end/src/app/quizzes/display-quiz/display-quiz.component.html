@@ -1,3 +1,5 @@
+<button class="button-retour" (click)="retour()">Retour</button>
+<div class="display">
     <div class="center">
         <img src="{{quiz.image}}" alt="Image du Quiz" *ngIf="quiz.image">
         <p>
@@ -10,10 +12,6 @@
             <label for="name">Saisir le nom</label>
             <textarea id="name" [(ngModel)]="quiz.name" maxlength="20" rows="1"></textarea>
         </p>
-        <p>Durée Moyenne : {{quiz.questions.length * quiz.difficulte}}</p>
-        <p>Nombre de Questions : {{quiz.questions.length}}</p>
-    </div>
-    <div class="center">
         <p>
             Difficulté :
             <select [(ngModel)]='quiz.difficulte'>
@@ -28,5 +26,9 @@
                 <option *ngFor="let theme of themeList" [value]="theme.id">{{theme.name}}</option>
             </select>
         </p>
-        <button class="buttons" (click)="validate()">Valider</button>
     </div>
+    <div class="center">
+        <button class="buttons" (click)="validate()">Liste des Questions</button>
+    </div>
+</div>
+

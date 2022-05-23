@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Quiz} from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
 import {Question} from 'src/models/question.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -12,18 +13,18 @@ import {Question} from 'src/models/question.model';
 
 export class QuestionListComponent implements OnInit {
 
-    @Input()
-    quiz: Quiz;
+    public quiz: Quiz;
 
     @Output()
     index: EventEmitter<number> = new EventEmitter<number>();
 
-    constructor( private quizService: QuizService) {
-
+    constructor(private route : Router, private router : ActivatedRoute, private quizService: QuizService) {
+        this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
     }
 
     ngOnInit(): void {
-
+        const id = parseInt(this.router.snapshot.paramMap.get('id'));
+        this.quizService.setSelectedQuiz(id);
     }
 
 
@@ -76,7 +77,7 @@ export class QuestionListComponent implements OnInit {
     }
 
     indexQuestion(question): void {
-        this.index.emit(question.id);
+        this.route.navigate(['/edit-question/'+this.quiz.id+'/'+question.id]);
     }
 
     deleteQuestion(question: Question): void {
@@ -89,4 +90,7 @@ export class QuestionListComponent implements OnInit {
        return Math.max(...quiz.questions.map(x => x.id)) +1 ;
     }
 
+    retour() {
+        this.route.navigate(['/edit-quiz/'+this.quiz.id]);
+    }
 }

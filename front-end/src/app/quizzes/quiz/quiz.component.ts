@@ -29,12 +29,13 @@ export class QuizComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(this.quiz)
         this.admin = this.userService.isRoleAdmin();
-        switch (this.quiz.difficulte){
-            case 1:
+        switch (this.quiz.difficulte+""){
+            case "1":
                 this.difficulte = "Facile";
                 break;
-            case 3:
+            case "3":
                 this.difficulte = "Difficile";
                 break;
             default:

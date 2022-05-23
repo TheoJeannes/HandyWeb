@@ -4,7 +4,8 @@
         <img src="{{question.image}}" *ngIf="question.image">
     </div>
     <div [ngClass]="offset ? 'list' : 'answers'">
-        <div *ngFor="let answer of question.answers">
+        <div *ngFor="let answer of question.answers; let i = index"
+             [ngClass]="i%2?'end':'start'">
             <button class="buttons answer"
                     [class.select]="answer === selectedAnswer"
                     [class.correct]="correction && answer.isCorrect"

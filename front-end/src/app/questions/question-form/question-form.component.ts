@@ -1,5 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import {Question} from 'src/models/question.model';
+import {QuizService} from '../../../services/quiz.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Quiz} from '../../../models/quiz.model';
 
 @Component({
     selector: 'app-question-form',
@@ -8,13 +11,21 @@ import {Question} from 'src/models/question.model';
 })
 export class QuestionFormComponent implements OnInit {
 
-    @Input()
-    question: Question ;
+    public question : Question;
+    public quiz: Quiz;
 
-    @Output()
-    questionEdited : EventEmitter<Question> = new EventEmitter<Question>();
+    constructor(private router: Router,private route: ActivatedRoute, private quizService: QuizService) {
+        this.quizService.quizSelected$.subscribe((quiz) => {
+            this.quiz = quiz
+            const id = parseInt(this.route.snapshot.paramMap.get('id'));
+            this.question = this.quiz.questions.filter(e => e.id === id)[0];
+        });
+
+    }
 
     ngOnInit(): void {
+        const idQ = parseInt(this.route.snapshot.paramMap.get('idQ'));
+        this.quizService.setSelectedQuiz(idQ);
         if(this.question){
             let i = 0,
                 answer = {id: 0,isCorrect: false,value: " ",type: "Nouveau",questionId:this.question.id,quizId:this.question.quizId};
@@ -28,7 +39,8 @@ export class QuestionFormComponent implements OnInit {
     }
 
     editQuestion(): void {
-        this.questionEdited.emit(this.question);
+        this.quizService.editQuestion(this.question);
+        this.router.navigate(['/edit-quiz/'+this.quiz.id+'/list-questions']);
     }
 
     isCorrect(id) {
@@ -36,5 +48,9 @@ export class QuestionFormComponent implements OnInit {
             answer.isCorrect = (answer.id===id);
         }
         console.log(this.question)
+    }
+
+    retour() {
+        this.router.navigate(['/edit-quiz/'+this.quiz.id+'/list-questions']);
     }
 }

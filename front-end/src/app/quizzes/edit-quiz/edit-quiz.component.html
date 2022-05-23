@@ -1,9 +1,3 @@
-<button class="button-retour" (click)="retour()">Retour</button>
-
 <ng-container class="edit" *ngIf="quiz">
-    <div class="meta">
-        <app-display-quiz class="display" [quiz]="quiz"></app-display-quiz>
-        <app-question-list (index)="selectQuestion($event)" [quiz]="quiz"></app-question-list>
-    </div>
-        <app-question-form class="form" (questionEdited)="updateQuestions($event)" [question]="selectedQuestion"></app-question-form>
+        <app-display-quiz [quiz]="quiz"></app-display-quiz>
 </ng-container>

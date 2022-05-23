@@ -1,6 +1,8 @@
-
+<button class="button-retour" (click)="retour()">Retour</button>
+<div *ngIf="quiz">
     <div class="item" (click)="addQuestion()"> Ajouter une question</div>
     <div class="item" *ngFor="let question of quiz.questions">
         <button (click)="indexQuestion(question)">{{question.label}}</button>
         <button class="buttons" (click)="deleteQuestion(question)">Supprimer</button>
     </div>
+</div>

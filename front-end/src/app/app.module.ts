@@ -13,7 +13,6 @@ import {QuestionListComponent} from './questions/question-list/question-list.com
 import {QuestionFormComponent} from './questions/question-form/question-form.component';
 import {QuestionComponent} from './questions/question/question.component';
 import {UserComponent} from './users/user/user.component';
-import {UserFormComponent} from './users/user-form/user-form.component';
 import {UserListComponent} from './users/user-list/user-list.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ConnexionComponent} from './connexion/connexion.component';
@@ -46,7 +45,6 @@ import {EditUserComponent} from './users/edit-user/edit-user.component';
         QuestionFormComponent,
         QuestionComponent,
         UserComponent,
-        UserFormComponent,
         UserListComponent,
         AccueilComponent,
         ConnexionComponent,
@@ -61,7 +59,7 @@ import {EditUserComponent} from './users/edit-user/edit-user.component';
         ConfigurationFormComponent,
         DisplayQuizComponent,
         ThemeSelectionComponent,
-        EditUserComponent,
+        EditUserComponent
     ],
     imports: [
         BrowserModule,

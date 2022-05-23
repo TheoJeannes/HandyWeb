@@ -14,15 +14,17 @@ import {ThemeComponent} from "./themes/theme/theme.component";
 import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
 import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
 import {AdminGuardService as AdminGuard} from '../services/AdminGuardService';
-import {UserFormComponent} from './users/user-form/user-form.component';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
 import {ConfigurationListComponent} from './configurations/configuration-list/configuration-list.component';
 import {ConfigurationFormComponent} from './configurations/configuration-form/configuration-form.component';
+import {QuestionListComponent} from './questions/question-list/question-list.component';
+import {QuestionFormComponent} from './questions/question-form/question-form.component';
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
     {path: 'quiz-list/:theme', component: QuizListComponent, canActivate: [AuthGuard]},
     {path: 'edit-quiz/:id', component: EditQuizComponent, canActivate: [AuthGuard]},
+    {path: 'edit-quiz/:id/list-questions', component: QuestionListComponent, canActivate: [AuthGuard]},
     {path: 'play-quiz/:idQuiz', component: PlayQuizComponent, canActivate: [AuthGuard]},
     {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard]},
     {path: 'connexion', component: ConnexionComponent},
@@ -34,8 +36,8 @@ const routes: Routes = [
     {path: 'theme', component: ThemeComponent, canActivate: [AuthGuard]},
     {path: 'edit-theme/:id', component: EditThemeComponent, canActivate: [AuthGuard]},
     {path: 'theme-selection', component: ThemeSelectionComponent, canActivate: [AuthGuard]},
-    {path: 'user-form', component: UserFormComponent, canActivate: [AuthGuard]},
-    {path: 'edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard]}
+    {path: 'edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard]},
+    {path: 'edit-question/:idQ/:id', component: QuestionFormComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

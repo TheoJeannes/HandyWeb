@@ -3,7 +3,8 @@
     <h1> Sélectionnez un Thème !</h1>
     <button class="buttons add" *ngIf="isAdmin" (click)="addTheme()">Ajouter un thème</button>
     <div [ngClass]="offset ? 'list' : 'theme-selection'">
-        <app-theme *ngFor="let theme of themeList"
+        <app-theme *ngFor="let theme of themeList; let i = index"
+                   [ngClass]="i%2?'end':'start'"
                    [theme]="theme"
                    (themeSelected)="themeSelected($event)"
                    (editTheme)="editTheme($event)"

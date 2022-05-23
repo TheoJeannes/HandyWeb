@@ -5,15 +5,15 @@ export class ErrorsConnexion {
     public static readonly WRONG_PASSWORD = "Le mot de passe est incorrecte"
 
      public static getMessageUserUnknown(user: User): string {
-        return "L'utilisateur " + ErrorsConnexion.userToString(user) + " n'existe pas"
+        return "Le résident " + ErrorsConnexion.userToString(user) + " n'existe pas"
      }
 
     public static getMessageWrongRoleAdmin(user: User): string {
-        return "L'utilsateur " + ErrorsConnexion.userToString(user) + " n'est pas un administrateur"
+        return "Le résident " + ErrorsConnexion.userToString(user) + " n'est pas un administrateur"
      }
 
     public static getMessageWrongRoleUser(user: User): string {
-         return "L'utilsateur " + ErrorsConnexion.userToString(user) + " est un administrateur"
+         return "Le résident " + ErrorsConnexion.userToString(user) + " est un administrateur"
      }
 
      private static userToString(user: User): string {

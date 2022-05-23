@@ -4,5 +4,5 @@
     <button class="navigation" routerLink="/config/manuel">Configurations</button>
     <button class="navigation" *ngIf="(user)" routerLink="/connexion" (click)="disconnectUser()">Se Déconnecter</button>
     <button class="navigation" *ngIf="!(user)" routerLink="/connexion">Se Connecter</button>
-    <label class="user" *ngIf="user">Utilisateur : {{user.firstName}} {{user.lastName}}</label>
+    <label class="user" *ngIf="user">Résident : {{user.firstName}} {{user.lastName}}</label>
 </div>

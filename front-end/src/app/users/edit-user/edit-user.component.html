@@ -1,7 +1,7 @@
 <button class="button-retour" routerLink="/user-list">Retour</button>
 
 <div class="center" *ngIf="user">
-    <h2>Modifiez un utilisateur</h2>
+    <h2>Modifiez un résident</h2>
     <div class="theme">
             <p>
                 <label for="firstName">Prénom : </label>
@@ -16,7 +16,7 @@
                 <textarea id="password" placeholder="Mot de passe" rows="1" [(ngModel)]="user.password"></textarea>
             </p>
         <div class="example-radio-group">
-            <input type="radio" name="roleSelection" value="user" [(ngModel)]="user.role"> Utilisateur
+            <input type="radio" name="roleSelection" value="user" [(ngModel)]="user.role"> Résident
             <input type="radio" name="roleSelection" value="admin" [(ngModel)]="user.role"> Administrateur
         </div>
         <button type="submit" class="buttons" (click)="editUser()">Valider</button>

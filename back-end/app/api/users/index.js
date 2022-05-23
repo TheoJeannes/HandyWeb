@@ -25,12 +25,12 @@ router.get('/:userId', (req, res) => {
 router.post('/', (req, res) => {
     try {
         if (User.get().find((i) => i.firstName === req.body.firstName && i.lastName === req.body.lastName)) {
-            throw new ValidationError("Erreur l'utilisateur existe déjà", "Erreur l'utilisateur existe déjà");
+            throw new ValidationError("Erreur le résident existe déjà", "Erreur le résident existe déjà");
         }
 
         if (req.body.role === "admin" && !req.body.password) {
-            throw new ValidationError("Un utilisateur de rôle admin doit avoir un mot de mot passe",
-                "Un utilisateur de rôle admin doit avoir un mot de mot passe");
+            throw new ValidationError("Un résident administrateur doit avoir un mot de mot passe",
+                "Un résident administrateur doit avoir un mot de mot passe");
         }
         const user = User.create({...req.body})
         res.status(201).json(user);
