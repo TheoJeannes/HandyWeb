@@ -4,12 +4,12 @@
         <button class="buttons" (click)="addConfig()">Ajouter la configuration</button>
     </div>
     <div class="list">
-        <div class="element">
+        <div class="element start">
             <h3>Nommer la configuration</h3>
             <textarea maxlength="20" rows="1" autofocus required placeholder="Nom de votre Configuration"
                       [(ngModel)]="config.name"></textarea>
         </div>
-        <div class="element">
+        <div class="element end">
             <h3>Sélectionner le grossissement du texte</h3>
             <select [(ngModel)]="config.size" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.FONT_SIZE_SMALL}}">Petit</option>
@@ -19,7 +19,7 @@
             </select>
         </div>
 
-        <div class="element">
+        <div class="element start">
             <h3>Sélectionner le style d'écriture</h3>
             <select [(ngModel)]="config.font" (ngModelChange)="updateStyle()">
                 <option style="font-family: 'Luciole',serif" value="{{configVariables.FONT_LUCIOLE}}">Style adapté pour
@@ -34,7 +34,7 @@
             </select>
         </div>
 
-        <div class="element">
+        <div class="element end">
             <h3>Sélectionner la couleur des boutons</h3>
             <select [(ngModel)]="config.colorButtons" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.COLOR_BUTTONS_BLUE}}">Bleu</option>
@@ -54,7 +54,7 @@
             </select>
         </div>-->
 
-        <div class="element">
+        <div class="element start">
             <h3>Activer l'excentrement des boutons (pour DMLA)</h3>
             <select [(ngModel)]="config.horizontalEccentricity" (ngModelChange)="updateStyle()">
                 <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'excentrement</option>
