@@ -55,10 +55,10 @@
         </div>-->
 
         <div class="element start">
-            <h3>Activer l'excentrement des boutons (pour DMLA)</h3>
+            <h3>Activer l'excentrement des informations</h3>
             <select [(ngModel)]="config.horizontalEccentricity" (ngModelChange)="updateStyle()">
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Pas d'excentrement</option>
-                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Excentrement activé</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_NONE}}">Désactivé</option>
+                <option value="{{configVariables.HORIZONTAL_ECCENTRICITY_HIGH}}">Activé</option>
             </select>
         </div>
     </div>
