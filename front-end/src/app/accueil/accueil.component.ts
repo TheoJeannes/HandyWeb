@@ -31,7 +31,8 @@ export class AccueilComponent implements OnInit{
 
     randomQuiz() {
         this.quizS.retrieveQuizzes();
-        let id = this.quizList.map(e => e.id)[0];
+        let nb= this.quizList.length;
+        let id = this.quizList.map(e => e.id)[Math.floor(Math.random() * nb)];
         this.route.navigate(["/play-quiz/"+id])
     }
 }
