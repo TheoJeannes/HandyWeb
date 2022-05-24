@@ -2,7 +2,7 @@
     <h1 id="title">Bienvenue sur PolyQuizz</h1>
     <div [ngClass]="offset ? 'list' : 'buttons-container'">
         <button *ngIf="!admin" [ngClass]="offset ? 'buttons start' : 'buttons'" routerLink="/theme-selection">Sélectionner un thème</button>
-        <button *ngIf="admin" [ngClass]="offset ? 'buttons start' : 'buttons'" routerLink="/theme-selection">Gérer les thèmes et les quiz</button>
+        <button *ngIf="admin" [ngClass]="offset ? 'buttons start' : 'buttons'" routerLink="/theme-selection">Gestion les thèmes et les quiz</button>
         <button *ngIf="!admin" [ngClass]="offset ? 'buttons end' : 'buttons'" routerLink="/quiz-list/1">Quiz aléatoire</button>
 <!--        <button *ngIf="!admin" class="buttons" routerLink="/config/auto">Test de calibrage</button>-->
         <button *ngIf="admin" [ngClass]="offset ? 'buttons end' : 'buttons'" routerLink="/user-list">Gestion des Résidents</button>

@@ -314,5 +314,40 @@
         "quizId": 12
       }
     ]
+  },
+  {
+    "id": 0,
+    "label": "Nouveau",
+    "quizId": 15,
+    "answers": [
+      {
+        "id": 1,
+        "value": "A definir",
+        "isCorrect": true,
+        "questionId": 0,
+        "quizId": 15
+      },
+      {
+        "id": 2,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 0,
+        "quizId": 15
+      },
+      {
+        "id": 3,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 0,
+        "quizId": 15
+      },
+      {
+        "id": 4,
+        "value": "A definir",
+        "isCorrect": false,
+        "questionId": 0,
+        "quizId": 15
+      }
+    ]
   }
 ]

@@ -1,7 +1,8 @@
 <button class="button-retour" routerLink="/user-list">Retour</button>
 
 <div class="center" *ngIf="user">
-    <h2>Modifiez un résident</h2>
+    <h2 *ngIf="!edit">Modifiez un résident</h2>
+    <h2 *ngIf="edit">Ajouter un résident</h2>
     <div class="theme">
             <p>
                 <label for="firstName">Prénom : </label>

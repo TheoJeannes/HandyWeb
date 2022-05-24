@@ -37,8 +37,12 @@ export class DisplayQuizComponent implements OnInit {
 
   retour() {
     let theme = this.quiz.theme ?? "0";
-    this.quizService.editQuiz(this.quiz);
     this.router.navigate(['/quiz-list/' + theme]);
+  }
+
+  validQuiz(){
+    this.quizService.editQuiz(this.quiz);
+    this.retour();
   }
 
 }

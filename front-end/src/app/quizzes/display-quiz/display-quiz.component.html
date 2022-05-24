@@ -1,4 +1,8 @@
-<button class="button-retour" (click)="retour()">Retour</button>
+<div class="meta">
+    <button class="button-retour" (click)="retour()">Retour</button>
+    <button class="buttons end" (click)="validQuiz()">Valider</button>
+
+</div>
 <div class="display">
     <div class="center">
         <img src="{{quiz.image}}" alt="Image du Quiz" *ngIf="quiz.image">
