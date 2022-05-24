@@ -29,7 +29,7 @@ export class UserListComponent implements OnInit {
     }
 
     editUser(user: User): void {
-        this.router.navigate(['/edit-user/' + user.id]);
+        setTimeout(()=>{this.router.navigate(['/edit-user/' + user.id]);},5000)
     }
 
 

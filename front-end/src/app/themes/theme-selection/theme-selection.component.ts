@@ -31,6 +31,7 @@ export class ThemeSelectionComponent implements OnInit {
   }
 
   editTheme(theme: Theme): void {
+    setTimeout(()=>500)
     this.router.navigate(['/edit-theme/' + theme.id]);
   }
 

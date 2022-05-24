@@ -20,7 +20,6 @@ export class EditThemeComponent implements OnInit {
     ngOnInit(): void {
         const id = parseInt(this.route.snapshot.paramMap.get('id'));
         this.themeService.setSelectedTheme(id);
-        console.log(this.theme);
     }
 
     editTheme(): void {

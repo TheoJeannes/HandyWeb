@@ -34,7 +34,7 @@ export class QuizListComponent implements OnInit {
     }
 
     editQuiz(quiz: Quiz): void {
-        this.router.navigate(['/edit-quiz/' + quiz.id]);
+        this.router.navigate(['/edit-quiz/' +quiz.id]);
     }
 
     deleteQuiz(quiz: Quiz): void {
@@ -43,7 +43,7 @@ export class QuizListComponent implements OnInit {
 
     addQuiz(): void{
         let quiz = {
-            id: this.newId(),
+            id: this.quizService.newId(),
             name: "Default",
             questions : [],
             difficulte : 2,
@@ -51,12 +51,6 @@ export class QuizListComponent implements OnInit {
         }
         this.quizService.addQuiz(quiz);
         this.editQuiz(quiz);
-    }
-
-    newId():number{
-        if (this.quizList.length === 0)
-            return 0;
-        return Math.max(...this.quizList.map(x => x.id)) + 1 ;
     }
 
     retour() {

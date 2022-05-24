@@ -80,4 +80,8 @@ export class QuizService {
     quiz.questions = quiz.questions.filter( e => e.id !== question.id);
     this.editQuiz(quiz);
   }
+
+  newId(): number{
+    return Math.max(...this.quizzes$.value.map(x => x.id)) + 1
+  }
 }
