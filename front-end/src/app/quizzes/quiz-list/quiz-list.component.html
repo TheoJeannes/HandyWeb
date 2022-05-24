@@ -2,10 +2,10 @@
 <h1>Sélectionnez un Quiz !</h1>
 <button class="buttons add" *ngIf="this.userService.isRoleAdmin()" (click)="addQuiz()">Ajouter un Quiz</button>
 <div [ngClass]="offset ? 'list' : 'quiz-selection'" >
-        <inline *ngFor="let quiz of quizList; let i = index">
-        <app-quiz [quiz]="quiz" *ngIf="themeId==quiz.theme"
-                  [ngClass]="i%2?'end':'start'" (quizSelected)="quizSelected($event)"
-                  (deleteQuiz)="deleteQuiz($event)"
-                  (editQuiz)="editQuiz($event)"></app-quiz>
-                </inline>
+        <span *ngFor="let quiz of quizList; let i = index" [ngClass]="i%2?'end':'start'">
+                <app-quiz [quiz]="quiz" *ngIf="themeId==quiz.theme"
+                           (quizSelected)="quizSelected($event)"
+                          (deleteQuiz)="deleteQuiz($event)"
+                          (editQuiz)="editQuiz($event)"></app-quiz>
+        </span>
 </div>
