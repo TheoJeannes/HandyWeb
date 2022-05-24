@@ -6,5 +6,6 @@
         <button *ngIf="!admin" [ngClass]="offset ? 'buttons end' : 'buttons'" routerLink="/quiz-list/1">Quiz aléatoire</button>
 <!--        <button *ngIf="!admin" class="buttons" routerLink="/config/auto">Test de calibrage</button>-->
         <button *ngIf="admin" [ngClass]="offset ? 'buttons end' : 'buttons'" routerLink="/user-list">Gestion des Résidents</button>
+        <button *ngIf="!admin" [ngClass]="offset ? 'buttons start' : 'buttons'" routerLink="/config/manuel">Accéder aux Configurations</button>
     </div>
 </div>

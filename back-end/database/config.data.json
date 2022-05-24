@@ -74,5 +74,15 @@
     "horizontalEccentricity": "60%",
     "verticalEccentricity": "0%",
     "userId": 5
+  },
+  {
+    "id": 1653366323767,
+    "name": "63993332",
+    "size": 36,
+    "colorButtons": "#1e98d7",
+    "font": "Luciole",
+    "horizontalEccentricity": "0%",
+    "verticalEccentricity": "0%",
+    "userId": 0
   }
 ]
