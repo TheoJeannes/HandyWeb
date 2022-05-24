@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Quiz} from '../../../models/quiz.model';
 import {UserService} from '../../../services/user.service';
+import {GraphicalAdaptationService} from '../../../services/graphical-adaptation.service';
+import {Config} from '../../../models/config/config.model';
 
 @Component({
     selector: 'app-quiz',
@@ -25,11 +27,14 @@ export class QuizComponent implements OnInit {
 
     public admin = false;
 
-    constructor(public userService: UserService) {
+    private config: Config;
+    constructor(public userService: UserService, private graphicalService: GraphicalAdaptationService) {
+        this.userService.configSelected$.subscribe(config => this.config = config);
     }
 
     ngOnInit(): void {
         console.log(this.quiz)
+        this.graphicalService.changeImageSize("image-quiz", this.config);
         this.admin = this.userService.isRoleAdmin();
         switch (this.quiz.difficulte+""){
             case "1":

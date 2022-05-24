@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Theme} from "../../../models/theme.model";
 import {UserService} from '../../../services/user.service';
+import {Config} from '../../../models/config/config.model';
+import {GraphicalAdaptationService} from '../../../services/graphical-adaptation.service';
 
 @Component({
     selector: 'app-theme',
@@ -21,10 +23,13 @@ export class ThemeComponent implements OnInit {
     @Output()
     deleteTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
 
-    constructor(public userService: UserService) {
+    private config: Config;
+    constructor(public userService: UserService, public graphicalService: GraphicalAdaptationService) {
+        this.userService.configSelected$.subscribe(config => this.config = config);
     }
 
     ngOnInit(): void {
+        this.graphicalService.changeImageSize("image-theme", this.config);
     }
 
     selectTheme(): void {

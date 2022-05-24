@@ -48,4 +48,22 @@ export class GraphicalAdaptationService {
         }
         return rgb;
     }
+
+    changeImageSize(id: string, config: Config): void {
+        let images = document.getElementsByClassName(id);
+        let size;
+
+        if (config.size == ConfigModelVariables.FONT_SIZE_SMALL) {
+            size = 150;
+        } else if (config.size == ConfigModelVariables.FONT_SIZE_MEDIUM) {
+            size = 225;
+        } else if (config.size == ConfigModelVariables.FONT_SIZE_LARGE) {
+            size = 300;
+        } else {
+            // Jamais utilisé normalement
+            size = 150;
+        }
+
+        Array.prototype.forEach.call(images, image => image.style.height = size+'px');
+    }
 }
