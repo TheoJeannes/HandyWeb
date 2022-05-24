@@ -27,6 +27,7 @@ export class ConnexionComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        document.getElementById("password").hidden = true;
     }
 
     public logIn(): void {
@@ -45,6 +46,7 @@ export class ConnexionComponent implements OnInit {
 
     public adminButton(): void {
         this.adminButtonOn = !this.adminButtonOn;
+        document.getElementById("password").hidden = !this.adminButtonOn;
     }
 
     public excentrementButton(): void {
@@ -82,6 +84,6 @@ export class ConnexionComponent implements OnInit {
 
     private removeAdminField(): void {
         this.adminButtonOn = false;
-        this.loginForm.patchValue({password : ''})
+        this.loginForm.patchValue({password : ''});
     }
 }

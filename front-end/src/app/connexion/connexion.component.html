@@ -1,6 +1,6 @@
 <div class="switches">
     <div class="toggle-switch">
-        <label>Excentrer</label>
+        <label>Décaler le texte</label>
         <label class="switch">
             <input type="checkbox">
             <span class="slider round" (click)="excentrementButton()"></span>
@@ -17,12 +17,12 @@
 </div>
 
 <div [ngClass]="excentrementButtonOn?'offset':'div-connexion'">
-    <label>Formulaire de connexion :</label>
+    <label>Formulaire de connexion</label>
 
     <form class="form-connexion" [formGroup]="loginForm">
         <input type="text" placeholder="Prénom" [formControlName]="'firstName'">
         <input type="text" placeholder="Nom" [formControlName]="'lastName'">
-        <input [ngClass]="{'visible' : adminButtonOn, 'hidden' : !adminButtonOn}" type="password" placeholder="Mot de passe" [formControlName]="'password'">
+        <input id="password" type="password" placeholder="Mot de passe" [formControlName]="'password'">
         <a class="buttons" (click)="logIn()">Se connecter</a>
     </form>
 
