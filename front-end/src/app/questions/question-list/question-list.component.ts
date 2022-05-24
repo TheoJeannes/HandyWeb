@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Quiz} from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
 import {Question} from 'src/models/question.model';
@@ -14,9 +14,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class QuestionListComponent implements OnInit {
 
     public quiz: Quiz;
-
-    @Output()
-    index: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private route : Router, private router : ActivatedRoute, private quizService: QuizService) {
         this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -67,7 +64,6 @@ export class QuestionListComponent implements OnInit {
             questionId : id,
             quizId: this.quiz.id
         }
-        console.log(id);
         return {
             id: id,
             label: "Nouveau",

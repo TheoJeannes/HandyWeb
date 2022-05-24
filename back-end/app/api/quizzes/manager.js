@@ -1,5 +1,4 @@
 const { Quiz } = require('../../models')
-const { filterQuestionsFromQuizz } = require('./questions/manager')
 
 /**
  * Function buildQuizz.
@@ -8,8 +7,7 @@ const { filterQuestionsFromQuizz } = require('./questions/manager')
  */
 const buildQuizz = (quizId) => {
   const quiz = Quiz.getById(quizId)
-  const questions = filterQuestionsFromQuizz(quiz.id)
-  return { ...quiz, questions }
+  return { ...quiz }
 }
 
 /**

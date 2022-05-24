@@ -2,24 +2,11 @@
   {
     "id": 0,
     "name": "Cuisine",
-    "image": "https://tse1.mm.bing.net/th?id=OIP.FDFVn0ACCIH0-_MlKtl5zgHaFj&pid=Api"
+    "image": "https://tse1.mm.bing.net/th?id=OIP.z37yuUvDZqNiVibKvcE6IQHaEK&pid=Api"
   },
   {
     "id": 1,
     "name": "Espace",
     "image": "https://tse1.mm.bing.net/th?id=OIP.4UHe9gr8o8AJ09JZffawvAHaEK&pid=Api"
-  },
-  {
-    "id": 2,
-    "name": "Incas",
-    "image": "https://tse3.mm.bing.net/th?id=OIP.E4gCagrjAkQ5td5qjSc3rwHaE7&pid=Api"
-  },
-  {
-    "id": 3,
-    "name": "Plantes"
-  },
-  {
-    "id": 4,
-    "name": "Espace"
   }
 ]

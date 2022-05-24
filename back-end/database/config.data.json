@@ -94,5 +94,15 @@
     "horizontalEccentricity": "0%",
     "verticalEccentricity": "0%",
     "userId": 0
+  },
+  {
+    "id": 1653388519181,
+    "name": "Visible",
+    "size": "16",
+    "colorButtons": "#696969",
+    "font": "serif",
+    "horizontalEccentricity": "0%",
+    "verticalEccentricity": "0%",
+    "userId": 5
   }
 ]

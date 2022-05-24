@@ -39,7 +39,7 @@ export class QuestionFormComponent implements OnInit {
     }
 
     editQuestion(): void {
-        this.quizService.editQuestion(this.question);
+        this.quizService.editQuestion(this.quiz,this.question);
         this.router.navigate(['/edit-quiz/'+this.quiz.id+'/list-questions']);
     }
 

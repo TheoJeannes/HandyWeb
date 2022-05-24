@@ -18,6 +18,8 @@ export class QuizListComponent implements OnInit {
     constructor(public userService: UserService, private activateRoute: ActivatedRoute,private router: Router, public quizService: QuizService) {
         this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
             this.quizList = quizzes;
+            if(this.themeId)
+                this.quizList = this.quizList.filter(e => e.theme == this.themeId)
         });
         this.themeId= parseInt(this.activateRoute.snapshot.paramMap.get('theme'), 10);
     }
@@ -45,7 +47,7 @@ export class QuizListComponent implements OnInit {
             name: "Default",
             questions : [],
             difficulte : 2,
-            theme : 0
+            theme : parseInt(this.activateRoute.snapshot.paramMap.get('theme'), 10)
         }
         this.quizService.addQuiz(quiz);
         this.editQuiz(quiz);
