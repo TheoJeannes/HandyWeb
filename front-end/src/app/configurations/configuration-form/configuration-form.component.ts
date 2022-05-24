@@ -17,7 +17,7 @@ export class ConfigurationFormComponent implements OnInit {
 
     public config: Config = {
         id: Date.now(),
-        name: Math.floor(Math.random() * 100000000) + '',
+        name: '',
         size: ConfigModelVariables.defaultConfig.size,
         colorButtons: ConfigModelVariables.defaultConfig.colorButtons,
         font: ConfigModelVariables.defaultConfig.font,
