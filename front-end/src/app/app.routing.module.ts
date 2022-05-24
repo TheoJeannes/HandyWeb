@@ -13,7 +13,6 @@ import {UserService} from "../services/user.service";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {EditThemeComponent} from "./themes/edit-theme/edit-theme.component";
 import {ThemeSelectionComponent} from "./themes/theme-selection/theme-selection.component";
-import {AdminGuardService as AdminGuard} from '../services/AdminGuardService';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
 import {ConfigurationListComponent} from './configurations/configuration-list/configuration-list.component';
 import {ConfigurationFormComponent} from './configurations/configuration-form/configuration-form.component';
@@ -42,7 +41,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    providers : [AuthGuard, AdminGuard,UserService],
+    providers : [AuthGuard, UserService],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
