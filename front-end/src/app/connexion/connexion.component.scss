@@ -6,14 +6,12 @@
   align-items: center;
   padding-right: 10px;
   padding-left: 10px;
-  margin-top: 10px;
 }
 
 .switches {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .switch {
@@ -21,14 +19,14 @@
 }
 
 .div-connexion {
-  margin-top: 7%;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .offset {
-  margin-top: 7%;
+  margin-top: 10px;
   margin-right: $hoffset;
   display: flex;
   flex-direction: column;
@@ -46,15 +44,15 @@ input {
 
 .buttons {
   padding: .3em;
+  margin: 30px;
   border-radius: 30px;
 }
 
 .administration {
-  margin-top: 3%
 }
 
 #error-message {
-  margin-top: 50px;
+  margin-top: 30px;
   color: #2E03DC
 }
 
