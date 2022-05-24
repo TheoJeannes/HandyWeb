@@ -26,6 +26,7 @@ export class QuestionPlayComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         this.correction=false;
+        // this.selectedAnswer = null
     }
 
     ngOnInit(): void {
@@ -40,7 +41,6 @@ export class QuestionPlayComponent implements OnInit, OnChanges {
         if(this.selectedAnswer){
             this.correction = true;
             this.isCorrect.emit(this.selectedAnswer.isCorrect)
-            this.selectedAnswer = null
         }
     }
 }
