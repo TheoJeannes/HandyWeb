@@ -34,7 +34,8 @@ export class QuizListComponent implements OnInit {
     }
 
     editQuiz(quiz: Quiz): void {
-        this.router.navigate(['/edit-quiz/' +quiz.id]);
+        setTimeout(()=>{this.router.navigate(['/edit-quiz/' +quiz.id]);},100)
+
     }
 
     deleteQuiz(quiz: Quiz): void {
