@@ -2,7 +2,7 @@ import {User} from '../user/user.model';
 
 export class ErrorsConnexion {
 
-    public static readonly WRONG_PASSWORD = "Le mot de passe est incorrecte"
+    public static readonly WRONG_PASSWORD = "Le mot de passe est incorrect"
 
      public static getMessageUserUnknown(user: User): string {
         return "Le résident " + ErrorsConnexion.userToString(user) + " n'existe pas"
